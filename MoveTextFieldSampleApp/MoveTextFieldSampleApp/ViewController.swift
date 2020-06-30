@@ -17,20 +17,27 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //キーボードの出現を検知する処理
-        NotificationCenter.default.addObserver(self, selector: #selector(keyBoardWillShow), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
-        //キーボードの消失を検知する処理
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
-        //キーボードをタップの検知で下げる処理を定義
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
-        //処理として追加
-        self.view.addGestureRecognizer(tapGesture)
-        
         //tableViewの設定
         sampleTableView.delegate = self
         sampleTableView.dataSource = self
         
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        //キーボードの表示・非表示を監視を開始する処理
+        NotificationCenter.default.addObserver(self, selector: #selector(keyBoardWillShow), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        //キーボードをタップの検知で下げる処理を定義
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        //処理として追加
+        self.view.addGestureRecognizer(tapGesture)
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        //キーボードの表示・非表示を監視を終了する処理
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
     
     //tableViewの設定
      func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -38,6 +45,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
        }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = sampleTableView.dequeueReusableCell(withIdentifier: "cell") as! UITableViewCell
         
         cell.textLabel?.text = String(indexPath.row)
@@ -47,7 +55,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
     
     //textFieldを上方に移動させる処理
     @objc func keyBoardWillShow(notification: NSNotification) {
-    
+        //キーボードの高さ取得
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
             //キーボードの高さ分だけtextFieldの座標を移動させる
             if self.view.frame.origin.y == 0 {
