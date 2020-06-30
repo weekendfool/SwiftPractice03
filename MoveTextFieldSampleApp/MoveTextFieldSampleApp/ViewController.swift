@@ -8,9 +8,11 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITextFieldDelegate {
+class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource {
+   
 
     @IBOutlet weak var sampleTextField: UITextField!
+    @IBOutlet weak var sampleTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +26,23 @@ class ViewController: UIViewController, UITextFieldDelegate {
         //処理として追加
         self.view.addGestureRecognizer(tapGesture)
         
+        //tableViewの設定
+        sampleTableView.delegate = self
+        sampleTableView.dataSource = self
+        
+    }
+    
+    //tableViewの設定
+     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+           return 40
+       }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = sampleTableView.dequeueReusableCell(withIdentifier: "cell") as! UITableViewCell
+        
+        cell.textLabel?.text = String(indexPath.row)
+        
+        return cell
     }
     
     //textFieldを上方に移動させる処理
