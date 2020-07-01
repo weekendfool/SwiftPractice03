@@ -14,6 +14,8 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
     @IBOutlet weak var sampleTextField: UITextField!
     @IBOutlet weak var sampleTableView: UITableView!
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -58,12 +60,18 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
         //キーボードの高さ取得
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
             //キーボードの高さ分だけtextFieldの座標を移動させる
-            if self.view.frame.origin.y == 0 {
-                self.view.frame.origin.y -= keyboardSize.height
+            if self.sampleTextField.frame.origin.y == 0 {
+                self.sampleTextField.frame.origin.y -= keyboardSize.height
+                //tableViewの高さ取得
+                var tabelViewHeight = self.sampleTableView.frame.origin.x
+                print(tabelViewHeight)
+                //キーボードの高さ分だけtableViewの高さを減らす
+                tabelViewHeight -= keyboardSize.height
+                print(tabelViewHeight)
             } else {
                 //予測変換の高さ分だけtextFieldの座標を移動させる
-                let suggestionHeight = self.view.frame.origin.y + keyboardSize.height
-                self.view.frame.origin.y -= suggestionHeight
+                let suggestionHeight = self.sampleTextField.frame.origin.y + keyboardSize.height
+                self.sampleTextField.frame.origin.y -= suggestionHeight
                 
             }
         }
@@ -72,19 +80,19 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
     //textFieldを下方に移動させる処理
     @objc func keyboardWillHide() {
         //textFieldが元の位置にいない場合
-        if self.view.frame.origin.y != 0 {
-            self.view.frame.origin.y = 0
+        if self.sampleTextField.frame.origin.y != 0 {
+            self.sampleTextField.frame.origin.y = 0
         }
     }
     
     //実際にタップでキーボードを下げる処理
     @objc func dismissKeyboard() {
-        self.view.endEditing(true)
+        self.sampleTextField.endEditing(true)
     }
     
-    //リターンボタンでキーボードを`func`げる命令
+    //リターンボタンでキーボードをさげる命令
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        self.view.endEditing(true)
+        self.sampleTextField.endEditing(true)
         return false
     }
 
