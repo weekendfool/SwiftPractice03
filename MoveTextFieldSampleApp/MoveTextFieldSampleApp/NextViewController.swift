@@ -16,11 +16,9 @@ class NextViewController: UIViewController, UITextFieldDelegate, UITableViewDele
     @IBOutlet weak var tableViewHeight: NSLayoutConstraint!
     
     var beforeHeight:CGFloat?
-    var afterHeight:CGFloat?
+    var kyeBoardHeight:CGFloat?
     
     var height:CGFloat?
-    //選択したviewの保持
-    var acttiveTextView:UIView?
         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -78,12 +76,13 @@ class NextViewController: UIViewController, UITextFieldDelegate, UITableViewDele
             //キーボードの高さ取得
             if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
                 
+                kyeBoardHeight = keyboardSize.height
                 //キーボード分移動
                 tableViewHeight.constant = height! - keyboardSize.height
                 
 //                //キーボードの高さ分だけtextFieldの座標を移動させる
 //                afterHeight = self.sampleText.frame.origin.y
-                print(beforeHeight!)
+                print(self.sampleText.frame.origin.y)
                 print(keyboardSize.height)
                 //初期値と同じ高さの場合
              
@@ -97,9 +96,12 @@ class NextViewController: UIViewController, UITextFieldDelegate, UITableViewDele
 //                print("$$$$$$$$$$$$$$$")
                 
                 //予測変換の高さ分だけtextFieldの座標を移動させる
-                let suggestionHeight =  self.sampleText.frame.origin.y + keyboardSize.height
-                self.sampleText.frame.origin.y -= suggestionHeight
+                let suggestionHeight =  self.sampleText.frame.origin.y - keyboardSize.height
+                self.sampleText.frame.origin.y = suggestionHeight
+                print(self.sampleText.frame.origin.y)
                 print("ko")
+                
+                sampleText.transform = CGAffineTransform(translationX: 0, y: -kyeBoardHeight!)
                 
             }
         }
@@ -108,7 +110,7 @@ class NextViewController: UIViewController, UITextFieldDelegate, UITableViewDele
         @objc func keyboardWillHide() {
             //textFieldが元の位置にいない場合
             
-            self.sampleText.frame.origin.y = beforeHeight!
+            sampleText.transform = CGAffineTransform.identity
             
             tableViewHeight.constant = height!
         }
