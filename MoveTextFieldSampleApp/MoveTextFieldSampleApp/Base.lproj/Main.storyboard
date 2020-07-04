@@ -163,6 +163,9 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qL0-1W-or5">
                                 <rect key="frame" x="0.0" y="44" width="414" height="600"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="600" id="WEZ-yp-czB"/>
+                                </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" textLabel="tg7-lt-Cil" rowHeight="117" style="IBUITableViewCellStyleDefault" id="eg7-a6-aQP">
                                         <rect key="frame" x="0.0" y="28" width="414" height="117"/>
@@ -200,7 +203,6 @@
                         <constraints>
                             <constraint firstItem="qL0-1W-or5" firstAttribute="leading" secondItem="3vo-4G-axp" secondAttribute="leading" id="7GM-wM-4Mk"/>
                             <constraint firstItem="3vo-4G-axp" firstAttribute="bottom" secondItem="SM7-ox-bdm" secondAttribute="bottom" id="8C8-Mm-Ekh"/>
-                            <constraint firstItem="SM7-ox-bdm" firstAttribute="top" secondItem="qL0-1W-or5" secondAttribute="bottom" constant="188" id="EGS-Ku-HkZ"/>
                             <constraint firstItem="qL0-1W-or5" firstAttribute="top" secondItem="3vo-4G-axp" secondAttribute="top" id="KYt-5e-8vh"/>
                             <constraint firstItem="qL0-1W-or5" firstAttribute="trailing" secondItem="3vo-4G-axp" secondAttribute="trailing" id="Rzk-DE-tlr"/>
                             <constraint firstItem="3vo-4G-axp" firstAttribute="trailing" secondItem="SM7-ox-bdm" secondAttribute="trailing" id="gW1-zA-bNg"/>
@@ -210,6 +212,7 @@
                     </view>
                     <connections>
                         <outlet property="sampleTableView" destination="qL0-1W-or5" id="xHM-Vb-asH"/>
+                        <outlet property="smapleHeight" destination="WEZ-yp-czB" id="2TN-1k-jF6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xRX-9G-MIq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

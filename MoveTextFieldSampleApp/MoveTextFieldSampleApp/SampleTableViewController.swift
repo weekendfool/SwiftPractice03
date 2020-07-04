@@ -11,6 +11,7 @@ import UIKit
 class SampleTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var sampleTableView: UITableView!
+    @IBOutlet weak var smapleHeight: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +20,12 @@ class SampleTableViewController: UIViewController, UITableViewDelegate, UITableV
         sampleTableView.dataSource = self
        
     }
+    
+//    override func viewWillLayoutSubviews() {
+//        super.viewWillLayoutSubviews()
+//        
+//        smapleHeight.constant = CGFloat(500)
+//    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 20
@@ -40,20 +47,26 @@ class SampleTableViewController: UIViewController, UITableViewDelegate, UITableV
         
         var height2 = sampleTableView.contentSize.height
         print(height2)
-        
-        var height3 = sampleTableView.constraints
-        print(height3)
-        
+
+//        var height3 = sampleTableView.constraints
+//        print(height3)
+//
         height -= 100
         
-        sampleTableView.frame.size.height = height
+        
+//        self.sampleTableView.frame.size.height = CGFloat(500)
+        smapleHeight.constant = CGFloat(height)
+
         
         print(height)
         
-//        sampleTableView.reloadData()
+        
+        self.sampleTableView.reloadData()
         
         view.layoutIfNeeded()
         view.updateConstraints()
+        
+        
         
     }
     
