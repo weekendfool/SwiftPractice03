@@ -8,25 +8,32 @@
 
 import UIKit
 
-class NextViewController: UIViewController, UITextFieldDelegate {
+class NextViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var sampleText: UITextField!
     @IBOutlet weak var sampleButton: NSLayoutConstraint!
     @IBOutlet weak var sampleTable: UITableView!
+    @IBOutlet weak var tableViewHeight: NSLayoutConstraint!
     
     var beforeHeight:CGFloat?
     var afterHeight:CGFloat?
+    
+    var height:CGFloat?
+    //選択したviewの保持
+    var acttiveTextView:UIView?
         
     override func viewDidLoad() {
         super.viewDidLoad()
             
-//            //tableViewの設定
-//            sampleTableView.delegate = self
-//            sampleTableView.dataSource = self
-//
+            //tableViewの設定
+            sampleTable.delegate = self
+            sampleTable.dataSource = self
+
             //キーボードの高さ分だけtextFieldの座標を移動させる
             beforeHeight = self.sampleText.frame.origin.y
             print("beforeHeight:\(beforeHeight!)")
+        
+            height = tableViewHeight.constant
             
         }
         
@@ -46,53 +53,64 @@ class NextViewController: UIViewController, UITextFieldDelegate {
         }
         
         
-//        //tableViewの設定
-//         func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//               return 40
-//           }
-//
-//        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//
-//            let cell = sampleTableView.dequeueReusableCell(withIdentifier: "cell") as! UITableViewCell
-//
+        //tableViewの設定
+         func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+               return 40
+           }
+
+        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+
+            let cell = sampleTable.dequeueReusableCell(withIdentifier: "cell") as! UITableViewCell
+
 //            if indexPath.row % 2 == 0 {
 //                cell.backgroundColor = .brown
 //            } else {
 //                cell.backgroundColor = .green
 //            }
 //
-//            cell.textLabel?.text = String(indexPath.row)
-//
-//            return cell
-//        }
-//
+            cell.textLabel?.text = String(indexPath.row)
+
+            return cell
+        }
+
         //textFieldを上方に移動させる処理
         @objc func keyBoardWillShow(notification: NSNotification) {
             //キーボードの高さ取得
             if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
-                //キーボードの高さ分だけtextFieldの座標を移動させる
-                afterHeight = self.sampleText.frame.origin.y
+                
+                //キーボード分移動
+                tableViewHeight.constant = height! - keyboardSize.height
+                
+//                //キーボードの高さ分だけtextFieldの座標を移動させる
+//                afterHeight = self.sampleText.frame.origin.y
                 print(beforeHeight!)
-                print(afterHeight!)
+                print(keyboardSize.height)
                 //初期値と同じ高さの場合
-                if afterHeight! != beforeHeight! {
-                    afterHeight! -= keyboardSize.height
-                    print(afterHeight!)
-                } else {
-                    //予測変換の高さ分だけtextFieldの座標を移動させる
-                    let suggestionHeight = afterHeight! + keyboardSize.height
-                    self.sampleText.frame.origin.y -= suggestionHeight
-                    
-                }
+             
+//                self.sampleText.frame.origin.y -= keyboardSize.height
+//
+//                print(self.sampleText.frame.origin.y)
+//
+////                self.sampleText.frame.origin.y = afterHeight!
+////                print(afterHeight!)
+//                //tableViewの初期値取得
+//                print("$$$$$$$$$$$$$$$")
+                
+                //予測変換の高さ分だけtextFieldの座標を移動させる
+                let suggestionHeight =  self.sampleText.frame.origin.y + keyboardSize.height
+                self.sampleText.frame.origin.y -= suggestionHeight
+                print("ko")
+                
             }
         }
         
         //textFieldを下方に移動させる処理
         @objc func keyboardWillHide() {
             //textFieldが元の位置にいない場合
-            if afterHeight! != beforeHeight! {
-                afterHeight! = beforeHeight!
-            }
+            
+            self.sampleText.frame.origin.y = beforeHeight!
+            
+            tableViewHeight.constant = height!
         }
         
         //実際にタップでキーボードを下げる処理
