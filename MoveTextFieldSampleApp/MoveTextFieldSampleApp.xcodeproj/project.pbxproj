@@ -15,6 +15,8 @@
 		8CB1FDDA24AB2DDB00E7259D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8CB1FDD824AB2DDB00E7259D /* LaunchScreen.storyboard */; };
 		8CB1FDE424AC892F00E7259D /* NextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB1FDE324AC892F00E7259D /* NextViewController.swift */; };
 		8CB1FDE624ACA72700E7259D /* SampleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB1FDE524ACA72700E7259D /* SampleTableViewController.swift */; };
+		8CB1FDEE24B22A2100E7259D /* Sample1TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB1FDED24B22A2100E7259D /* Sample1TableViewCell.swift */; };
+		8CB1FDF024B22A3000E7259D /* Sample2TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB1FDEF24B22A3000E7259D /* Sample2TableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		8CB1FDDB24AB2DDB00E7259D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8CB1FDE324AC892F00E7259D /* NextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextViewController.swift; sourceTree = "<group>"; };
 		8CB1FDE524ACA72700E7259D /* SampleTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleTableViewController.swift; sourceTree = "<group>"; };
+		8CB1FDED24B22A2100E7259D /* Sample1TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sample1TableViewCell.swift; sourceTree = "<group>"; };
+		8CB1FDEF24B22A3000E7259D /* Sample2TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sample2TableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +73,8 @@
 				8CB1FDD624AB2DDB00E7259D /* Assets.xcassets */,
 				8CB1FDD824AB2DDB00E7259D /* LaunchScreen.storyboard */,
 				8CB1FDDB24AB2DDB00E7259D /* Info.plist */,
+				8CB1FDED24B22A2100E7259D /* Sample1TableViewCell.swift */,
+				8CB1FDEF24B22A3000E7259D /* Sample2TableViewCell.swift */,
 			);
 			path = MoveTextFieldSampleApp;
 			sourceTree = "<group>";
@@ -147,6 +153,8 @@
 				8CB1FDE624ACA72700E7259D /* SampleTableViewController.swift in Sources */,
 				8CB1FDD224AB2DDA00E7259D /* ViewController.swift in Sources */,
 				8CB1FDE424AC892F00E7259D /* NextViewController.swift in Sources */,
+				8CB1FDF024B22A3000E7259D /* Sample2TableViewCell.swift in Sources */,
+				8CB1FDEE24B22A2100E7259D /* Sample1TableViewCell.swift in Sources */,
 				8CB1FDCE24AB2DDA00E7259D /* AppDelegate.swift in Sources */,
 				8CB1FDD024AB2DDA00E7259D /* SceneDelegate.swift in Sources */,
 			);

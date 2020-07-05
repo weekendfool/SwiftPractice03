@@ -14,6 +14,7 @@ class NextViewController: UIViewController, UITextFieldDelegate, UITableViewDele
     @IBOutlet weak var sampleButton: NSLayoutConstraint!
     @IBOutlet weak var sampleTable: UITableView!
     @IBOutlet weak var tableViewHeight: NSLayoutConstraint!
+    @IBOutlet weak var sampleStackview: UIStackView!
     
     var beforeHeight:CGFloat?
     var kyeBoardHeight:CGFloat?
@@ -27,8 +28,8 @@ class NextViewController: UIViewController, UITextFieldDelegate, UITableViewDele
             sampleTable.delegate = self
             sampleTable.dataSource = self
 
-            //キーボードの高さ分だけtextFieldの座標を移動させる
-            beforeHeight = self.sampleText.frame.origin.y
+            //元の座標を記録
+            beforeHeight = self.sampleStackview.frame.origin.y
             print("beforeHeight:\(beforeHeight!)")
         
             height = tableViewHeight.constant
@@ -58,17 +59,17 @@ class NextViewController: UIViewController, UITextFieldDelegate, UITableViewDele
 
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-            let cell = sampleTable.dequeueReusableCell(withIdentifier: "cell") as! UITableViewCell
+            let cell:UITableViewCell?
 
-//            if indexPath.row % 2 == 0 {
-//                cell.backgroundColor = .brown
-//            } else {
-//                cell.backgroundColor = .green
-//            }
-//
-            cell.textLabel?.text = String(indexPath.row)
+            if indexPath.row % 2 == 0 {
+                 cell = sampleTable.dequeueReusableCell(withIdentifier: "cell1") as! UITableViewCell
+            } else {
+                 cell = sampleTable.dequeueReusableCell(withIdentifier: "cell2") as! UITableViewCell
+            }
 
-            return cell
+//            cell.textLabel?.text = String(indexPath.row)
+
+            return cell!
         }
 
         //textFieldを上方に移動させる処理
@@ -96,12 +97,12 @@ class NextViewController: UIViewController, UITextFieldDelegate, UITableViewDele
 //                print("$$$$$$$$$$$$$$$")
                 
                 //予測変換の高さ分だけtextFieldの座標を移動させる
-                let suggestionHeight =  self.sampleText.frame.origin.y - keyboardSize.height
-                self.sampleText.frame.origin.y = suggestionHeight
+//                let suggestionHeight =  self.sampleText.frame.origin.y - keyboardSize.height
+//                self.sampleStackview.frame.origin.y = suggestionHeight
                 print(self.sampleText.frame.origin.y)
                 print("ko")
                 
-                sampleText.transform = CGAffineTransform(translationX: 0, y: -kyeBoardHeight!)
+                sampleStackview.transform = CGAffineTransform(translationX: 0, y: -kyeBoardHeight!)
                 
             }
         }
@@ -110,7 +111,7 @@ class NextViewController: UIViewController, UITextFieldDelegate, UITableViewDele
         @objc func keyboardWillHide() {
             //textFieldが元の位置にいない場合
             
-            sampleText.transform = CGAffineTransform.identity
+            sampleStackview.transform = CGAffineTransform.identity
             
             tableViewHeight.constant = height!
         }
