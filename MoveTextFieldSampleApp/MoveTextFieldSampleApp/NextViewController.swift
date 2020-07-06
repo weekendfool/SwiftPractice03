@@ -16,10 +16,13 @@ class NextViewController: UIViewController, UITextFieldDelegate, UITableViewDele
     @IBOutlet weak var tableViewHeight: NSLayoutConstraint!
     @IBOutlet weak var sampleStackview: UIStackView!
     
+    var countNumber:Int?
     var beforeHeight:CGFloat?
     var kyeBoardHeight:CGFloat?
     
     var height:CGFloat?
+    
+    var customCell = Sample2TableViewCell()
         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +36,8 @@ class NextViewController: UIViewController, UITextFieldDelegate, UITableViewDele
             print("beforeHeight:\(beforeHeight!)")
         
             height = tableViewHeight.constant
+        
+        countNumber = 0
             
         }
         
@@ -54,7 +59,7 @@ class NextViewController: UIViewController, UITextFieldDelegate, UITableViewDele
         
         //tableViewの設定
          func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-               return 40
+            return countNumber!
            }
 
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -65,6 +70,7 @@ class NextViewController: UIViewController, UITextFieldDelegate, UITableViewDele
                  cell = sampleTable.dequeueReusableCell(withIdentifier: "cell1") as! UITableViewCell
             } else {
                  cell = sampleTable.dequeueReusableCell(withIdentifier: "cell2") as! UITableViewCell
+                customCell.indexPath = indexPath
             }
 
 //            cell.textLabel?.text = String(indexPath.row)
@@ -126,6 +132,12 @@ class NextViewController: UIViewController, UITextFieldDelegate, UITableViewDele
             self.sampleText.endEditing(true)
             return false
         }
-
+    
+    @IBAction func pressButton(_ sender: Any) {
+        countNumber! += 1
+        sampleTable.reloadData()
+        
+    }
+    
     }
 

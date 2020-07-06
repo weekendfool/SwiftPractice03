@@ -12,6 +12,8 @@ class Sample2TableViewCell: UITableViewCell {
 
     @IBOutlet weak var sample2Label: UILabel!
     
+    var indexPath:IndexPath?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -21,7 +23,9 @@ class Sample2TableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
-        sample2Label.text = "nanannanananna"
+        if let sample2Label = sample2Label, let indexPath = indexPath {
+            sample2Label.text = "\(indexPath.row)"
+        }
     }
 
 }
