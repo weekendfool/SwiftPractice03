@@ -70,13 +70,19 @@ class NextViewController: UIViewController, UITextFieldDelegate, UITableViewDele
                  cell = sampleTable.dequeueReusableCell(withIdentifier: "cell1") as! UITableViewCell
             } else {
                  cell = sampleTable.dequeueReusableCell(withIdentifier: "cell2") as! UITableViewCell
-                customCell.indexPath = indexPath
+                indexPath1 = indexPath
+                
+                print("##################\(indexPath1)")
             }
 
 //            cell.textLabel?.text = String(indexPath.row)
 
             return cell!
         }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
+    }
 
         //textFieldを上方に移動させる処理
         @objc func keyBoardWillShow(notification: NSNotification) {

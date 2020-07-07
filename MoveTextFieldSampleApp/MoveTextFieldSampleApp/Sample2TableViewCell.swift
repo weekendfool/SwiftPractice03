@@ -8,24 +8,36 @@
 
 import UIKit
 
+var indexPath1:IndexPath?
+
 class Sample2TableViewCell: UITableViewCell {
 
     @IBOutlet weak var sample2Label: UILabel!
+    @IBOutlet weak var sampleImage: UIImageView!
     
-    var indexPath:IndexPath?
+    
+    
+    var imageName = UIImage(named: "igaiga")
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+         print(indexPath1)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
-        if let sample2Label = sample2Label, let indexPath = indexPath {
-            sample2Label.text = "\(indexPath.row)"
-        }
+        
+        print(indexPath1)
+        
+        sample2Label.text = "\(indexPath1!.row)"
+            
+        
+            
+        sampleImage.image = imageName
+        
     }
 
 }

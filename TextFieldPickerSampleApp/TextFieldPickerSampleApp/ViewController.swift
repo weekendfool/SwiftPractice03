@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class ViewController: UIViewController {
 
     @IBOutlet weak var sampleLabel: UILabel!
     @IBOutlet weak var sampleTextField: UITextField!
@@ -23,23 +23,23 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         createPickerView()
     }
 
-    //pickerViewの設定
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return 12
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        data[row]
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        sampleTextField.text = data[row]
-        sampleLabel.text = data[row]
-    }
+//    //pickerViewの設定
+//    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+//        return 1
+//    }
+//    
+//    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+//        return 12
+//    }
+//    
+//    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+//        data[row]
+//    }
+//    
+//    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+//        sampleTextField.text = data[row]
+//        sampleLabel.text = data[row]
+//    }
     
     func createPickerView() {
         //delegateの設定
