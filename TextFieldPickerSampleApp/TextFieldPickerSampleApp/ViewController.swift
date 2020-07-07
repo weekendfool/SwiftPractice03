@@ -14,7 +14,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     @IBOutlet weak var sampleTextField: UITextField!
     
     //pickerViewのインスタンス格納
-    var pickerView = UIPickerView()
+    var pickerView = UIDatePicker()
     var data:[String] = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"]
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,7 +43,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     func createPickerView() {
         //delegateの設定
-        pickerView.delegate = self
+//        pickerView.delegate = self
         //テキストフィールドのインプットにpickerViewを設定
         sampleTextField.inputView = pickerView
         //ツールバー作成
