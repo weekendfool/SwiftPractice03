@@ -217,7 +217,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="XKB-uj-Coo"/>
                     <connections>
-                        <outlet property="sampleButton" destination="GNC-Ze-7t8" id="Oqc-aE-zdZ"/>
+                        <outlet property="sampleButton" destination="GNC-Ze-7t8" id="QWb-w9-SIy"/>
                         <outlet property="sampleStackview" destination="c3f-Qb-Bve" id="gy2-VL-Mht"/>
                         <outlet property="sampleTable" destination="AnL-2c-dvn" id="n5X-t3-MeO"/>
                         <outlet property="sampleText" destination="EcD-ZQ-yAR" id="EYC-X2-gFW"/>

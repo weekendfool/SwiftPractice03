@@ -22,7 +22,7 @@ class Sample2TableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-         print(indexPath1)
+         print("!!!!!!!!!!!!!!!!!!!")
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -30,7 +30,7 @@ class Sample2TableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
         
-        print(indexPath1)
+        print("&&&&&&&&&&&&&&&&&&&&&&&&&")
         
         sample2Label.text = "\(indexPath1!.row)"
             

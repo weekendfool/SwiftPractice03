@@ -11,10 +11,10 @@ import UIKit
 class NextViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var sampleText: UITextField!
-    @IBOutlet weak var sampleButton: NSLayoutConstraint!
     @IBOutlet weak var sampleTable: UITableView!
     @IBOutlet weak var tableViewHeight: NSLayoutConstraint!
     @IBOutlet weak var sampleStackview: UIStackView!
+    @IBOutlet weak var sampleButton: UIButton!
     
     var countNumber:Int?
     var beforeHeight:CGFloat?
@@ -22,7 +22,11 @@ class NextViewController: UIViewController, UITextFieldDelegate, UITableViewDele
     
     var height:CGFloat?
     
+    var pressButton = true
+    
     var customCell = Sample2TableViewCell()
+    
+    var key = false
         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,11 +37,13 @@ class NextViewController: UIViewController, UITextFieldDelegate, UITableViewDele
 
             //元の座標を記録
             beforeHeight = self.sampleStackview.frame.origin.y
-            print("beforeHeight:\(beforeHeight!)")
+//            print("beforeHeight:\(beforeHeight!)")
         
             height = tableViewHeight.constant
         
-        countNumber = 0
+        countNumber = 1
+        
+        reload(pressButton: pressButton)
             
         }
         
@@ -59,7 +65,9 @@ class NextViewController: UIViewController, UITextFieldDelegate, UITableViewDele
         
         //tableViewの設定
          func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+            print("countNumber:",countNumber)
             return countNumber!
+            
            }
 
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -67,11 +75,12 @@ class NextViewController: UIViewController, UITextFieldDelegate, UITableViewDele
             let cell:UITableViewCell?
 
             if indexPath.row % 2 == 0 {
-                 cell = sampleTable.dequeueReusableCell(withIdentifier: "cell1") as! UITableViewCell
+                cell = sampleTable.dequeueReusableCell(withIdentifier: "cell1") as! UITableViewCell
+                countNumber! += 1
             } else {
-                 cell = sampleTable.dequeueReusableCell(withIdentifier: "cell2") as! UITableViewCell
+                cell = sampleTable.dequeueReusableCell(withIdentifier: "cell2") as! UITableViewCell
                 indexPath1 = indexPath
-                
+                countNumber! += 1
                 print("##################\(indexPath1)")
             }
 
@@ -140,9 +149,44 @@ class NextViewController: UIViewController, UITextFieldDelegate, UITableViewDele
         }
     
     @IBAction func pressButton(_ sender: Any) {
-        countNumber! += 1
-        sampleTable.reloadData()
-        
+//        pressButton = true
+        print("$$$$$$$$$$$$")
+        talk()
+        reload(pressButton: pressButton)
+    }
+    
+    func reload(pressButton:Bool) {
+        if countNumber! % 2 != 0 {
+            if pressButton {
+                sampleTable.reloadData()
+//                countNumber! += 1
+                self.pressButton = false
+                
+            } else {
+                talk()
+//                self.pressButton = true
+//                key = true
+                print("000000000000000000")
+
+            }
+        } else {
+//            self.pressButton = true
+            countNumber! += 1
+            sampleTable.reloadData()
+//            countNumber! -= 1
+        }
+    
+    }
+    
+    func talk() {
+        if countNumber! % 2 == 0 {
+//            sampleButton.isEnabled = false
+            sampleText.isEnabled = true
+        } else {
+//            sampleButton.isEnabled = true
+            sampleText.isEnabled = false
+            
+        }
     }
     
     }
