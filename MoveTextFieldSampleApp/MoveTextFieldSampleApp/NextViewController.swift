@@ -16,7 +16,7 @@ class NextViewController: UIViewController, UITextFieldDelegate, UITableViewDele
     @IBOutlet weak var sampleStackview: UIStackView!
     @IBOutlet weak var sampleButton: UIButton!
     
-    var countNumber:Int?
+    var countNumber:Int = 1
     var beforeHeight:CGFloat?
     var kyeBoardHeight:CGFloat?
     
@@ -41,7 +41,7 @@ class NextViewController: UIViewController, UITextFieldDelegate, UITableViewDele
         
             height = tableViewHeight.constant
         
-        countNumber = 1
+//        countNumber = 1
         
         reload(pressButton: pressButton)
             
@@ -65,22 +65,23 @@ class NextViewController: UIViewController, UITextFieldDelegate, UITableViewDele
         
         //tableViewの設定
          func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            print("countNumber:",countNumber)
-            return countNumber!
+//            print("countNumber:",countNumber)
+            return countNumber
             
            }
 
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
             let cell:UITableViewCell?
+            
 
             if indexPath.row % 2 == 0 {
                 cell = sampleTable.dequeueReusableCell(withIdentifier: "cell1") as! UITableViewCell
-                countNumber! += 1
+                
             } else {
                 cell = sampleTable.dequeueReusableCell(withIdentifier: "cell2") as! UITableViewCell
                 indexPath1 = indexPath
-                countNumber! += 1
+//                countNumber! += 1
                 print("##################\(indexPath1)")
             }
 
@@ -149,14 +150,16 @@ class NextViewController: UIViewController, UITextFieldDelegate, UITableViewDele
         }
     
     @IBAction func pressButton(_ sender: Any) {
-//        pressButton = true
+        countNumber += 2
+        pressButton = true
         print("$$$$$$$$$$$$")
+        print(countNumber)
         talk()
         reload(pressButton: pressButton)
     }
     
     func reload(pressButton:Bool) {
-        if countNumber! % 2 != 0 {
+        if countNumber % 2 != 0 {
             if pressButton {
                 sampleTable.reloadData()
 //                countNumber! += 1
@@ -171,7 +174,7 @@ class NextViewController: UIViewController, UITextFieldDelegate, UITableViewDele
             }
         } else {
 //            self.pressButton = true
-            countNumber! += 1
+//            countNumber! += 1
             sampleTable.reloadData()
 //            countNumber! -= 1
         }
@@ -179,7 +182,7 @@ class NextViewController: UIViewController, UITextFieldDelegate, UITableViewDele
     }
     
     func talk() {
-        if countNumber! % 2 == 0 {
+        if countNumber % 2 == 0 {
 //            sampleButton.isEnabled = false
             sampleText.isEnabled = true
         } else {
