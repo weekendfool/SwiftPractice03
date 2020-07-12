@@ -16,6 +16,9 @@ class ViewController: UIViewController {
     //pickerViewのインスタンス格納
     var pickerView = UIDatePicker()
     var data:[String] = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"]
+    
+    var textBool = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -41,11 +44,29 @@ class ViewController: UIViewController {
 //        sampleLabel.text = data[row]
 //    }
     
+    @IBAction func pressSampleButton(_ sender: Any) {
+        
+        createPickerView()
+    }
+    
+    @IBAction func pressButton2(_ sender: Any) {
+        if textBool {
+            textBool = false
+        } else {
+            textBool = true
+        }
+    }
+    
     func createPickerView() {
         //delegateの設定
 //        pickerView.delegate = self
         //テキストフィールドのインプットにpickerViewを設定
-        sampleTextField.inputView = pickerView
+        if textBool {
+            sampleTextField.inputView = pickerView
+        } else {
+            sampleTextField.inputView = nil
+        }
+        
         //ツールバー作成
         //インスタンス作成
         let toolBar = UIToolbar()

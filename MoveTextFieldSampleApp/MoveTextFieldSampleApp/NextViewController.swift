@@ -36,7 +36,7 @@ class NextViewController: UIViewController, UITextFieldDelegate, UITableViewDele
             sampleTable.dataSource = self
 
             //元の座標を記録
-            beforeHeight = self.sampleStackview.frame.origin.y
+//            beforeHeight = self.sampleStackview.frame.origin.y
 //            print("beforeHeight:\(beforeHeight!)")
         
             height = tableViewHeight.constant
