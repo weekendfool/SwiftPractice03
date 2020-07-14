@@ -8,10 +8,11 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var sampleLabel: UILabel!
     @IBOutlet weak var sampleTextField: UITextField!
+    @IBOutlet weak var sampleButton: UIButton!
     
     //pickerViewのインスタンス格納
     var pickerView = UIDatePicker()
@@ -24,6 +25,7 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         createPickerView()
+        v()
     }
 
 //    //pickerViewの設定
@@ -47,6 +49,8 @@ class ViewController: UIViewController {
     @IBAction func pressSampleButton(_ sender: Any) {
         
         createPickerView()
+        
+        print(sampleTextField.text)
     }
     
     @IBAction func pressButton2(_ sender: Any) {
@@ -54,6 +58,9 @@ class ViewController: UIViewController {
             textBool = false
         } else {
             textBool = true
+        }
+        if sampleTextField.text == "" {
+        print("nil")
         }
     }
     
@@ -86,5 +93,18 @@ class ViewController: UIViewController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         sampleTextField.endEditing(true)
     }
+    
+    func v () {
+        if sampleTextField == nil {
+            print("nil")
+        }
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
+        print("566")
+        if sampleTextField.text != nil {
+            print(sampleTextField.text)
+    }
+}
 }
 
