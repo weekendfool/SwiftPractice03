@@ -9,7 +9,10 @@
 import UIKit
 import CoreData
 
-class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate, UITableViewDiffableDataSource {
+class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource {
+    
+    
+    
     //パーツの紐付け
     @IBOutlet weak var sampleTextField: UITextField!
     @IBOutlet weak var sampleTableView: UITableView!
@@ -29,7 +32,25 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
     }
     
     let myConditions = NSFetchRequest<NSFetchRequestResult>(entityName: "Monster")
+    do {
+    monsterArray = try managerOfContext.fetch(myConditions) as! [Monster]
+    } catch {
+    print("error")
+    }
+}
 
+func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    textField.resignFirstResponder()
+    
+    let newMonster = Monster(context: self.managerOfContext)
+}
 
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 20
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = ui
+    }
 }
 
