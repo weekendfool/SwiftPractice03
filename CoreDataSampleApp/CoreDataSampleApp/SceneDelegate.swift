@@ -2,7 +2,7 @@
 //  SceneDelegate.swift
 //  CoreDataSampleApp
 //
-//  Created by 尾原徳泰 on 2020/07/18.
+//  Created by 尾原徳泰 on 2020/07/22.
 //  Copyright © 2020 尾原徳泰. All rights reserved.
 //
 
