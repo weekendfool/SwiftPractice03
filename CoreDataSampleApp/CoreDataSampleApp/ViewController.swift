@@ -43,14 +43,33 @@ func textFieldShouldReturn(_ textField: UITextField) -> Bool {
     textField.resignFirstResponder()
     
     let newMonster = Monster(context: self.managerOfContext)
+    
+    newMonster.monsterName = sampleTextField.text
+    
+    self.monsterArray.append(newMonster)
+    
+    (UIApplication.shared.delegate as! AppDelegate).saveContext()
+    
+    sampleTableView.reloadData()
+    
+    sampleTextField.text = ""
+    
+    return true
+}
 }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 20
+        return monsterArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = ui
+        let cell =  tableView.dequeueReusableCell(withIdentifier: "cell") as UITableViewCell
+        
+        let monsterData = monsterArray[indexPath.row]
+        
+        cell.textLabel?.text = monsterData.monsterName
+        
+        return cell
     }
 }
 
