@@ -3,7 +3,12 @@
     <entity name="Monster" representedClassName="Monster" isAbstract="YES" syncable="YES" codeGenerationType="class">
         <attribute name="monsterName" optional="YES" attributeType="String"/>
     </entity>
+    <entity name="Person" representedClassName="Person" syncable="YES" codeGenerationType="class">
+        <attribute name="personAge" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="personName" optional="YES" attributeType="String"/>
+    </entity>
     <elements>
         <element name="Monster" positionX="-45" positionY="0" width="128" height="58"/>
+        <element name="Person" positionX="-45" positionY="9" width="128" height="73"/>
     </elements>
 </model>

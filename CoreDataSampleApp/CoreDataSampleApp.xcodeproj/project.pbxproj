@@ -14,6 +14,7 @@
 		8C59D48C24C747C90084D46B /* CoreDataSampleApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8C59D48A24C747C90084D46B /* CoreDataSampleApp.xcdatamodeld */; };
 		8C59D48E24C747CB0084D46B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C59D48D24C747CB0084D46B /* Assets.xcassets */; };
 		8C59D49124C747CB0084D46B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C59D48F24C747CB0084D46B /* LaunchScreen.storyboard */; };
+		8CF2269124C814FC007412EA /* NextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF2269024C814FC007412EA /* NextViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		8C59D48D24C747CB0084D46B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8C59D49024C747CB0084D46B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8C59D49224C747CB0084D46B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8CF2269024C814FC007412EA /* NextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 				8C59D48124C747C90084D46B /* AppDelegate.swift */,
 				8C59D48324C747C90084D46B /* SceneDelegate.swift */,
 				8C59D48524C747C90084D46B /* ViewController.swift */,
+				8CF2269024C814FC007412EA /* NextViewController.swift */,
 				8C59D48724C747C90084D46B /* Main.storyboard */,
 				8C59D48D24C747CB0084D46B /* Assets.xcassets */,
 				8C59D48F24C747CB0084D46B /* LaunchScreen.storyboard */,
@@ -141,6 +144,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8CF2269124C814FC007412EA /* NextViewController.swift in Sources */,
 				8C59D48C24C747C90084D46B /* CoreDataSampleApp.xcdatamodeld in Sources */,
 				8C59D48624C747C90084D46B /* ViewController.swift in Sources */,
 				8C59D48224C747C90084D46B /* AppDelegate.swift in Sources */,
