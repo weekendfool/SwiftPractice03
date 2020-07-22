@@ -19,6 +19,8 @@ class NextViewController: UIViewController, UITextFieldDelegate, UITableViewDele
     var personNameArray:[Person] = []
     var personAgeArray:[Person] = []
     
+    var coreDataNumber:Int?
+    
     //オブジェクト化している
     var managedOfContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
@@ -29,6 +31,8 @@ class NextViewController: UIViewController, UITextFieldDelegate, UITableViewDele
         sample2TableView.delegate = self
         sample2TableView.dataSource = self
         sample2TextField.delegate = self
+        
+        coreDataNumber = personNameArray.count
         
         //取得したいデータの条件
         let conditions = NSFetchRequest<NSFetchRequestResult>(entityName: "Person")
@@ -62,6 +66,11 @@ class NextViewController: UIViewController, UITextFieldDelegate, UITableViewDele
     
     @IBAction func clearButtonAcction(_ sender: Any) {
 //        (UIApplication.shared.delegate as! AppDelegate).delete("Person")
+        for number in 0..<coreDataNumber! {
+            managedOfContext.delete(self.personNameArray[number])
+        }
+        
+        (UIApplication.shared.delegate as! AppDelegate).saveContext()
         personNameArray.removeAll()
         print(personNameArray)
     }
@@ -75,8 +84,10 @@ class NextViewController: UIViewController, UITextFieldDelegate, UITableViewDele
         //この時点で格納は終わっている
         newPerson.personName = sample2TextField?.text
         personNameArray.append(newPerson)
-        print(personNameArray)
+//        print(personNameArray)
        (UIApplication.shared.delegate as! AppDelegate).saveContext()
+        print(personNameArray)
+        print(personNameArray.count)
         sample2TableView.reloadData()
     }
     
