@@ -61,8 +61,23 @@ class NextViewController: UIViewController, UITextFieldDelegate, UITableViewDele
     }
     
     @IBAction func clearButtonAcction(_ sender: Any) {
+//        (UIApplication.shared.delegate as! AppDelegate).delete("Person")
+        personNameArray.removeAll()
+        print(personNameArray)
     }
     
     @IBAction func buttonAction(_ sender: Any) {
+        
+        //dbに情報を保存
+        //person型のマネージドオブジェクトを作成
+        let newPerson = Person(context: self.managedOfContext)
+        //テキストフィールドのテキストをPersonのpersonNameに格納する
+        //この時点で格納は終わっている
+        newPerson.personName = sample2TextField?.text
+        personNameArray.append(newPerson)
+        print(personNameArray)
+       (UIApplication.shared.delegate as! AppDelegate).saveContext()
+        sample2TableView.reloadData()
     }
+    
 }
