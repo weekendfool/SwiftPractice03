@@ -70,10 +70,13 @@ class NextViewController: UIViewController, UITextFieldDelegate, UITableViewDele
         for number in 0..<coreDataNumber! {
             managedOfContext.delete(self.personNameArray[number])
         }
-        managedOfContext.delete(self.personNameArray[0])
+//        managedOfContext.delete(self.personNameArray[0])
         (UIApplication.shared.delegate as! AppDelegate).saveContext()
         personNameArray.removeAll()
+        (UIApplication.shared.delegate as! AppDelegate).saveContext()
         print(personNameArray)
+        print(personNameArray.count)
+        sample2TableView.reloadData()
     }
     
     @IBAction func buttonAction(_ sender: Any) {
@@ -90,6 +93,7 @@ class NextViewController: UIViewController, UITextFieldDelegate, UITableViewDele
         print(personNameArray)
         print(personNameArray.count)
         sample2TableView.reloadData()
+        sample2TextField.text = ""
     }
     
 }
