@@ -17,8 +17,8 @@ class NextViewController: UIViewController, UITextFieldDelegate, UITableViewDele
     @IBOutlet weak var sampleAgeTextField: UITextField!
     
     //entityのperson型の配列を宣言
-    var personNameArray:[Person] = []
-    var personAgeArray:[Person] = []
+    var personArray:[Person] = []
+//    var personAgeArray:[Person] = []
     
     var coreDataNumber:Int?
     
@@ -40,9 +40,9 @@ class NextViewController: UIViewController, UITextFieldDelegate, UITableViewDele
         
         do {
             //配列に取得したい条件のデータを引っ張ってきて格納
-            personNameArray = try managedOfContext.fetch(conditions) as! [Person]
-            personAgeArray = try managedOfContext.fetch(conditions) as! [Person]
-            print("personNameArray:\(personNameArray)")
+            personArray = try managedOfContext.fetch(conditions) as! [Person]
+//            personAgeArray = try managedOfContext.fetch(conditions) as! [Person]
+            print("personNameArray:\(personArray)")
         } catch {
             print("errorだよ！")
         }
@@ -58,31 +58,37 @@ class NextViewController: UIViewController, UITextFieldDelegate, UITableViewDele
 
    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return personNameArray.count
+        print("personArrayCount\(personArray.count)")
+        return personArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = sample2TableView.dequeueReusableCell(withIdentifier: "cell") as! UITableViewCell
-        let personNameString = personNameArray[indexPath.row]
-        let personAgaString = personAgeArray[indexPath.row]
-        cell.textLabel?.text = personNameString.personName
-//        cell.detailTextLabel?.text = "3333333333333"
-        cell.detailTextLabel?.text = String(personAgaString.personAge)
+        let personNameString = personArray[indexPath.row].personName
+        let personAgaString = personArray[indexPath.row].personAge
+//        let ageString = personNameString.personAge
+        if let nameString = personNameString {
+            print(personAgaString)
+            cell.textLabel?.text = String(nameString)
+            //        cell.detailTextLabel?.text = "3333333333333"
+            cell.detailTextLabel!.text = String(personAgaString)
+        }
+        
         return cell
     }
     
     @IBAction func clearButtonAcction(_ sender: Any) {
 //        (UIApplication.shared.delegate as! AppDelegate).delete("Person")
-        coreDataNumber = personNameArray.count
+        coreDataNumber = personArray.count
         for number in 0..<coreDataNumber! {
-            managedOfContext.delete(self.personNameArray[number])
+            managedOfContext.delete(self.personArray[number])
         }
 //        managedOfContext.delete(self.personNameArray[0])
         (UIApplication.shared.delegate as! AppDelegate).saveContext()
-        personNameArray.removeAll()
-        (UIApplication.shared.delegate as! AppDelegate).saveContext()
-        print(personNameArray)
-        print(personNameArray.count)
+        personArray.removeAll()
+//        (UIApplication.shared.delegate as! AppDelegate).saveContext()
+        print(personArray)
+        print(personArray.count)
         sample2TableView.reloadData()
     }
     
@@ -97,14 +103,14 @@ class NextViewController: UIViewController, UITextFieldDelegate, UITableViewDele
         //テキストフィールドのテキストをPersonのpersonNameに格納する
         //この時点で格納は終わっている
         newPersonName.personName = sample2TextField?.text
-        personNameArray.append(newPersonName)
+        personArray.append(newPersonName)
         
         //ageの格納
         if let text = sampleAgeTextField.text {
             newPersonName.personAge = Int16(text)!
             print("-------------------------------")
         }
-        personAgeArray.append(newPersonName)
+        personArray.append(newPersonName)
 //        print(personNameArray)
        (UIApplication.shared.delegate as! AppDelegate).saveContext()
 //        print(personNameArray)
@@ -114,7 +120,9 @@ class NextViewController: UIViewController, UITextFieldDelegate, UITableViewDele
         sample2TextField.text = ""
         sampleAgeTextField.text = ""
         print("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$")
-        print(personAgeArray)
+//        print(personNameArray[0].personAge)
+//        print()
+//        print(personNameArray[1])
     }
     
 }
