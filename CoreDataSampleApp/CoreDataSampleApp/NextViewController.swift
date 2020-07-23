@@ -32,7 +32,7 @@ class NextViewController: UIViewController, UITextFieldDelegate, UITableViewDele
         sample2TableView.dataSource = self
         sample2TextField.delegate = self
         
-        coreDataNumber = personNameArray.count
+        
         
         //取得したいデータの条件
         let conditions = NSFetchRequest<NSFetchRequestResult>(entityName: "Person")
@@ -66,10 +66,11 @@ class NextViewController: UIViewController, UITextFieldDelegate, UITableViewDele
     
     @IBAction func clearButtonAcction(_ sender: Any) {
 //        (UIApplication.shared.delegate as! AppDelegate).delete("Person")
+        coreDataNumber = personNameArray.count
         for number in 0..<coreDataNumber! {
             managedOfContext.delete(self.personNameArray[number])
         }
-        
+        managedOfContext.delete(self.personNameArray[0])
         (UIApplication.shared.delegate as! AppDelegate).saveContext()
         personNameArray.removeAll()
         print(personNameArray)
