@@ -14,6 +14,7 @@ class NextViewController: UIViewController, UITextFieldDelegate, UITableViewDele
     //パーツの紐付け
     @IBOutlet weak var sample2TextField: UITextField!
     @IBOutlet weak var sample2TableView: UITableView!
+    @IBOutlet weak var sampleAgeTextField: UITextField!
     
     //entityのperson型の配列を宣言
     var personNameArray:[Person] = []
@@ -40,6 +41,7 @@ class NextViewController: UIViewController, UITextFieldDelegate, UITableViewDele
         do {
             //配列に取得したい条件のデータを引っ張ってきて格納
             personNameArray = try managedOfContext.fetch(conditions) as! [Person]
+            personAgeArray = try managedOfContext.fetch(conditions) as! [Person]
             print("personNameArray:\(personNameArray)")
         } catch {
             print("errorだよ！")
@@ -49,6 +51,7 @@ class NextViewController: UIViewController, UITextFieldDelegate, UITableViewDele
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         //キーボードを下げる
         sample2TextField.resignFirstResponder()
+        sampleAgeTextField.resignFirstResponder()
         return true
     }
 
@@ -60,7 +63,9 @@ class NextViewController: UIViewController, UITextFieldDelegate, UITableViewDele
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = sample2TableView.dequeueReusableCell(withIdentifier: "cell") as! UITableViewCell
         let personNameString = personNameArray[indexPath.row]
+        let personAgaString = personAgeArray[indexPath.row]
         cell.textLabel?.text = personNameString.personName
+        cell.detailTextLabel?.text = String(personAgaString.personAge)
         return cell
     }
     
@@ -83,11 +88,18 @@ class NextViewController: UIViewController, UITextFieldDelegate, UITableViewDele
         
         //dbに情報を保存
         //person型のマネージドオブジェクトを作成
-        let newPerson = Person(context: self.managedOfContext)
+        let newPersonName = Person(context: self.managedOfContext)
+        let newPersonAge = Person(context: self.managedOfContext)
         //テキストフィールドのテキストをPersonのpersonNameに格納する
         //この時点で格納は終わっている
-        newPerson.personName = sample2TextField?.text
-        personNameArray.append(newPerson)
+        newPersonName.personName = sample2TextField?.text
+        personNameArray.append(newPersonName)
+        
+        //ageの格納
+        if let text = sampleAgeTextField.text {
+            newPersonAge.personAge = Int16(text)!
+        }
+        personAgeArray.append(newPersonAge)
 //        print(personNameArray)
        (UIApplication.shared.delegate as! AppDelegate).saveContext()
         print(personNameArray)
