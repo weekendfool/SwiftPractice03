@@ -32,7 +32,7 @@ class NextViewController: UIViewController, UITextFieldDelegate, UITableViewDele
         sample2TableView.delegate = self
         sample2TableView.dataSource = self
         sample2TextField.delegate = self
-        
+        sampleAgeTextField.delegate = self
         
         
         //取得したいデータの条件
@@ -54,6 +54,7 @@ class NextViewController: UIViewController, UITextFieldDelegate, UITableViewDele
         sampleAgeTextField.resignFirstResponder()
         return true
     }
+    
 
    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -65,6 +66,7 @@ class NextViewController: UIViewController, UITextFieldDelegate, UITableViewDele
         let personNameString = personNameArray[indexPath.row]
         let personAgaString = personAgeArray[indexPath.row]
         cell.textLabel?.text = personNameString.personName
+//        cell.detailTextLabel?.text = "3333333333333"
         cell.detailTextLabel?.text = String(personAgaString.personAge)
         return cell
     }
@@ -90,6 +92,8 @@ class NextViewController: UIViewController, UITextFieldDelegate, UITableViewDele
         //person型のマネージドオブジェクトを作成
         let newPersonName = Person(context: self.managedOfContext)
         let newPersonAge = Person(context: self.managedOfContext)
+        
+//        let new = Person(context: self.managedOfContext)
         //テキストフィールドのテキストをPersonのpersonNameに格納する
         //この時点で格納は終わっている
         newPersonName.personName = sample2TextField?.text
@@ -97,15 +101,20 @@ class NextViewController: UIViewController, UITextFieldDelegate, UITableViewDele
         
         //ageの格納
         if let text = sampleAgeTextField.text {
-            newPersonAge.personAge = Int16(text)!
+            newPersonName.personAge = Int16(text)!
+            print("-------------------------------")
         }
-        personAgeArray.append(newPersonAge)
+        personAgeArray.append(newPersonName)
 //        print(personNameArray)
        (UIApplication.shared.delegate as! AppDelegate).saveContext()
-        print(personNameArray)
-        print(personNameArray.count)
+//        print(personNameArray)
+//        print(personNameArray.count)
+//        print(personAgeArray)
         sample2TableView.reloadData()
         sample2TextField.text = ""
+        sampleAgeTextField.text = ""
+        print("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$")
+        print(personAgeArray)
     }
     
 }
