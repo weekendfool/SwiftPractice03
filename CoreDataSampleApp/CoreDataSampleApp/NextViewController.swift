@@ -96,21 +96,21 @@ class NextViewController: UIViewController, UITextFieldDelegate, UITableViewDele
         
         //dbに情報を保存
         //person型のマネージドオブジェクトを作成
-        let newPersonName = Person(context: self.managedOfContext)
-        let newPersonAge = Person(context: self.managedOfContext)
+        let newPerson = Person(context: self.managedOfContext)
+//        let newPersonAge = Person(context: self.managedOfContext)
         
 //        let new = Person(context: self.managedOfContext)
         //テキストフィールドのテキストをPersonのpersonNameに格納する
         //この時点で格納は終わっている
-        newPersonName.personName = sample2TextField?.text
-        personArray.append(newPersonName)
-        
+        newPerson.personName = sample2TextField?.text
         //ageの格納
         if let text = sampleAgeTextField.text {
-            newPersonName.personAge = Int16(text)!
+            newPerson.personAge = Int16(text)!
             print("-------------------------------")
         }
-        personArray.append(newPersonName)
+        personArray.append(newPerson)
+        
+        
 //        print(personNameArray)
        (UIApplication.shared.delegate as! AppDelegate).saveContext()
 //        print(personNameArray)
