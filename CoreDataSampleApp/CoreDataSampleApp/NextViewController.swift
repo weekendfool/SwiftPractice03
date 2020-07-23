@@ -58,7 +58,7 @@ class NextViewController: UIViewController, UITextFieldDelegate, UITableViewDele
 
    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("personArrayCount\(personArray.count)")
+        print("personArrayCount：\(personArray.count)")
         return personArray.count
     }
     
@@ -68,11 +68,20 @@ class NextViewController: UIViewController, UITextFieldDelegate, UITableViewDele
         let personAgaString = personArray[indexPath.row].personAge
 //        let ageString = personNameString.personAge
         if let nameString = personNameString {
-            print(personAgaString)
+//            print(personAgaString)
             cell.textLabel?.text = String(nameString)
-            //        cell.detailTextLabel?.text = "3333333333333"
-            cell.detailTextLabel!.text = String(personAgaString)
+                   
+           
+            print("personAgeString:\(personAgaString)")
+            
+//            if personAgaString == 1 {
+//                cell.detailTextLabel?.text = "3333333333333"
+//            }
         }
+         cell.detailTextLabel?.text = "\(String(personAgaString))"
+      
+        
+         
         
         return cell
     }
@@ -80,15 +89,20 @@ class NextViewController: UIViewController, UITextFieldDelegate, UITableViewDele
     @IBAction func clearButtonAcction(_ sender: Any) {
 //        (UIApplication.shared.delegate as! AppDelegate).delete("Person")
         coreDataNumber = personArray.count
+        //削除処理
         for number in 0..<coreDataNumber! {
             managedOfContext.delete(self.personArray[number])
         }
 //        managedOfContext.delete(self.personNameArray[0])
-        (UIApplication.shared.delegate as! AppDelegate).saveContext()
+        //person型のマネージドオブジェクトを作成
+//        let oldPerson = Person(context: self.managedOfContext)
         personArray.removeAll()
+        
+        (UIApplication.shared.delegate as! AppDelegate).saveContext()
+     
 //        (UIApplication.shared.delegate as! AppDelegate).saveContext()
-        print(personArray)
-        print(personArray.count)
+//        print(personArray)
+//        print(personArray.count)
         sample2TableView.reloadData()
     }
     
