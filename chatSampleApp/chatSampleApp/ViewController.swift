@@ -13,6 +13,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
 
     @IBOutlet weak var sampleTableView: UITableView!
+    @IBOutlet weak var sampleLablel: UILabel!
+    
+    var count = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,15 +31,33 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         var cellName = ""
-        let cell = sampleTableView.dequeueReusableCell(withIdentifier: cellName)! as UITableViewCell
+        
+        if (count % 2) == 0 {
+            cellName = "cell1"
+        } else {
+            cellName = "cell2"
+        }
+        
+        var cell = sampleTableView.dequeueReusableCell(withIdentifier: cellName)! as UITableViewCell
         
         cell.textLabel!.text = "\(indexPath.row)"
+        
+        print(indexPath.row)
         
         return cell
     }
 
     @IBAction func buttonAction(_ sender: Any) {
+        
+        count += 1
+        
+        sampleLablel.text = "\(count)"
     }
     
+    @IBAction func resetButtonAction(_ sender: Any) {
+        count = 0
+        sampleTableView.reloadData()
+        sampleLablel.text = "\(count)"
+    }
 }
 
