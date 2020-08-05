@@ -25,7 +25,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 20
+        return count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -52,6 +52,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         count += 1
         
         sampleLablel.text = "\(count)"
+        
+        sampleTableView.reloadData()
     }
     
     @IBAction func resetButtonAction(_ sender: Any) {
