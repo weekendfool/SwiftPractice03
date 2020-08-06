@@ -15,7 +15,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var sampleTableView: UITableView!
     @IBOutlet weak var sampleLablel: UILabel!
     
-    var count = 0
+    var count1 = 0
+    var count2 = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,14 +26,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return count
+        return count1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         var cellName = ""
         
-        if (count % 2) == 0 {
+        if (count2 % 2) == 0 {
             cellName = "cell1"
         } else {
             cellName = "cell2"
@@ -49,17 +50,19 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
     @IBAction func buttonAction(_ sender: Any) {
         
-        count += 1
+        count1 += 2
+        count2 += 1
         
-        sampleLablel.text = "\(count)"
+        sampleLablel.text = "\(count2)"
         
         sampleTableView.reloadData()
     }
     
     @IBAction func resetButtonAction(_ sender: Any) {
-        count = 0
+        count1 = 0
+        count2 = 0
         sampleTableView.reloadData()
-        sampleLablel.text = "\(count)"
+        sampleLablel.text = "\(count2)"
     }
 }
 
