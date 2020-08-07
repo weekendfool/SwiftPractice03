@@ -18,6 +18,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     var count1 = 0
     var count2 = 0
     
+    var array = ["ネズミ", "ウシ", "トラ", "ウサギ", "ドラゴン", "ヘビ", "ウマ", "ヒツジ", "サル", "トリ", "イヌ", "イノシシ"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -33,7 +35,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         var cellName = ""
         
-        if (count2 % 2) == 0 {
+        if (indexPath.row % 2) == 0 {
             cellName = "cell1"
         } else {
             cellName = "cell2"
@@ -41,7 +43,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         var cell = sampleTableView.dequeueReusableCell(withIdentifier: cellName)! as UITableViewCell
         
-        cell.textLabel!.text = "\(indexPath.row)"
+        cell.textLabel!.text = "\(indexPath.row)" + array[indexPath.row]
         
         print(indexPath.row)
         
