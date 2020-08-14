@@ -23,9 +23,16 @@ class ViewController: UIViewController, UITextFieldDelegate {
         return string.isEmpty || (string.range(of: "^[0-9]+$", options: .regularExpression, range: nil, locale: nil) != nil)
     }
     
+    //キーボードを数字のみにする
+    func changeKyeboard() {
+        sampleTextField.keyboardType = UIKeyboardType.numberPad
+    }
     
 
-    @IBOutlet var buttonAction: UIView!
+    @IBAction func buttonAction(_ sender: Any) {
+
+        changeKyeboard()
+    }
     
 }
 
