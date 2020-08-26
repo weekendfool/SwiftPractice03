@@ -26,5 +26,27 @@ class NextViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    func popupAlert() {
+        //UIAlertControllerのインスタンス化
+        let alertController = UIAlertController(title: "この設定でクエストを募集するにゃん！", message: "", preferredStyle: .alert)
+        //UIAlertActionのインスタンス化
+        let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        //アクションの追加
+        alertController.addAction(alertAction)
+        //アクションの実行
+       
+        present(alertController, animated: true, completion: {
+            //初期化と保存
+            dismiss(animated: true, completion: nil)
+            //tableViewの更新
+            
+            
+        })
+        
+    }
+    
+    @IBAction func buttonAction(_ sender: Any) {
+        popupAlert()
+    }
+    
 }
