@@ -9,11 +9,27 @@
 import UIKit
 
 class NextViewController: UIViewController {
+    
+    var v = 0 {
+        willSet {
+            print("new \(v) -> \(newValue)")
+            if newValue == 1 {
+                navigationController?.popViewController(animated: true)
+            }
+        }
+        didSet {
+            print("old \(oldValue) -> \(v)")
+            if v == 1 {
+                navigationController?.popViewController(animated: true)
+            }
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        go(j: v)
     }
     
 
@@ -37,16 +53,31 @@ class NextViewController: UIViewController {
        
         present(alertController, animated: true, completion: {
             //初期化と保存
-            dismiss(animated: true, completion: nil)
+//            self.dismiss(animated: true, completion: nil)
             //tableViewの更新
+//            self.navigationController?.popToRootViewController(animated: true)
             
+            
+            print("OK")
             
         })
-        
+        self.v = 1
     }
     
     @IBAction func buttonAction(_ sender: Any) {
         popupAlert()
+        
     }
     
+    @IBAction func tappedButton(_ sender: Any) {
+//        dismiss(animated: true, completion: nil)
+        navigationController?.popViewController(animated: true)
+    }
+    
+    func go(j: Int) {
+        if j == 1 {
+            navigationController?.popViewController(animated: true)
+        }
+        v = 0
+    }
 }
