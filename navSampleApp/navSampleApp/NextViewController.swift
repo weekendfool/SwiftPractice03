@@ -61,6 +61,9 @@ class NextViewController: UIViewController {
             print("OK")
             
         })
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
+            self.navigationController?.popViewController(animated: true)
+        }
         self.v = 1
     }
     
