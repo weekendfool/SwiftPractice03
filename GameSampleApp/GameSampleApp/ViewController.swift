@@ -25,6 +25,33 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
+    func changeCouler(number: Int) {
+        var place:UIButton?
+        //どのボタンが押されたかの条件分岐
+        switch number {
+        case 1:
+            place = sampleButton1
+        case 2:
+            place = sampleButton2
+        case 3:
+            place = sampleButton3
+        case 4:
+            place = sampleButton4
+        case 5:
+            place = sampleButton5
+        case 6:
+            place = sampleButton6
+        case 7:
+            place = sampleButton7
+        case 8:
+            place = sampleButton8
+        case 9:
+            place = sampleButton9
+        default:
+            return
+        }
+        
+    }
 
     @IBAction func sampleButton1Action(_ sender: Any) {
     }
