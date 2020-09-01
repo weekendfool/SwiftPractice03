@@ -50,10 +50,13 @@ class ViewController: UIViewController {
         default:
             return
         }
+        place?.tintColor = UIColor.red
         
     }
 
     @IBAction func sampleButton1Action(_ sender: Any) {
+        changeCouler(number: 1)
+        print(1)
     }
     
     @IBAction func sampleButton2Action(_ sender: Any) {
