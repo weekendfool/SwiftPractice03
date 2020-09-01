@@ -28,6 +28,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        setButtonborder()
     }
 //MARK: - ボタンの色変え
     func changeCouler(number: Int, player: Int) {
@@ -88,6 +89,42 @@ class ViewController: UIViewController {
         changeCouler(number: number, player: player)
         //playerCountのカウントをすすめる
         playerCount += 1
+    }
+    
+     //MARK: - ボタンの枠線を設定
+    func setButtonborder() {
+        //for文で全てのボタンに枠線を設定する
+        for num in 1...9 {
+            var selectButtton: UIButton?
+            //switch文でどのボタンが押されたかの条件分岐
+            switch num {
+            case 1:
+                selectButtton = sampleButton1
+            case 2:
+                selectButtton = sampleButton2
+            case 3:
+                selectButtton = sampleButton3
+            case 4:
+                selectButtton = sampleButton4
+            case 5:
+                selectButtton = sampleButton5
+            case 6:
+                selectButtton = sampleButton6
+            case 7:
+                selectButtton = sampleButton7
+            case 8:
+                selectButtton = sampleButton8
+            case 9:
+                selectButtton = sampleButton9
+            default:
+                return
+            }
+            //buttonの枠線の色を設定
+            selectButtton?.layer.borderColor = UIColor.gray.cgColor
+            //buttonの枠線の幅を設定
+            selectButtton?.layer.borderWidth = 3.0
+            }
+        
     }
     
     //MARK: - ボタンのAction
