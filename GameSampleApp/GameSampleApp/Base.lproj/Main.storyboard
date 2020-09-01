@@ -16,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aSw-uQ-1Ak">
-                                <rect key="frame" x="139" y="248" width="50" height="50"/>
+                                <rect key="frame" x="104" y="248" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal">
@@ -27,7 +27,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ILe-kk-Jo3">
-                                <rect key="frame" x="139" y="296" width="50" height="50"/>
+                                <rect key="frame" x="104" y="324" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal">
@@ -38,30 +38,18 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cZH-k7-KM8">
-                                <rect key="frame" x="186" y="248" width="50" height="50"/>
+                                <rect key="frame" x="187" y="248" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="sampleButton3Action:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ibf-fl-uOz"/>
-                                    <action selector="sampleButton5Action:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hnT-cf-skj"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PeO-mN-ALf">
-                                <rect key="frame" x="186" y="296" width="50" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="sampleButton8Action:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ARD-Ub-xeM"/>
+                                    <action selector="sampleButton5Action:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jDP-33-nBF"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4tG-a7-iOa">
-                                <rect key="frame" x="235" y="296" width="50" height="50"/>
+                                <rect key="frame" x="275" y="324" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal">
@@ -72,7 +60,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YO2-bI-P8L">
-                                <rect key="frame" x="235" y="248" width="50" height="50"/>
+                                <rect key="frame" x="275" y="248" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal">
@@ -83,7 +71,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dAP-Mv-TkN">
-                                <rect key="frame" x="235" y="199" width="50" height="50"/>
+                                <rect key="frame" x="275" y="181" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal">
@@ -94,7 +82,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N8T-UI-x7W">
-                                <rect key="frame" x="186" y="199" width="50" height="50"/>
+                                <rect key="frame" x="187" y="181" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal">
@@ -112,7 +100,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dN0-9i-1PT">
-                                <rect key="frame" x="139" y="199" width="50" height="50"/>
+                                <rect key="frame" x="104" y="181" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal">
@@ -120,6 +108,17 @@
                                 </state>
                                 <connections>
                                     <action selector="sampleButton1Action:" destination="BYZ-38-t0r" eventType="touchUpInside" id="T9r-LQ-fqq"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PeO-mN-ALf">
+                                <rect key="frame" x="187" y="324" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="sampleButton8Action:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ARD-Ub-xeM"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -131,7 +130,7 @@
                         <outlet property="sampleButton2" destination="N8T-UI-x7W" id="63J-uO-0Wp"/>
                         <outlet property="sampleButton3" destination="dAP-Mv-TkN" id="6nd-CX-ajv"/>
                         <outlet property="sampleButton4" destination="aSw-uQ-1Ak" id="3Q4-6P-yhS"/>
-                        <outlet property="sampleButton5" destination="cZH-k7-KM8" id="Rh3-eY-q0y"/>
+                        <outlet property="sampleButton5" destination="cZH-k7-KM8" id="fXI-2H-ZEB"/>
                         <outlet property="sampleButton6" destination="YO2-bI-P8L" id="y0n-6p-2M8"/>
                         <outlet property="sampleButton7" destination="ILe-kk-Jo3" id="VfL-Cb-W8Q"/>
                         <outlet property="sampleButton8" destination="PeO-mN-ALf" id="iJt-04-Llv"/>

@@ -29,6 +29,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         setButtonborder()
+        playerCount = 1
+        player = 0
     }
 //MARK: - ボタンの色変え
     func changeCouler(number: Int, player: Int) {
@@ -56,6 +58,7 @@ class ViewController: UIViewController {
         default:
             return
         }
+        
         if player == 1 {
             //ボタンの色を変える処理
             place?.backgroundColor = UIColor.red
@@ -84,11 +87,13 @@ class ViewController: UIViewController {
     //MARK: - ボタンのActionを関数化
     func butttonActionGroup(number: Int) {
         //プレイヤーを選別
-        judgmentPlayerNumber(playerCount: number)
+        print("playerCount5:\(playerCount)")
+        judgmentPlayerNumber(playerCount: playerCount)
         //色を変える処理
         changeCouler(number: number, player: player)
         //playerCountのカウントをすすめる
         playerCount += 1
+        chack()
     }
     
      //MARK: - ボタンの枠線を設定
@@ -162,6 +167,12 @@ class ViewController: UIViewController {
     
     @IBAction func sampleButton9Action(_ sender: Any) {
         butttonActionGroup(number: 9)
+    }
+    
+    //チェック用関数
+    func chack() {
+        print("playerCount:\(playerCount)")
+        print("player:\(player)")
     }
 }
 
