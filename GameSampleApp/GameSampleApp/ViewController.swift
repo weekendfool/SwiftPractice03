@@ -50,7 +50,7 @@ class ViewController: UIViewController {
         default:
             return
         }
-        place?.tintColor = UIColor.red
+        place?.backgroundColor = UIColor.red
         
     }
 
