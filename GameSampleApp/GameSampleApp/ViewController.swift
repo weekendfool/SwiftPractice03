@@ -23,7 +23,11 @@ class ViewController: UIViewController {
     
     //プレイヤーの変数
     var player = 0
+    //奇数か偶数かの保持
     var playerCount = 0
+    //マスの色を記録する辞書
+    var colorDic: [Int: Int] = [1:0, 2:0, 3:0, 4:0, 5:0, 6:0, 7:0, 8:0, 9:0]
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,9 +66,13 @@ class ViewController: UIViewController {
         if player == 1 {
             //ボタンの色を変える処理
             place?.backgroundColor = UIColor.red
+            //色を塗ったことを記録
+            colorDic[number] = 1
         } else if player == 2 {
             //ボタンの色を変える処理
             place?.backgroundColor = UIColor.blue
+            //色を塗ったことを記録
+            colorDic[number] = 2
         }
         
         //二回以上選択できなくする処理
@@ -91,6 +99,8 @@ class ViewController: UIViewController {
         judgmentPlayerNumber(playerCount: playerCount)
         //色を変える処理
         changeCouler(number: number, player: player)
+        //色を記録する処理
+        saveDrowPLaceOfColor(number: number)
         //playerCountのカウントをすすめる
         playerCount += 1
         chack()
@@ -173,6 +183,24 @@ class ViewController: UIViewController {
     func chack() {
         print("playerCount:\(playerCount)")
         print("player:\(player)")
+    }
+    
+    //MARK: - 塗られた箇所の色の記録
+    func saveDrowPLaceOfColor(number: Int) {
+        if player == 1 {
+            //色を塗ったことを記録
+            colorDic[number] = 1
+        } else if player == 2 {
+            //色を塗ったことを記録
+            colorDic[number] = 2
+        }
+        //確認用
+        print(colorDic)
+    }
+    
+    //MARK: - 勝負の判定機能
+    func judgmentWiner() {
+        
     }
 }
 
