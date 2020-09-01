@@ -101,6 +101,8 @@ class ViewController: UIViewController {
         changeCouler(number: number, player: player)
         //色を記録する処理
         saveDrowPLaceOfColor(number: number)
+        //勝敗の判定
+        judgmentWiner()
         //playerCountのカウントをすすめる
         playerCount += 1
         chack()
@@ -200,7 +202,45 @@ class ViewController: UIViewController {
     
     //MARK: - 勝負の判定機能
     func judgmentWiner() {
-        
+        //勝敗が決まるかの判定を二色分for文で行う
+        let dic1 = colorDic[1]
+        let dic2 = colorDic[2]
+        let dic3 = colorDic[3]
+        let dic4 = colorDic[4]
+        let dic5 = colorDic[5]
+        let dic6 = colorDic[6]
+        let dic7 = colorDic[7]
+        let dic8 = colorDic[8]
+        let dic9 = colorDic[9]
+        //勝敗が決まるかの判定を二色分for文で行う
+        for num in 1...2 {
+            if (dic1 == num && dic2 == num && dic3 == num) {
+                print("Win:\(num)P")
+                sampleLabel.text = "Win:\(num)P"
+            } else if (dic4 == num && dic5 == num && dic6 == num) {
+                print("Win:\(num)P")
+                sampleLabel.text = "Win:\(num)P"
+            } else if (dic7 == num && dic8 == num && dic9 == num) {
+                print("Win:\(num)P")
+                sampleLabel.text = "Win:\(num)P"
+            } else if (dic1 == num && dic4 == num && dic7 == num) {
+                print("Win:\(num)P")
+                sampleLabel.text = "Win:\(num)P"
+            } else if (dic2 == num && dic5 == num && dic8 == num) {
+                print("Win:\(num)P")
+                sampleLabel.text = "Win:\(num)P"
+            } else if (dic3 == num && dic6 == num && dic9 == num) {
+                print("Win:\(num)P")
+                sampleLabel.text = "Win:\(num)P"
+            } else if (dic1 == num && dic5 == num && dic9 == num) {
+                print("Win:\(num)P")
+                sampleLabel.text = "Win:\(num)P"
+            } else if (dic3 == num && dic5 == num && dic7 == num) {
+                print("Win:\(num)P")
+                sampleLabel.text = "Win:\(num)P"
+            }
+        }
     }
+    
 }
 
