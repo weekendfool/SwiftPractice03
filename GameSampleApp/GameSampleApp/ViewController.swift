@@ -536,17 +536,17 @@ class ViewController: UIViewController {
                 //選択されなかったボタンを非表示にする
                 selectButtton?.isHidden = true
             //縦の場合
-            } else if buttonDic[0]! < 4 && buttonDic[0]! <= 6 {
+            } else if (buttonDic[0]! > 3 && buttonDic[0]! <= 6) {
                 let num = 15 - buttonDic[0]! - buttonDic[1]!
                 //選択されたボタンの文字色を変化させて選択できないようにした
                 var selectButtton: UIButton?
                 switch num {
                 case 4:
-                    selectButtton = changeButton1
+                    selectButtton = changeButton4
                 case 5:
-                    selectButtton = changeButton2
+                    selectButtton = changeButton5
                 case 6:
-                    selectButtton = changeButton3
+                    selectButtton = changeButton6
                 default:
                     return
                            }
