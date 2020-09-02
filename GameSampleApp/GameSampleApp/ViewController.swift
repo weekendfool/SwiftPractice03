@@ -272,37 +272,71 @@ class ViewController: UIViewController {
                 print("Win:\(num)P")
                 sampleLabel.text = "Win:\(num)P"
                 stopButtonAction()
+                stopChangeButton()
             } else if (dic4 == num && dic5 == num && dic6 == num) {
                 print("Win:\(num)P")
                 sampleLabel.text = "Win:\(num)P"
                 stopButtonAction()
+                stopChangeButton()
             } else if (dic7 == num && dic8 == num && dic9 == num) {
                 print("Win:\(num)P")
                 sampleLabel.text = "Win:\(num)P"
                 stopButtonAction()
+                stopChangeButton()
             } else if (dic1 == num && dic4 == num && dic7 == num) {
                 print("Win:\(num)P")
                 sampleLabel.text = "Win:\(num)P"
                 stopButtonAction()
+                stopChangeButton()
             } else if (dic2 == num && dic5 == num && dic8 == num) {
                 print("Win:\(num)P")
                 sampleLabel.text = "Win:\(num)P"
                 stopButtonAction()
+                stopChangeButton()
             } else if (dic3 == num && dic6 == num && dic9 == num) {
                 print("Win:\(num)P")
                 sampleLabel.text = "Win:\(num)P"
                 stopButtonAction()
+                stopChangeButton()
             } else if (dic1 == num && dic5 == num && dic9 == num) {
                 print("Win:\(num)P")
                 sampleLabel.text = "Win:\(num)P"
                 stopButtonAction()
+                stopChangeButton()
             } else if (dic3 == num && dic5 == num && dic7 == num) {
                 print("Win:\(num)P")
                 sampleLabel.text = "Win:\(num)P"
                 stopButtonAction()
+                stopChangeButton()
             } else if playerCount == 9 {
                 sampleLabel.text = "ドロー"
             }
+        }
+        
+    }
+    //勝者が決まったのでボタンをオフする処理
+    func stopChangeButton() {
+        //for文でボタンの状態をリセットする
+        for buttonNumber in 1...6 {
+            var selectButtton: UIButton?
+            switch buttonNumber {
+            case 1:
+                selectButtton = changeButton1
+            case 2:
+                selectButtton = changeButton2
+            case 3:
+                selectButtton = changeButton3
+            case 4:
+                selectButtton = changeButton4
+            case 5:
+                selectButtton = changeButton5
+            case 6:
+                selectButtton = changeButton6
+            default:
+                return
+                       }
+            //ボタンを非表示に
+            selectButtton?.isHidden = true
         }
     }
     //MARK: - 勝敗が確定した時のボタン凍結機能
@@ -377,6 +411,28 @@ class ViewController: UIViewController {
             selectButtton?.backgroundColor = UIColor.white
             selectButtton?.isEnabled = true
         }
+        //for文でボタンの状態をリセットする
+        for buttonNumber in 1...6 {
+            var selectButtton: UIButton?
+            switch buttonNumber {
+            case 1:
+                selectButtton = changeButton1
+            case 2:
+                selectButtton = changeButton2
+            case 3:
+                selectButtton = changeButton3
+            case 4:
+                selectButtton = changeButton4
+            case 5:
+                selectButtton = changeButton5
+            case 6:
+                selectButtton = changeButton6
+            default:
+                return
+                       }
+            //ボタンを非表示に
+            selectButtton?.isHidden = false
+        }
         
     }
     
@@ -395,17 +451,17 @@ class ViewController: UIViewController {
         let colorDic9Data = colorDic[9]
         //どのいちで入れ替えるかを条件分岐
         switch (buttonDic[0], buttonDic[1]) {
-        case (1, 2):
+        case (1, 2), (2, 1):
             colorDic[1] = colorDic2Data; colorDic[4] = colorDic5Data; colorDic[7] = colorDic8Data; colorDic[2] = colorDic1Data; colorDic[5] = colorDic4Data; colorDic[8] = colorDic7Data
-        case (1, 3):
+        case (1, 3), (3, 1):
             colorDic[1] = colorDic3Data; colorDic[4] = colorDic6Data; colorDic[7] = colorDic9Data; colorDic[3] = colorDic1Data; colorDic[6] = colorDic4Data; colorDic[9] = colorDic7Data
-        case (2, 3):
+        case (2, 3), (3, 2):
             colorDic[2] = colorDic3Data; colorDic[5] = colorDic6Data; colorDic[8] = colorDic9Data; colorDic[3] = colorDic2Data; colorDic[6] = colorDic5Data; colorDic[9] = colorDic8Data
-        case (4, 5):
+        case (4, 5), (5, 4):
             colorDic[1] = colorDic4Data; colorDic[2] = colorDic5Data; colorDic[3] = colorDic6Data; colorDic[4] = colorDic1Data; colorDic[5] = colorDic2Data; colorDic[6] = colorDic3Data
-        case (4, 6):
+        case (4, 6), (6, 4):
             colorDic[1] = colorDic7Data; colorDic[2] = colorDic8Data; colorDic[3] = colorDic9Data; colorDic[7] = colorDic1Data; colorDic[8] = colorDic2Data; colorDic[9] = colorDic3Data
-        case (5, 6):
+        case (5, 6), (6, 5):
             colorDic[4] = colorDic7Data; colorDic[5] = colorDic8Data; colorDic[6] = colorDic9Data; colorDic[7] = colorDic4Data; colorDic[8] = colorDic5Data; colorDic[9] = colorDic6Data
         default:
             return
