@@ -223,7 +223,12 @@ class ViewController: UIViewController {
     }
     //入れ替えを実行するボタン
     @IBAction func changeActionButtonAction(_ sender: Any) {
+        //ボタンの押された回数をリセット
         buttonCount = 0
+        //色を入れ替える
+        changePlace()
+        //勝利判定を行う
+        judgmentWiner()
         
     }
     //チェック用関数
@@ -325,7 +330,7 @@ class ViewController: UIViewController {
             default:
                 return
             }
-            //buttonの枠線の色を設定
+            //buttonを選択できなくする
             selectButtton?.isEnabled = false
             }
     }
@@ -372,8 +377,77 @@ class ViewController: UIViewController {
     }
     
     //MARK: -　場所チェンジ機能
-    func changePlace(placeNumber1: Int, placeNumber2: Int) {
+    func changePlace() {
         //入れ替える場所のデータを入れ替える
+        //データを一度取り出す
+        let colorDic1Data = colorDic[1]
+        let colorDic2Data = colorDic[2]
+        let colorDic3Data = colorDic[3]
+        let colorDic4Data = colorDic[4]
+        let colorDic5Data = colorDic[5]
+        let colorDic6Data = colorDic[6]
+        let colorDic7Data = colorDic[7]
+        let colorDic8Data = colorDic[8]
+        let colorDic9Data = colorDic[9]
+        //どのいちで入れ替えるかを条件分岐
+        switch (buttonDic[0], buttonDic[1]) {
+        case (1, 2):
+            colorDic[1] = colorDic2Data; colorDic[4] = colorDic5Data; colorDic[7] = colorDic8Data; colorDic[2] = colorDic1Data; colorDic[5] = colorDic4Data; colorDic[8] = colorDic7Data
+        case (1, 3):
+            colorDic[1] = colorDic3Data; colorDic[4] = colorDic6Data; colorDic[7] = colorDic9Data; colorDic[3] = colorDic1Data; colorDic[6] = colorDic4Data; colorDic[9] = colorDic7Data
+        case (2, 3):
+            colorDic[2] = colorDic3Data; colorDic[5] = colorDic6Data; colorDic[8] = colorDic9Data; colorDic[3] = colorDic2Data; colorDic[6] = colorDic5Data; colorDic[9] = colorDic8Data
+        case (4, 5):
+            colorDic[1] = colorDic4Data; colorDic[2] = colorDic5Data; colorDic[3] = colorDic6Data; colorDic[4] = colorDic1Data; colorDic[5] = colorDic2Data; colorDic[6] = colorDic3Data
+        case (4, 6):
+            colorDic[1] = colorDic7Data; colorDic[2] = colorDic8Data; colorDic[3] = colorDic9Data; colorDic[7] = colorDic1Data; colorDic[8] = colorDic2Data; colorDic[9] = colorDic3Data
+        case (5, 6):
+            colorDic[4] = colorDic7Data; colorDic[5] = colorDic8Data; colorDic[6] = colorDic9Data; colorDic[7] = colorDic4Data; colorDic[8] = colorDic5Data; colorDic[9] = colorDic6Data
+        default:
+            return
+        }
+        
+        //for文でボタンの色を変える
+        for num in 1...9 {
+            var selectButtton: UIButton?
+            //switch文でどのボタンが押されたかの条件分岐
+            switch num {
+            case 1:
+                selectButtton = sampleButton1
+            case 2:
+                selectButtton = sampleButton2
+            case 3:
+                selectButtton = sampleButton3
+            case 4:
+                selectButtton = sampleButton4
+            case 5:
+                selectButtton = sampleButton5
+            case 6:
+                selectButtton = sampleButton6
+            case 7:
+                selectButtton = sampleButton7
+            case 8:
+                selectButtton = sampleButton8
+            case 9:
+                selectButtton = sampleButton9
+            default:
+                return
+            }
+            //記録されている数字に従い色を付け直す
+            switch colorDic[num] {
+            case 0:
+                selectButtton?.backgroundColor = UIColor.white; selectButtton?.isEnabled = true
+            case 1:
+                selectButtton?.backgroundColor = UIColor.red; selectButtton?.isEnabled = false
+            case 2:
+                selectButtton?.backgroundColor = UIColor.blue; selectButtton?.isEnabled = false
+            default:
+                return
+            }
+        }
+    }
+    
+    func changePlaceAction(placeNumber1: Int, placeNumber2: Int) {
         
     }
     //MARK: -入れ替え時にボタンを押した時に選択できるもののみ選択できるようにする処理
