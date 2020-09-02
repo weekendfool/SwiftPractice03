@@ -181,6 +181,10 @@ class ViewController: UIViewController {
         butttonActionGroup(number: 9)
     }
     
+    @IBAction func resetButtonAction(_ sender: Any) {
+    }
+    
+    
     //チェック用関数
     func chack() {
         print("playerCount:\(playerCount)")
@@ -212,6 +216,7 @@ class ViewController: UIViewController {
         let dic7 = colorDic[7]
         let dic8 = colorDic[8]
         let dic9 = colorDic[9]
+        
         //勝敗が決まるかの判定を二色分for文で行う
         for num in 1...2 {
             if (dic1 == num && dic2 == num && dic3 == num) {
@@ -238,6 +243,8 @@ class ViewController: UIViewController {
             } else if (dic3 == num && dic5 == num && dic7 == num) {
                 print("Win:\(num)P")
                 sampleLabel.text = "Win:\(num)P"
+            } else if playerCount == 9 {
+                sampleLabel.text = "ドロー"
             }
         }
     }
