@@ -407,37 +407,20 @@ class ViewController: UIViewController {
     }
     //MARK: -入れ替え時にボタンを押した時に選択できるもののみ選択できるようにする処理
     func selectButton(buttonNumber: Int) {
+        //switch文でどのボタンが押されたかの条件分岐
+        c(buttonNumber: buttonNumber)
         //最初に選ばれたボタンにより縦か横を残すかの条件分岐
         if buttonNumber <= 3 {
             changeButton4.isHidden = true
             changeButton5.isHidden = true
             changeButton6.isHidden = true
+            
         } else if buttonNumber > 3 && buttonNumber <= 6 {
             changeButton1.isHidden = true
             changeButton2.isHidden = true
             changeButton3.isHidden = true
         }
-        
-        var selectButtton: UIButton?
-        //switch文でどのボタンが押されたかの条件分岐
-        switch buttonNumber {
-        case 1:
-            selectButtton = changeButton1
-        case 2:
-            selectButtton = changeButton2
-        case 3:
-            selectButtton = changeButton3
-        case 4:
-            selectButtton = changeButton4
-        case 5:
-            selectButtton = changeButton5
-        case 6:
-            selectButtton = changeButton6
-        default:
-            return
-            }
-        selectButtton?.titleLabel?.textColor = UIColor.white
-        selectButtton?.isEnabled = false
+    
     }
     
     func selectChangebutton() {
@@ -448,6 +431,25 @@ class ViewController: UIViewController {
         } else {
             changeActionButton.isHidden = true
         }
+    }
+    func c(buttonNumber: Int) {
+        print("OK")
+        switch buttonNumber {
+        case 1:
+            changeButton2.titleLabel?.textColor = UIColor.white
+        case 2:
+            changeButton2.backgroundColor = UIColor.white
+        case 3:
+            changeButton3.titleLabel?.textColor = UIColor.white
+        case 4:
+            changeButton4.titleLabel?.textColor = UIColor.white
+        case 5:
+            changeButton5.titleLabel?.textColor = UIColor.white
+        case 6:
+            changeButton6.titleLabel?.textColor = UIColor.white
+        default:
+            return
+            }
     }
 }
 
