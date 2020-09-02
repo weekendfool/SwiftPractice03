@@ -21,6 +21,14 @@ class ViewController: UIViewController {
     @IBOutlet weak var sampleButton8: UIButton!
     @IBOutlet weak var sampleButton9: UIButton!
     
+    @IBOutlet weak var changeButton1: UIButton!
+    @IBOutlet weak var changeButton2: UIButton!
+    @IBOutlet weak var changeButton3: UIButton!
+    @IBOutlet weak var changeButton4: UIButton!
+    @IBOutlet weak var changeButton5: UIButton!
+    @IBOutlet weak var changeButton6: UIButton!
+    @IBOutlet weak var changeActionButton: UIButton!
+    
     //プレイヤーの変数
     var player = 0
     //奇数か偶数かの保持
@@ -145,7 +153,7 @@ class ViewController: UIViewController {
     }
     
     //MARK: - ボタンのAction
-
+    //格マスのボタンの処理
     @IBAction func sampleButton1Action(_ sender: Any) {
         butttonActionGroup(number: 1)
     }
@@ -180,12 +188,31 @@ class ViewController: UIViewController {
     @IBAction func sampleButton9Action(_ sender: Any) {
         butttonActionGroup(number: 9)
     }
-    
+    //リセットボタンの処理
     @IBAction func resetButtonAction(_ sender: Any) {
         resetAction()
     }
+    //入れ替える場所を選択するボタン
+    @IBAction func changeButton1Action(_ sender: Any) {
+    }
     
+    @IBAction func changeButton2Action(_ sender: Any) {
+    }
     
+    @IBAction func changeButton3Action(_ sender: Any) {
+    }
+    
+    @IBAction func changeButton4Action(_ sender: Any) {
+    }
+    
+    @IBAction func changeButton5Action(_ sender: Any) {
+    }
+    
+    @IBAction func changeButton6Action(_ sender: Any) {
+    }
+    //入れ替えを実行するボタン
+    @IBAction func changeActionButtonAction(_ sender: Any) {
+    }
     //チェック用関数
     func chack() {
         print("playerCount:\(playerCount)")
@@ -331,5 +358,23 @@ class ViewController: UIViewController {
         }
     }
     
+    //MARK: -　場所チェンジ機能
+    func changePlace(placeNumber1: Int, placeNumber2: Int) {
+        //入れ替える場所のデータを入れ替える
+        
+    }
+    //MARK: -入れ替え時にボタンを押した時に選択できるもののみ選択できるようにする処理
+    func selectButton(buttonNumber: Int) {
+        //最初に選ばれたボタンにより縦か横を残すかの条件分岐
+        if buttonNumber <= 3 {
+            changeButton4.isHidden = false
+            changeButton5.isHidden = false
+            changeButton6.isHidden = false
+        } else if buttonNumber > 3 && buttonNumber <= 6 {
+            changeButton1.isHidden = false
+            changeButton2.isHidden = false
+            changeButton3.isHidden = false
+        }
+    }
 }
 
