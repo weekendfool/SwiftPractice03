@@ -223,33 +223,72 @@ class ViewController: UIViewController {
             if (dic1 == num && dic2 == num && dic3 == num) {
                 print("Win:\(num)P")
                 sampleLabel.text = "Win:\(num)P"
+                stopButtonAction()
             } else if (dic4 == num && dic5 == num && dic6 == num) {
                 print("Win:\(num)P")
                 sampleLabel.text = "Win:\(num)P"
+                stopButtonAction()
             } else if (dic7 == num && dic8 == num && dic9 == num) {
                 print("Win:\(num)P")
                 sampleLabel.text = "Win:\(num)P"
+                stopButtonAction()
             } else if (dic1 == num && dic4 == num && dic7 == num) {
                 print("Win:\(num)P")
                 sampleLabel.text = "Win:\(num)P"
+                stopButtonAction()
             } else if (dic2 == num && dic5 == num && dic8 == num) {
                 print("Win:\(num)P")
                 sampleLabel.text = "Win:\(num)P"
+                stopButtonAction()
             } else if (dic3 == num && dic6 == num && dic9 == num) {
                 print("Win:\(num)P")
                 sampleLabel.text = "Win:\(num)P"
+                stopButtonAction()
             } else if (dic1 == num && dic5 == num && dic9 == num) {
                 print("Win:\(num)P")
                 sampleLabel.text = "Win:\(num)P"
+                stopButtonAction()
             } else if (dic3 == num && dic5 == num && dic7 == num) {
                 print("Win:\(num)P")
                 sampleLabel.text = "Win:\(num)P"
+                stopButtonAction()
             } else if playerCount == 9 {
                 sampleLabel.text = "ドロー"
             }
         }
     }
-    //MARK: - 勝敗が確定した時の
+    //MARK: - 勝敗が確定した時のボタン凍結機能
+    func stopButtonAction() {
+        //for文で全てのボタンを選択できなくする
+        for num in 1...9 {
+            var selectButtton: UIButton?
+            //switch文でどのボタンが押されたかの条件分岐
+            switch num {
+            case 1:
+                selectButtton = sampleButton1
+            case 2:
+                selectButtton = sampleButton2
+            case 3:
+                selectButtton = sampleButton3
+            case 4:
+                selectButtton = sampleButton4
+            case 5:
+                selectButtton = sampleButton5
+            case 6:
+                selectButtton = sampleButton6
+            case 7:
+                selectButtton = sampleButton7
+            case 8:
+                selectButtton = sampleButton8
+            case 9:
+                selectButtton = sampleButton9
+            default:
+                return
+            }
+            //buttonの枠線の色を設定
+            selectButtton?.isEnabled = false
+            }
+    }
     
      //MARK: - リセット機能
     func resetAction() {
