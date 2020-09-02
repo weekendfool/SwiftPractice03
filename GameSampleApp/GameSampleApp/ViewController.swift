@@ -37,6 +37,8 @@ class ViewController: UIViewController {
     var colorDic: [Int: Int] = [1:0, 2:0, 3:0, 4:0, 5:0, 6:0, 7:0, 8:0, 9:0]
     //ボタンの選択個数を保持する変数
     var buttonCount = 0
+    //場所移動する選択肢の数字を格納する辞書
+    var buttonDic: [Int: Int] = [0:0, 1:0]
     
     
     override func viewDidLoad() {
@@ -197,63 +199,32 @@ class ViewController: UIViewController {
     }
     //入れ替える場所を選択するボタン
     @IBAction func changeButton1Action(_ sender: Any) {
-        //ひとつめのボタンの選択だった場合
-        if buttonCount == 0 {
-            selectButton(buttonNumber: 1)
-        }
-        buttonCount += 1
-        selectChangebutton()
-        
+        tappedChangeButton(buttonNumber: 1)
     }
     
     @IBAction func changeButton2Action(_ sender: Any) {
-        //ひとつめのボタンの選択だった場合
-        if buttonCount == 0 {
-            selectButton(buttonNumber: 2)
-        }
-        buttonCount += 1
-        selectChangebutton()
+        tappedChangeButton(buttonNumber: 2)
     }
     
     @IBAction func changeButton3Action(_ sender: Any) {
-        //ひとつめのボタンの選択だった場合
-        if buttonCount == 0 {
-            selectButton(buttonNumber: 3)
-        }
-        buttonCount += 1
-        selectChangebutton()
+        tappedChangeButton(buttonNumber: 3)
     }
     
     @IBAction func changeButton4Action(_ sender: Any) {
-        //ひとつめのボタンの選択だった場合
-        if buttonCount == 0 {
-            selectButton(buttonNumber: 4)
-        }
-        buttonCount += 1
-        selectChangebutton()
+        tappedChangeButton(buttonNumber: 4)
     }
     
     @IBAction func changeButton5Action(_ sender: Any) {
-        //ひとつめのボタンの選択だった場合
-        if buttonCount == 0 {
-            selectButton(buttonNumber: 5)
-        }
-        buttonCount += 1
-        selectChangebutton()
+        tappedChangeButton(buttonNumber: 5)
     }
     
     @IBAction func changeButton6Action(_ sender: Any) {
-        //ひとつめのボタンの選択だった場合
-        if buttonCount == 0 {
-            selectButton(buttonNumber: 6)
-        }
-        buttonCount += 1
-        selectChangebutton()
+        tappedChangeButton(buttonNumber: 6)
     }
     //入れ替えを実行するボタン
     @IBAction func changeActionButtonAction(_ sender: Any) {
         buttonCount = 0
-        changeButton1.titleLabel?.textColor = UIColor.white
+        
     }
     //チェック用関数
     func chack() {
@@ -408,7 +379,26 @@ class ViewController: UIViewController {
     //MARK: -入れ替え時にボタンを押した時に選択できるもののみ選択できるようにする処理
     func selectButton(buttonNumber: Int) {
         //switch文でどのボタンが押されたかの条件分岐
-        c(buttonNumber: buttonNumber)
+        //選択されたボタンの文字色を変化させて選択できないようにした
+        var selectButtton: UIButton?
+        switch buttonNumber {
+        case 1:
+            selectButtton = changeButton1
+        case 2:
+            selectButtton = changeButton2
+        case 3:
+            selectButtton = changeButton3
+        case 4:
+            selectButtton = changeButton4
+        case 5:
+            selectButtton = changeButton5
+        case 6:
+            selectButtton = changeButton6
+        default:
+            return
+                   }
+        selectButtton?.setTitleColor(UIColor.white, for: .normal)
+        selectButtton?.isEnabled = false
         //最初に選ばれたボタンにより縦か横を残すかの条件分岐
         if buttonNumber <= 3 {
             changeButton4.isHidden = true
@@ -420,36 +410,68 @@ class ViewController: UIViewController {
             changeButton2.isHidden = true
             changeButton3.isHidden = true
         }
-    
+        
     }
     
     func selectChangebutton() {
         //もし二個ボタンが選択されていたらボタンの可視化を行う
         if buttonCount == 2 {
+            //最初に選択されたのが横か立てた選択する
+            //縦の場合
+            if buttonDic[0]! <= 3 {
+                let num = 6 - buttonDic[0]! - buttonDic[1]!
+                //選択されたボタンの文字色を変化させて選択できないようにした
+                var selectButtton: UIButton?
+                switch num {
+                case 1:
+                    selectButtton = changeButton1
+                case 2:
+                    selectButtton = changeButton2
+                case 3:
+                    selectButtton = changeButton3
+                default:
+                    return
+                           }
+                //選択されなかったボタンを非表示にする
+                selectButtton?.isHidden = true
+            //縦の場合
+            } else if buttonDic[0]! < 4 && buttonDic[0]! <= 6 {
+                let num = 15 - buttonDic[0]! - buttonDic[1]!
+                //選択されたボタンの文字色を変化させて選択できないようにした
+                var selectButtton: UIButton?
+                switch num {
+                case 4:
+                    selectButtton = changeButton1
+                case 5:
+                    selectButtton = changeButton2
+                case 6:
+                    selectButtton = changeButton3
+                default:
+                    return
+                           }
+                //選択されなかったボタンを非表示にする
+                selectButtton?.isHidden = true
+            }
+            //変更ボタンを表示する
             changeActionButton.isHidden = false
             
         } else {
+            //変更ボタンを表示しない
             changeActionButton.isHidden = true
         }
     }
-    func c(buttonNumber: Int) {
-        print("OK")
-        switch buttonNumber {
-        case 1:
-            changeButton2.titleLabel?.textColor = UIColor.white
-        case 2:
-            changeButton2.backgroundColor = UIColor.white
-        case 3:
-            changeButton3.titleLabel?.textColor = UIColor.white
-        case 4:
-            changeButton4.titleLabel?.textColor = UIColor.white
-        case 5:
-            changeButton5.titleLabel?.textColor = UIColor.white
-        case 6:
-            changeButton6.titleLabel?.textColor = UIColor.white
-        default:
-            return
-            }
+    //MARK: - 移動の選択ボタンが押された時の処理
+    func tappedChangeButton(buttonNumber: Int) {
+        buttonDic[buttonCount] = buttonNumber
+        //ひとつめのボタンの選択だった場合
+        if buttonCount == 0 {
+            selectButton(buttonNumber: buttonNumber)
+        
+        } else if buttonCount == 1 {
+            selectButton(buttonNumber: buttonNumber)
+        }
+        buttonCount += 1
+        selectChangebutton()
     }
 }
 
