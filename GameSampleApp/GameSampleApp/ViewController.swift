@@ -182,6 +182,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func resetButtonAction(_ sender: Any) {
+        resetAction()
     }
     
     
@@ -246,6 +247,48 @@ class ViewController: UIViewController {
             } else if playerCount == 9 {
                 sampleLabel.text = "ドロー"
             }
+        }
+    }
+    //MARK: - 勝敗が確定した時の
+    
+     //MARK: - リセット機能
+    func resetAction() {
+        //変数の初期化
+        playerCount = 1
+        player = 0
+        //for文で全てのボタンの色の初期化する
+        for num in 1...9 {
+            colorDic[num] = 0
+        }
+        
+        //for文で全てのボタンの色の初期化する
+        for num in 1...9 {
+            var selectButtton: UIButton?
+            //switch文でどのボタンが押されたかの条件分岐
+            switch num {
+            case 1:
+                selectButtton = sampleButton1
+            case 2:
+                selectButtton = sampleButton2
+            case 3:
+                selectButtton = sampleButton3
+            case 4:
+                selectButtton = sampleButton4
+            case 5:
+                selectButtton = sampleButton5
+            case 6:
+                selectButtton = sampleButton6
+            case 7:
+                selectButtton = sampleButton7
+            case 8:
+                selectButtton = sampleButton8
+            case 9:
+                selectButtton = sampleButton9
+            default:
+                return
+            }
+            selectButtton?.backgroundColor = UIColor.white
+            selectButtton?.isEnabled = true
         }
     }
     
