@@ -35,6 +35,8 @@ class ViewController: UIViewController {
     var playerCount = 0
     //マスの色を記録する辞書
     var colorDic: [Int: Int] = [1:0, 2:0, 3:0, 4:0, 5:0, 6:0, 7:0, 8:0, 9:0]
+    //ボタンの選択個数を保持する変数
+    var buttonCount = 0
     
     
     override func viewDidLoad() {
@@ -43,6 +45,7 @@ class ViewController: UIViewController {
         setButtonborder()
         playerCount = 1
         player = 0
+        selectChangebutton()
     }
 //MARK: - ボタンの色変え
     func changeCouler(number: Int, player: Int) {
@@ -194,24 +197,63 @@ class ViewController: UIViewController {
     }
     //入れ替える場所を選択するボタン
     @IBAction func changeButton1Action(_ sender: Any) {
+        //ひとつめのボタンの選択だった場合
+        if buttonCount == 0 {
+            selectButton(buttonNumber: 1)
+        }
+        buttonCount += 1
+        selectChangebutton()
+        
     }
     
     @IBAction func changeButton2Action(_ sender: Any) {
+        //ひとつめのボタンの選択だった場合
+        if buttonCount == 0 {
+            selectButton(buttonNumber: 2)
+        }
+        buttonCount += 1
+        selectChangebutton()
     }
     
     @IBAction func changeButton3Action(_ sender: Any) {
+        //ひとつめのボタンの選択だった場合
+        if buttonCount == 0 {
+            selectButton(buttonNumber: 3)
+        }
+        buttonCount += 1
+        selectChangebutton()
     }
     
     @IBAction func changeButton4Action(_ sender: Any) {
+        //ひとつめのボタンの選択だった場合
+        if buttonCount == 0 {
+            selectButton(buttonNumber: 4)
+        }
+        buttonCount += 1
+        selectChangebutton()
     }
     
     @IBAction func changeButton5Action(_ sender: Any) {
+        //ひとつめのボタンの選択だった場合
+        if buttonCount == 0 {
+            selectButton(buttonNumber: 5)
+        }
+        buttonCount += 1
+        selectChangebutton()
     }
     
     @IBAction func changeButton6Action(_ sender: Any) {
+        //ひとつめのボタンの選択だった場合
+        if buttonCount == 0 {
+            selectButton(buttonNumber: 6)
+        }
+        buttonCount += 1
+        selectChangebutton()
     }
     //入れ替えを実行するボタン
     @IBAction func changeActionButtonAction(_ sender: Any) {
+        buttonCount = 0
+        changeButton1.titleLabel?.textColor = UIColor.white
     }
     //チェック用関数
     func chack() {
@@ -367,13 +409,44 @@ class ViewController: UIViewController {
     func selectButton(buttonNumber: Int) {
         //最初に選ばれたボタンにより縦か横を残すかの条件分岐
         if buttonNumber <= 3 {
-            changeButton4.isHidden = false
-            changeButton5.isHidden = false
-            changeButton6.isHidden = false
+            changeButton4.isHidden = true
+            changeButton5.isHidden = true
+            changeButton6.isHidden = true
         } else if buttonNumber > 3 && buttonNumber <= 6 {
-            changeButton1.isHidden = false
-            changeButton2.isHidden = false
-            changeButton3.isHidden = false
+            changeButton1.isHidden = true
+            changeButton2.isHidden = true
+            changeButton3.isHidden = true
+        }
+        
+        var selectButtton: UIButton?
+        //switch文でどのボタンが押されたかの条件分岐
+        switch buttonNumber {
+        case 1:
+            selectButtton = changeButton1
+        case 2:
+            selectButtton = changeButton2
+        case 3:
+            selectButtton = changeButton3
+        case 4:
+            selectButtton = changeButton4
+        case 5:
+            selectButtton = changeButton5
+        case 6:
+            selectButtton = changeButton6
+        default:
+            return
+            }
+        selectButtton?.titleLabel?.textColor = UIColor.white
+        selectButtton?.isEnabled = false
+    }
+    
+    func selectChangebutton() {
+        //もし二個ボタンが選択されていたらボタンの可視化を行う
+        if buttonCount == 2 {
+            changeActionButton.isHidden = false
+            
+        } else {
+            changeActionButton.isHidden = true
         }
     }
 }
