@@ -227,8 +227,11 @@ class ViewController: UIViewController {
         buttonCount = 0
         //色を入れ替える
         changePlace()
+        //入れ替えた後にボタンの状態を戻す
+        changePlaceAction()
         //勝利判定を行う
         judgmentWiner()
+        
         
     }
     //チェック用関数
@@ -374,6 +377,7 @@ class ViewController: UIViewController {
             selectButtton?.backgroundColor = UIColor.white
             selectButtton?.isEnabled = true
         }
+        
     }
     
     //MARK: -　場所チェンジ機能
@@ -446,9 +450,32 @@ class ViewController: UIViewController {
             }
         }
     }
-    
-    func changePlaceAction(placeNumber1: Int, placeNumber2: Int) {
-        
+    //場所を入れ替えた後のリセット処理
+    func changePlaceAction() {
+        //for文でボタンの状態をリセットする
+        for buttonNumber in 1...6 {
+            var selectButtton: UIButton?
+            switch buttonNumber {
+            case 1:
+                selectButtton = changeButton1
+            case 2:
+                selectButtton = changeButton2
+            case 3:
+                selectButtton = changeButton3
+            case 4:
+                selectButtton = changeButton4
+            case 5:
+                selectButtton = changeButton5
+            case 6:
+                selectButtton = changeButton6
+            default:
+                return
+                       }
+            selectButtton?.setTitleColor(UIColor.systemBlue, for: .normal)
+            selectButtton?.isEnabled = true
+            selectButtton?.isHidden = false
+        }
+        changeActionButton.isHidden = true
     }
     //MARK: -入れ替え時にボタンを押した時に選択できるもののみ選択できるようにする処理
     func selectButton(buttonNumber: Int) {
