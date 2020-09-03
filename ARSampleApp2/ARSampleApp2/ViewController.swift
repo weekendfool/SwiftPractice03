@@ -17,34 +17,43 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Set the view's delegate
+        // デリゲートの設定
         sceneView.delegate = self
         
-        // Show statistics such as fps and timing information
-        sceneView.showsStatistics = true
+        // シーンを設定
+        sceneView.scene = SCNScene()
         
-        // Create a new scene
-        let scene = SCNScene(named: "art.scnassets/ship.scn")!
+        // 特徴点を表示する
+        sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints]
+        //ライト追加
+        sceneView.autoenablesDefaultLighting = true
         
-        // Set the scene to the view
-        sceneView.scene = scene
+        // 平面検出
+        let configuration = ARWorldTrackingConfiguration()
+        configuration.planeDetection = .horizontal
+        sceneView.session.run(configuration)
+        
     }
     
+    func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
+        //球のノードを作成
+        let sphereNode = SCNNode()
+        //ノードに設定を追加
+        sphereNode.geometry = SCNSphere(radius: 0.5)
+        sphereNode.position.y += Float(0.05)
+        
+        //検出された面の子要素にする
+        node.addChildNode(sphereNode)
+    }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        // Create a session configuration
-        let configuration = ARWorldTrackingConfiguration()
-
-        // Run the view's session
-        sceneView.session.run(configuration)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        // Pause the view's session
-        sceneView.session.pause()
+       
     }
 
     // MARK: - ARSCNViewDelegate
