@@ -25,7 +25,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         // Create a new scene
         sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints]
-        sceneView.automaticallyUpdatesLighting = true
+        sceneView.autoenablesDefaultLighting = true
         
         // Set the scene to the view
         let configuration = ARWorldTrackingConfiguration()
@@ -49,11 +49,25 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     }
     
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
+//        guard let planeAnchor = anchor as? ARPlaneAnchor else {fatalError()}
+//        // ノードの作成
+//        let planeNode = SCNNode()
+//        // ジオメトリの作成
+//        let geometry = SCNPlane(width: CGFloat(planeAnchor.extent.x), height: CGFloat(planeAnchor.extent.z))
+//
+//        geometry.materials.first?.diffuse.contents = UIColor.white.withAlphaComponent(0.5)
+//
+//        // ノードにgeometryとtransform設定
+//        planeNode.geometry = geometry
+//        planeNode.transform = SCNMatrix4MakeRotation(-Float.pi / 2.0, 1, 0, 0)
+//        // 検出したアンカーに追加する
+//        node.addChildNode(planeNode)
         guard !(anchor is ARPlaneAnchor) else { return }
         
         let sphereNode = SCNNode()
         sphereNode.geometry = SCNSphere(radius: 0.05)
         sphereNode.position.y += Float(0.05)
+        node.addChildNode(sphereNode)
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
