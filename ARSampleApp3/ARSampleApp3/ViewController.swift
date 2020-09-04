@@ -1,8 +1,8 @@
 //
 //  ViewController.swift
-//  ARSampleApp2
+//  ARSampleApp3
 //
-//  Created by 尾原徳泰 on 2020/09/03.
+//  Created by 尾原徳泰 on 2020/09/04.
 //  Copyright © 2020 尾原徳泰. All rights reserved.
 //
 
@@ -17,34 +17,37 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // デリゲートの設定
+        // Set the view's delegate
         sceneView.delegate = self
         
-        // シーンを設定
+        // Show statistics such as fps and timing information
         sceneView.scene = SCNScene()
-        
-        // 特徴点を表示する
+        //特徴点を表示する
         sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints]
-        //ライト追加
-        sceneView.autoenablesDefaultLighting = true
         
         // 平面検出
         let configuration = ARWorldTrackingConfiguration()
         configuration.planeDetection = .horizontal
         sceneView.session.run(configuration)
-        
+    
     }
     
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
-        //球のノードを作成
-        let sphereNode = SCNNode()
-        //ノードに設定を追加
-        sphereNode.geometry = SCNSphere(radius: 0.05)
-        sphereNode.position.y += Float(0.05)
+        guard let planeAnchor = anchor as? ARPlaneAnchor else {fatalError()}
+        // ノードの作成
+        let planeNode = SCNNode()
+        // ジオメトリの作成
+        let geometry = SCNPlane(width: CGFloat(planeAnchor.extent.x), height: CGFloat(planeAnchor.extent.z))
         
-        //検出された面の子要素にする
-        node.addChildNode(sphereNode)
+        geometry.materials.first?.diffuse.contents = UIColor.white.withAlphaComponent(0.5)
+        
+        // ノードにgeometryとtransform設定
+        planeNode.geometry = geometry
+        planeNode.transform = SCNMatrix4MakeRotation(-Float.pi / 2.0, 1, 0, 0)
+        // 検出したアンカーに追加する
+        node.addChildNode(planeNode)
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -53,7 +56,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-       
     }
 
     // MARK: - ARSCNViewDelegate
