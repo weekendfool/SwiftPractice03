@@ -25,7 +25,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         // Create a new scene
         sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints]
-        
+        sceneView.debugOptions = [ARSCNDebugOptions.showWireframe]
         sceneView.autoenablesDefaultLighting = true
         // Set the scene to the view
         let configuration = ARWorldTrackingConfiguration()
@@ -35,9 +35,9 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
         // ファイルからシーンを読み込む
-        let scene = SCNScene(named: "art.scnassets/testRed.scn")
+        let scene = SCNScene(named: "art.scnassets/testBlue.scn")
         // シーンからノードを検索
-        let redNode = (scene?.rootNode.childNode(withName: "testRed", recursively: false))!
+        let redNode = (scene?.rootNode.childNode(withName: "testBlue", recursively: false))!
         
         node.addChildNode(redNode)
     }
