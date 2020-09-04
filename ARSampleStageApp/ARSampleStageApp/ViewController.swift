@@ -20,16 +20,30 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         // デリゲートの設定
         sceneView.delegate = self
         
-        // Show statistics such as fps and timing information
-        sceneView.showsStatistics = true
+        // シーンを作成して登録
+        sceneView.scene = SCNScene()
         
-        // Create a new scene
-        let scene = SCNScene(named: "art.scnassets/ship.scn")!
-        
-        // Set the scene to the view
-        sceneView.scene = scene
+        // 特徴点を表示する
+        sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints]
+        // 原点座標を表示
+//        sceneView.debugOptions = [ARSCNDebugOptions.showWorldOrigin]
+        // ライトを追加する
+        sceneView.autoenablesDefaultLighting = true
+        // 平面検出
+        let configuration = ARWorldTrackingConfiguration()
+        configuration.planeDetection = .horizontal
+        sceneView.session.run(configuration)
     }
     
+    // MARK: - 平面が検出された時にフィールドを原点座標に表示する
+    func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
+        // ファイルからシーンを読み込む
+        let field = SCNScene(named: "art.scnassets/field.scn")
+        // シーンからノードを検索
+        let fieldNode = (field?.rootNode.childNode(withName: "field", recursively: false))!
+        // 検出面の子要素にする
+        node.addChildNode(fieldNode)
+    }
    
     // MARK: - ARSCNViewDelegate
     
