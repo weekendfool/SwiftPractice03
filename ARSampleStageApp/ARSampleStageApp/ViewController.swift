@@ -26,7 +26,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         // 特徴点を表示する
         sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints]
         // 原点座標を表示
-//        sceneView.debugOptions = [ARSCNDebugOptions.showWorldOrigin]
+        sceneView.debugOptions = [ARSCNDebugOptions.showBoundingBoxes]
         // ライトを追加する
         sceneView.autoenablesDefaultLighting = true
         // 平面検出
