@@ -26,7 +26,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         // 特徴点を表示する
         sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints]
         // 原点座標を表示
-        sceneView.debugOptions = [ARSCNDebugOptions.showBoundingBoxes]
+//        sceneView.debugOptions = [ARSCNDebugOptions.showBoundingBoxes]
         // ライトを追加する
         sceneView.autoenablesDefaultLighting = true
         // 平面検出
@@ -45,6 +45,22 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         node.addChildNode(fieldNode)
     }
    
+    // MARK: - 画面タップの座標確認
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        guard let touch = touches.first else { return }
+        print("-----------------------------------------")
+        print("touch:\(touch)")
+        let touchPos = touch.location(in: sceneView)
+        print("touch:\(touchPos)")
+        let hitTest = sceneView.hitTest(touchPos, types: .existingPlaneUsingExtent)
+        
+        if !hitTest.isEmpty {
+            print("ok")
+//            let anchor = ARAnchor(transform: hitTest.first!.worldTransform)
+//            sceneView.session.add(anchor: anchor)
+        }
+    }
+    
     // MARK: - ARSCNViewDelegate
     
 /*
