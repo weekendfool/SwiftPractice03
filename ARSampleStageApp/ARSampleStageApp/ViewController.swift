@@ -15,6 +15,10 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     @IBOutlet var sceneView: ARSCNView!
     
     var stageCount = 0
+    //タップした箇所の座標を取得する
+    var stagePoint:CGPoint?
+    // 二つ目のオブジェクトの追加許可フラグ
+    var secondFlag = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,29 +57,56 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             print("二つ目を検出")
 
         }
-
         
+        if secondFlag == 1 {
+            // ファイルからシーンを読み込む
+            let field = SCNScene(named: "art.scnassets/ship.scn")
+            // シーンからノードを検索
+            let fieldNode = (field?.rootNode.childNode(withName: "ship", recursively: false))!
+            // 検出面の子要素にする
+            node.addChildNode(fieldNode)
+            secondFlag += 1
+        }
     }
    
     // MARK: - 画面タップの座標確認
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard let touch = touches.first else { return }
         print("-----------------------------------------")
-        print("touch:\(touch)")
+//        print("touch:\(touch)")
         
-        //空間上の座標
+        //空間上の座標を取得
         let touchPos = touch.location(in: sceneView)
+        stagePoint = touchPos
+        print("stagePoint:\(stagePoint)")
+//        pointArray = touchPos
         print("touch:\(touchPos)")
-      
+        //タップされた位置のARアンカーを探す
         let hitTest = sceneView.hitTest(touchPos, types: .existingPlaneUsingExtent)
         if !hitTest.isEmpty {
             print("stageCount\(stageCount)")
             stageCount += 1
+            //タップした箇所が取得できたらアンカーを追加
             let anchor = ARAnchor(transform: hitTest.first!.worldTransform)
             sceneView.session.add(anchor: anchor)
         }
     }
-    
+    // MARK: - buttonタップして座標に物体を出現させる
+    @IBAction func tapButton(_ sender: Any) {
+        //　座標が保存されていた場合
+        if let stagePoint = stagePoint{
+            //保存された位置のARアンカーを探す
+            let hitTest = sceneView.hitTest(stagePoint, types: .existingPlaneUsingExtent)
+            //保存された位置の取得できたらアンカーを追加
+            let anchor = ARAnchor(transform: hitTest.first!.worldTransform)
+                   sceneView.session.add(anchor: anchor)
+            // 二つ目のオブジェクトの追加を許可
+            secondFlag += 1
+        }
+        
+       
+        
+    }
     // MARK: - ARSCNViewDelegate
     
 /*
