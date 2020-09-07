@@ -14,6 +14,8 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 
     @IBOutlet var sceneView: ARSCNView!
     
+    var stageCount = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -26,7 +28,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         // 特徴点を表示する
         sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints]
         // 原点座標を表示
-//        sceneView.debugOptions = [ARSCNDebugOptions.showBoundingBoxes]
+//        sceneView.debugOptions = [ARSCNDebugOptions.showWorldOrigin]
         // ライトを追加する
         sceneView.autoenablesDefaultLighting = true
         // 平面検出
@@ -37,12 +39,22 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     
     // MARK: - 平面が検出された時にフィールドを原点座標に表示する
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
-        // ファイルからシーンを読み込む
-        let field = SCNScene(named: "art.scnassets/field.scn")
-        // シーンからノードを検索
-        let fieldNode = (field?.rootNode.childNode(withName: "field", recursively: false))!
-        // 検出面の子要素にする
-        node.addChildNode(fieldNode)
+        guard !(anchor is ARPlaneAnchor) else { return }
+        //ひとつしかステージを表示しない
+        if stageCount == 1 {
+            // ファイルからシーンを読み込む
+            let field = SCNScene(named: "art.scnassets/field2.scn")
+            // シーンからノードを検索
+            let fieldNode = (field?.rootNode.childNode(withName: "field2", recursively: false))!
+            // 検出面の子要素にする
+            node.addChildNode(fieldNode)
+            stageCount += 1
+        } else {
+            print("二つ目を検出")
+
+        }
+
+        
     }
    
     // MARK: - 画面タップの座標確認
@@ -50,14 +62,17 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         guard let touch = touches.first else { return }
         print("-----------------------------------------")
         print("touch:\(touch)")
+        
+        //空間上の座標
         let touchPos = touch.location(in: sceneView)
         print("touch:\(touchPos)")
+      
         let hitTest = sceneView.hitTest(touchPos, types: .existingPlaneUsingExtent)
-        
         if !hitTest.isEmpty {
-            print("ok")
-//            let anchor = ARAnchor(transform: hitTest.first!.worldTransform)
-//            sceneView.session.add(anchor: anchor)
+            print("stageCount\(stageCount)")
+            stageCount += 1
+            let anchor = ARAnchor(transform: hitTest.first!.worldTransform)
+            sceneView.session.add(anchor: anchor)
         }
     }
     
