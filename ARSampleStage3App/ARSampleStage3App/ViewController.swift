@@ -45,15 +45,15 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         print("cameraNode.camera!.zNear\(cameraNode.camera!.zNear)")
         print("cameraNode.camera!.zFar\(cameraNode.camera!.zFar)")
         let pointInWorld = cameraNode.convertPosition(infrontOfCamera, to: nil)
-        // ワールド座標からスクリーン座標へ変換
-        var screenPos = sceneView.projectPoint(pointInWorld)
+//        // ワールド座標からスクリーン座標へ変換
+//        var screenPos = sceneView.projectPoint(pointInWorld)
         print("screenPos\(screenPos)")
         // scnファイルからシーンを読み込む
         let scene = SCNScene(named: "art.scnassets/field.scn")
         // シーンからノードを検索
         let fieldNode = (scene?.rootNode.childNode(withName: "field", recursively: false))!
         // 表示する座標を指定する
-        fieldNode.position = screenPos
+        fieldNode.position = pointInWorld
         // ノードの作成
         sceneView.scene.rootNode.addChildNode(fieldNode)
     }
