@@ -20,35 +20,68 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         // Set the view's delegate
         sceneView.delegate = self
         
-        // Show statistics such as fps and timing information
-        sceneView.showsStatistics = true
-        
-        // Create a new scene
-        let scene = SCNScene(named: "art.scnassets/ship.scn")!
-        
-        // Set the scene to the view
-        sceneView.scene = scene
-    }
+       sceneView.scene = SCNScene()
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+        sceneView.autoenablesDefaultLighting = true
         
-        // Create a session configuration
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(tapGgesture(_:)))
+        sceneView.addGestureRecognizer(gesture)
+        
         let configuration = ARWorldTrackingConfiguration()
-
-        // Run the view's session
         sceneView.session.run(configuration)
     }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
+    @objc func tapGgesture(_ recognizer: UITapGestureRecognizer) {
+        // カメラ座標系で30cm前
+        let infrontOfCamera = SCNVector3(x: 0, y: 0, z: -0.3)
         
-        // Pause the view's session
-        sceneView.session.pause()
+        // カメラ座標系 -> ワールド座標系
+        guard let cameraNode = sceneView.pointOfView else { return }
+        let pointInWorld = cameraNode.convertPosition(infrontOfCamera, to: nil)
+        print("===============================================")
+        print("pointInWorld:\(pointInWorld)")
+        // ワールド座標系　-> スクリーン座標系
+        var screenPos = sceneView.projectPoint(pointInWorld)
+        print("screenPos:\(screenPos)")
+        
+        // スクリーン座標系でx, y座標のみ変換
+         let finger = recognizer.location(in: nil)
+        screenPos.x = Float(finger.x)
+        screenPos.y = Float(finger.y)
+        
+        // ワールド座標に戻す
+        let finalPosition = sceneView.unprojectPoint(screenPos)
+        
+        // nodeをおく
+        let airPlaneNode = airPlane
+        airPlaneNode.position = finalPosition
+        sceneView.scene.rootNode.addChildNode(airPlaneNode)
+        
+        
     }
+    private let airPlane: SCNNode = {
+        let scene = SCNScene(named: "art.scnassets/ship.scn")
+        let node = scene?.rootNode
+        node?.scale = SCNVector3(0.2, 0.2, 0.2)
+        return node!
+    }()
 
     @IBAction func tappedButton(_ sender: Any) {
+//        // カメラ座標系で30cm前
+//        let infrontOfCamera = SCNVector3(x: 0, y: 0, z: -0.3)
+//
+//        // カメラ座標系 -> ワールド座標系
+//        guard let cameraNode = sceneView.pointOfView else { return }
+//        let pointInWorld = cameraNode.convertPosition(infrontOfCamera, to: nil)
+//        print("===============================================")
+//        print("pointInWorld:\(pointInWorld)")
+//        // ワールド座標系　-> スクリーン座標系
+//        var screenPos = sceneView.projectPoint(pointInWorld)
+//        print("screenPos:\(screenPos)")
+//
+//        // スクリーン座標系でx, y座標のみ変換
+        
     }
+    
     
     // MARK: - ARSCNViewDelegate
     
