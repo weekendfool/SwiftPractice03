@@ -41,7 +41,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     @IBAction func tappedButton(_ sender: Any) {
         // 座標を決定しておく
         //　カメラ座標系で３０センチ前に
-        let infrontOfCamera = SCNVector3(x: 0, y: 0, z: -0.3)
+        let infrontOfCamera = SCNVector3(x: 0, y: 0, z: -0.5)
         
         //  カメラ座標系からワールド座標系に変換
         guard let cameraNode = sceneView.pointOfView else { return }
@@ -104,7 +104,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         //　ステージのオブジェクト座標から計算で出した値に直す
         let newStagePintX = stagePoint!.x + 0.0
         let newStagePintZ = stagePoint!.z + 0.0
-        let newStagePintY = stagePoint!.y - 0.0
+        let newStagePintY = stagePoint!.y + 0.08
         // 新しいオブジェクトの座標を規定
         let newStagePoint = SCNVector3(x: newStagePintX, y: newStagePintY , z: newStagePintZ)
         //　ワールド座標系に変換
