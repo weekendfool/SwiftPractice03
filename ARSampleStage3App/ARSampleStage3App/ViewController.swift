@@ -45,12 +45,12 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         //  カメラ座標系からワールド座標系に変換
         guard let cameraNode = sceneView.pointOfView else { return }
         print("-----------------------------------------------")
-        print("cameraNode.camera!.zNear\(cameraNode.camera!.zNear)")
-        print("cameraNode.camera!.zFar\(cameraNode.camera!.zFar)")
+        print("infrontOfCamera:\(infrontOfCamera)")
+//        print("cameraNode.camera!.zFar\(cameraNode.camera!.zFar)")
         let pointInWorld = cameraNode.convertPosition(infrontOfCamera, to: nil)
 //        // ワールド座標からスクリーン座標へ変換
 //        var screenPos = sceneView.projectPoint(pointInWorld)
-        print("screenPos\(pointInWorld)")
+        print("pointInWorld:\(pointInWorld)")
         // scnファイルからシーンを読み込む
         let scene = SCNScene(named: "art.scnassets/field.scn")
         // シーンからノードを検索
@@ -59,28 +59,59 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         fieldNode.position = pointInWorld
         // ステージを設置した座標を０としたオブジェクト座標に変換して記録
         stagePoint = cameraNode.convertPosition(infrontOfCamera, to: fieldNode)
-        print("stagePoint\(stagePoint)")
+        print("stagePoint:\(stagePoint)")
         // ノードの作成
         sceneView.scene.rootNode.addChildNode(fieldNode)
     }
     // コマを表示するボタン
     @IBAction func tappedButton2(_ sender: Any) {
+        print("##########################################")
+        let infrontOfCamera = SCNVector3(x: 0.05, y: 0.05, z: -0.3)
+                
+        //  カメラ座標系からワールド座標系に変換
+        guard let cameraNode = sceneView.pointOfView else { return }
+        print("infrontOfCamera:\(infrontOfCamera)")
+        let pointInWorld = cameraNode.convertPosition(infrontOfCamera, to: nil)
+//        // ワールド座標からスクリーン座標へ変換
+//        var screenPos = sceneView.projectPoint(pointInWorld)
+        print("pointInWorld:\(pointInWorld)")
+        // scnファイルからシーンを読み込む
+        let scene = SCNScene(named: "art.scnassets/testBlue.scn")
+        // シーンからノードを検索
+        let blueNode = (scene?.rootNode.childNode(withName: "testBlue", recursively: false))!
+        //
+        
+//        let finalPoint = sceneView.projectPoint(pointInWorld)
+        print("finalPoint:\(pointInWorld)")
+        // ノードの大きさ変更
+        blueNode.scale = SCNVector3(0.05, 0.05, 0.05)
+        // 表示する座標を指定する
+        blueNode.position = pointInWorld
+        // ノードの作成
+        sceneView.scene.rootNode.addChildNode(blueNode)
+//        lab()
+    }
+    
+    func lab () {
+        print("##########################################")
         // scnファイルからシーンを読み込む
         let scene = SCNScene(named: "art.scnassets/testBlue.scn")
         // シーンからノードを検索
         let blueNode = (scene?.rootNode.childNode(withName: "testBlue", recursively: false))!
         //　ステージのオブジェクト座標から計算で出した値に直す
-        let newStagePintX = stagePoint!.x + 1.0
-        let newStagePintZ = stagePoint!.z + 1.0
-        let newStagePintY = stagePoint!.y + 1.0
+        let newStagePintX = stagePoint!.x + 15.0
+        let newStagePintZ = stagePoint!.z + 0.0
+        let newStagePintY = stagePoint!.y - 12.0
         // 新しいオブジェクトの座標を規定
         let newStagePoint = SCNVector3(x: newStagePintX, y: newStagePintY , z: newStagePintZ)
         //　ワールド座標系に変換
+        print("newStagePoint:\(newStagePoint)")
         let finalPoint = sceneView.projectPoint(newStagePoint)
+        print("finalPoint:\(finalPoint)")
         // ノードの大きさ変更
-//        blueNode.scale = SCNVector3(1.0, 1.0, 1.0)
+        blueNode.scale = SCNVector3(0.02, 0.02, 0.02)
         // 表示する座標を指定する
-        blueNode.position = stagePoint!
+        blueNode.position = newStagePoint
         // ノードの作成
         sceneView.scene.rootNode.addChildNode(blueNode)
     }
