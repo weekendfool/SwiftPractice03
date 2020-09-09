@@ -70,15 +70,17 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         // シーンからノードを検索
         let blueNode = (scene?.rootNode.childNode(withName: "testBlue", recursively: false))!
         //　ステージのオブジェクト座標から計算で出した値に直す
-        let newStagePintX = stagePoint!.x + 0.0
-        let newStagePintZ = stagePoint!.z + 0.0
-        let newStagePintY = stagePoint!.y + 0.0
+        let newStagePintX = stagePoint!.x + 1.0
+        let newStagePintZ = stagePoint!.z + 1.0
+        let newStagePintY = stagePoint!.y + 1.0
         // 新しいオブジェクトの座標を規定
         let newStagePoint = SCNVector3(x: newStagePintX, y: newStagePintY , z: newStagePintZ)
         //　ワールド座標系に変換
         let finalPoint = sceneView.projectPoint(newStagePoint)
+        // ノードの大きさ変更
+//        blueNode.scale = SCNVector3(1.0, 1.0, 1.0)
         // 表示する座標を指定する
-        blueNode.position = finalPoint
+        blueNode.position = stagePoint!
         // ノードの作成
         sceneView.scene.rootNode.addChildNode(blueNode)
     }
