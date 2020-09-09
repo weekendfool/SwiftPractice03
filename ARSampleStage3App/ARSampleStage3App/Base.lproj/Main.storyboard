@@ -19,8 +19,8 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
                             </arscnView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9oF-A1-ZMg">
-                                <rect key="frame" x="100" y="732" width="214" height="30"/>
-                                <state key="normal" title="Button">
+                                <rect key="frame" x="36" y="748" width="118" height="30"/>
+                                <state key="normal" title="Field">
                                     <color key="titleColor" red="0.0" green="0.32852089410000002" blue="0.57488495110000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" red="0.0" green="0.32852089410000002" blue="0.57488495110000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -28,16 +28,28 @@
                                     <action selector="tappedButton:" destination="BV1-FR-VrT" eventType="touchUpInside" id="ScW-X7-roP"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Ke-y4-YO2">
+                                <rect key="frame" x="242" y="748" width="122" height="30"/>
+                                <state key="normal" title="こま">
+                                    <color key="titleColor" red="0.0" green="0.32852089410000002" blue="0.57488495110000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="tappedButton2:" destination="BV1-FR-VrT" eventType="touchUpInside" id="6cy-u7-DUL"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="fQZ-KI-GVf" firstAttribute="trailing" secondItem="9oF-A1-ZMg" secondAttribute="trailing" constant="100" id="Ff9-31-d4a"/>
+                            <constraint firstItem="fQZ-KI-GVf" firstAttribute="trailing" secondItem="9oF-A1-ZMg" secondAttribute="trailing" constant="260" id="Ff9-31-d4a"/>
                             <constraint firstItem="BrB-h1-WRS" firstAttribute="leading" secondItem="fQZ-KI-GVf" secondAttribute="leading" id="GsS-dJ-CKf"/>
-                            <constraint firstItem="9oF-A1-ZMg" firstAttribute="leading" secondItem="fQZ-KI-GVf" secondAttribute="leading" constant="100" id="VWS-Jc-XE1"/>
+                            <constraint firstItem="9oF-A1-ZMg" firstAttribute="leading" secondItem="fQZ-KI-GVf" secondAttribute="leading" constant="36" id="VWS-Jc-XE1"/>
                             <constraint firstItem="BrB-h1-WRS" firstAttribute="bottom" secondItem="fQZ-KI-GVf" secondAttribute="bottom" id="VpT-BR-CcM"/>
                             <constraint firstItem="BrB-h1-WRS" firstAttribute="trailing" secondItem="fQZ-KI-GVf" secondAttribute="trailing" id="XyZ-9z-H8e"/>
-                            <constraint firstItem="fQZ-KI-GVf" firstAttribute="bottom" secondItem="9oF-A1-ZMg" secondAttribute="bottom" constant="100" id="lPs-Wb-LxV"/>
+                            <constraint firstItem="fQZ-KI-GVf" firstAttribute="bottom" secondItem="9oF-A1-ZMg" secondAttribute="bottom" constant="84" id="lPs-Wb-LxV"/>
                             <constraint firstItem="BrB-h1-WRS" firstAttribute="top" secondItem="U0K-SW-4ec" secondAttribute="top" id="rJc-2c-zQA"/>
+                            <constraint firstItem="fQZ-KI-GVf" firstAttribute="trailing" secondItem="2Ke-y4-YO2" secondAttribute="trailing" constant="50" id="s5s-wX-5KZ"/>
+                            <constraint firstItem="2Ke-y4-YO2" firstAttribute="leading" secondItem="9oF-A1-ZMg" secondAttribute="trailing" constant="88" id="wDA-aR-h5T"/>
+                            <constraint firstItem="fQZ-KI-GVf" firstAttribute="bottom" secondItem="2Ke-y4-YO2" secondAttribute="bottom" constant="84" id="zjV-F7-XXS"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fQZ-KI-GVf"/>
                     </view>

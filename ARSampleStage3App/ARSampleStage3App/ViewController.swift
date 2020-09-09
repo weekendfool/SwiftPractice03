@@ -14,6 +14,8 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 
     @IBOutlet var sceneView: ARSCNView!
     
+    var stagePoint:SCNVector3?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -39,6 +41,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         // 座標を決定しておく
         //　カメラ座標系で３０センチ前に
         let infrontOfCamera = SCNVector3(x: 0, y: 0, z: -0.3)
+        
         //  カメラ座標系からワールド座標系に変換
         guard let cameraNode = sceneView.pointOfView else { return }
         print("-----------------------------------------------")
@@ -47,15 +50,37 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         let pointInWorld = cameraNode.convertPosition(infrontOfCamera, to: nil)
 //        // ワールド座標からスクリーン座標へ変換
 //        var screenPos = sceneView.projectPoint(pointInWorld)
-        print("screenPos\(screenPos)")
+        print("screenPos\(pointInWorld)")
         // scnファイルからシーンを読み込む
         let scene = SCNScene(named: "art.scnassets/field.scn")
         // シーンからノードを検索
         let fieldNode = (scene?.rootNode.childNode(withName: "field", recursively: false))!
         // 表示する座標を指定する
         fieldNode.position = pointInWorld
+        // ステージを設置した座標を０としたオブジェクト座標に変換して記録
+        stagePoint = cameraNode.convertPosition(infrontOfCamera, to: fieldNode)
+        print("stagePoint\(stagePoint)")
         // ノードの作成
         sceneView.scene.rootNode.addChildNode(fieldNode)
+    }
+    // コマを表示するボタン
+    @IBAction func tappedButton2(_ sender: Any) {
+        // scnファイルからシーンを読み込む
+        let scene = SCNScene(named: "art.scnassets/testBlue.scn")
+        // シーンからノードを検索
+        let blueNode = (scene?.rootNode.childNode(withName: "testBlue", recursively: false))!
+        //　ステージのオブジェクト座標から計算で出した値に直す
+        let newStagePintX = stagePoint!.x + 0.0
+        let newStagePintZ = stagePoint!.z + 0.0
+        let newStagePintY = stagePoint!.y + 0.0
+        // 新しいオブジェクトの座標を規定
+        let newStagePoint = SCNVector3(x: newStagePintX, y: newStagePintY , z: newStagePintZ)
+        //　ワールド座標系に変換
+        let finalPoint = sceneView.projectPoint(newStagePoint)
+        // 表示する座標を指定する
+        blueNode.position = finalPoint
+        // ノードの作成
+        sceneView.scene.rootNode.addChildNode(blueNode)
     }
     
     // MARK: - ARSCNViewDelegate
