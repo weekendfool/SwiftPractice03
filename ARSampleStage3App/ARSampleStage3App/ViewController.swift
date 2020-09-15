@@ -102,9 +102,10 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         //ワールド座標からsテーじのオブジェクト座標に変換して計算
         let testBluePosition = fieldNode!.convertPosition(stagePoint!, to: blueNode)
         //　ステージのオブジェクト座標から計算で出した値に直す
-        let newStagePintX = stagePoint!.x + 0.0
-        let newStagePintZ = stagePoint!.z + 0.0
-        let newStagePintY = stagePoint!.y + 0.08
+        let newStagePintX = stagePoint!.x - 0.098
+        let newStagePintZ = stagePoint!.z + 0.096
+        let newStagePintY = stagePoint!.y + 0.081
+        
         // 新しいオブジェクトの座標を規定
         let newStagePoint = SCNVector3(x: newStagePintX, y: newStagePintY , z: newStagePintZ)
         //　ワールド座標系に変換
