@@ -17,6 +17,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        setScreenSize()
+        makeNumberButton()
     }
     
     // スクリーンサイズの取得
@@ -27,64 +29,64 @@ class ViewController: UIViewController {
 
     // レイアウトもコードで生成
     // 数字ボタンの生成
-    func MakeNumberButton(number: Int) {
+    func makeNumberButton() {
         // ボタンのサイズを設定する
         // もしスクリーンサイズが取得できなかったら関数を抜ける
         guard let screenWidth = screenWidth, let screenHeight = screenHeight else { return }
             let buttonSizeWidth = screenWidth / 3.0
             let buttonSizeHight = screenHeight / 12.0
         // 場所を格納する変数設定
-        var plsceNumber:String?
+        var plsceNumberName:String?
         var buttonPlaceX:CGFloat?
         var buttonPlaceY:CGFloat?
         // buttonのインスタンス作成
         let uiButton = UIButton()
         // for文で網羅する
-        for placeNumber in 0...11 {
+        for placeNumber in 0...10 {
             // スイッチ文で条件分岐
             switch placeNumber {
             case 1:
-                plsceNumber = "1";
+                plsceNumberName = "1";
                 buttonPlaceX = buttonSizeWidth * 1;
                 buttonPlaceY = buttonSizeHight * 9
             case 2:
-                plsceNumber = "2"
+                plsceNumberName = "2"
                 buttonPlaceX = buttonSizeWidth * 2;
                 buttonPlaceY = buttonSizeHight * 9
             case 3:
-                plsceNumber = "3"
+                plsceNumberName = "3"
                 buttonPlaceX = buttonSizeWidth * 3;
                 buttonPlaceY = buttonSizeHight * 9
             case 4:
-                plsceNumber = "4"
+                plsceNumberName = "4"
                 buttonPlaceX = buttonSizeWidth * 1;
                 buttonPlaceY = buttonSizeHight * 8
             case 5:
-                plsceNumber = "5"
+                plsceNumberName = "5"
                 buttonPlaceX = buttonSizeWidth * 2;
                 buttonPlaceY = buttonSizeHight * 8
             case 6:
-                plsceNumber = "6"
+                plsceNumberName = "6"
                 buttonPlaceX = buttonSizeWidth * 3;
                 buttonPlaceY = buttonSizeHight * 8
             case 7:
-                plsceNumber = "7"
+                plsceNumberName = "7"
                 buttonPlaceX = buttonSizeWidth * 1;
                 buttonPlaceY = buttonSizeHight * 7
             case 8:
-                plsceNumber = "8"
+                plsceNumberName = "8"
                 buttonPlaceX = buttonSizeWidth * 2;
                 buttonPlaceY = buttonSizeHight * 7
             case 9:
-                plsceNumber = "9"
+                plsceNumberName = "9"
                 buttonPlaceX = buttonSizeWidth * 3;
                 buttonPlaceY = buttonSizeHight * 7
             case 0:
-                plsceNumber = "0"
+                plsceNumberName = "0"
                 buttonPlaceX = buttonSizeWidth * 1;
                 buttonPlaceY = buttonSizeHight * 10
             case 10:
-                plsceNumber = "00"
+                plsceNumberName = "00"
                 buttonPlaceX = buttonSizeWidth / 2 * 3;
                 buttonPlaceY = buttonSizeHight * 10
             default:
@@ -105,19 +107,20 @@ class ViewController: UIViewController {
             }
             
             // buttonのラベル作成
-            uiButton.setTitle(plsceNumber, for: UIControl.State.normal)
+            uiButton.setTitle(plsceNumberName, for: UIControl.State.normal)
             // buttonのフォントサイズを設定
             uiButton.titleLabel?.font = UIFont.systemFont(ofSize: 20)
             // タップされた時のアクション
-            uiButton.addTarget(self, action: #selector(ViewController.buttonTapped(_:)), for: .touchUpOutside)
+            uiButton.addTarget(self, action: #selector(ViewController.buttonTapped(placeNumber:)), for: .touchUpOutside)
             // viewにボタンを追加
             self.view.addSubview(uiButton)
         }
         
     }
     // タップされた時のアクション
-    @objc func buttonTapped(_ sender : Any) {
+    @objc func buttonTapped(placeNumber: String) {
         print("taped")
+        print("placeNumber:\(placeNumber)")
     }
     
     // 計算ボタンの生成
