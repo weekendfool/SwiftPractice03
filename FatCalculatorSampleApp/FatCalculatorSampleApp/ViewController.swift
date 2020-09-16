@@ -23,8 +23,8 @@ class ViewController: UIViewController {
     
     // スクリーンサイズの取得
     func setScreenSize() {
-        screenWidth = self.view.frame.width
-        screenHeight = self.view.frame.height
+        screenWidth = UIScreen.main.bounds.size.width
+        screenHeight = UIScreen.main.bounds.size.height
     }
 
     // レイアウトもコードで生成
