@@ -18,6 +18,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         setScreenSize()
+//        makeCalculatButton()
         makeNumberButton()
     }
     
@@ -35,6 +36,8 @@ class ViewController: UIViewController {
         guard let screenWidth = screenWidth, let screenHeight = screenHeight else { return }
             let buttonSizeWidth = screenWidth / 3.0
             let buttonSizeHight = screenHeight / 12.0
+        print("buttonSizeWidth:\(buttonSizeWidth)")
+        print("buttonSizeHight:\(buttonSizeHight)")
         // 場所を格納する変数設定
         var plsceNumberName:String?
         var buttonPlaceX:CGFloat?
@@ -43,6 +46,7 @@ class ViewController: UIViewController {
         let uiButton = UIButton()
         // for文で網羅する
         for placeNumber in 0...10 {
+            print("placeNumber:\(placeNumber)")
             // スイッチ文で条件分岐
             switch placeNumber {
             case 1:
@@ -85,6 +89,7 @@ class ViewController: UIViewController {
                 plsceNumberName = "0"
                 buttonPlaceX = buttonSizeWidth * 1;
                 buttonPlaceY = buttonSizeHight * 10
+                print("KO")
             case 10:
                 plsceNumberName = "00"
                 buttonPlaceX = buttonSizeWidth / 2 * 3;
@@ -97,12 +102,23 @@ class ViewController: UIViewController {
             if placeNumber == 0 || placeNumber == 10 {
                 // 0と10の場合
                 if let buttonPlaceX = buttonPlaceX, let buttonPlaceY = buttonPlaceY {
-                    uiButton.frame = CGRect(x: buttonPlaceX, y: buttonPlaceY, width: buttonSizeWidth * 3 / 2, height: buttonSizeHight)
+                    uiButton.frame = CGRect(x: 10, y: buttonPlaceY, width: buttonSizeWidth * 3 / 2, height: buttonSizeHight)
+                    
                 }
-            } else {
+            } else if placeNumber == 5 {
                 // 1~9の場合
                 if let buttonPlaceX = buttonPlaceX, let buttonPlaceY = buttonPlaceY {
-                    uiButton.frame = CGRect(x: buttonPlaceX, y: buttonPlaceY, width: buttonSizeWidth, height: buttonSizeHight)
+                    uiButton.frame = CGRect(x: 10, y: buttonPlaceY, width: buttonSizeWidth, height: buttonSizeHight)
+                    // buttonのラベル作成
+                    uiButton.setTitle(plsceNumberName, for: UIControl.State.normal)
+                    // buttonのフォントサイズを設定
+                    uiButton.titleLabel?.font = UIFont.systemFont(ofSize: 20)
+                    // タップされた時のアクション
+                    uiButton.addTarget(self, action: #selector(ViewController.buttonTapped(placeNumber:)), for: .touchUpOutside)
+                    uiButton.backgroundColor = UIColor.red
+                    // viewにボタンを追加
+                    self.view.addSubview(uiButton)
+                    print("ButtonMake")
                 }
             }
             
@@ -112,8 +128,10 @@ class ViewController: UIViewController {
             uiButton.titleLabel?.font = UIFont.systemFont(ofSize: 20)
             // タップされた時のアクション
             uiButton.addTarget(self, action: #selector(ViewController.buttonTapped(placeNumber:)), for: .touchUpOutside)
+            uiButton.backgroundColor = UIColor.red
             // viewにボタンを追加
             self.view.addSubview(uiButton)
+            print("ButtonMake")
         }
         
     }
@@ -125,7 +143,19 @@ class ViewController: UIViewController {
     
     // 計算ボタンの生成
     func makeCalculatButton() {
-        
+        // buttonのインスタンス作成
+        let uiButton = UIButton()
+        // buttonのラベル作成
+        uiButton.setTitle("ok", for: UIControl.State.normal)
+        // buttonのフォントサイズを設定
+        uiButton.titleLabel?.font = UIFont.systemFont(ofSize: 20)
+        uiButton.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
+        // タップされた時のアクション
+        uiButton.addTarget(self, action: #selector(ViewController.buttonTapped(placeNumber:)), for: .touchUpOutside)
+        uiButton.backgroundColor = UIColor.red
+        // viewにボタンを追加
+        self.view.addSubview(uiButton)
+        print("ButtonMake")
     }
     // ラベル生成
     
