@@ -67,14 +67,10 @@ class ViewController: UIViewController {
                 plsceNumberName = "1";
                 buttonPlaceX = buttonSizeWidth * 0;
                 buttonPlaceY = buttonSizeHight * 8
-                // どのボタンが押されたかの把握よう変数を設定
-                actionNumber = oneButtonTapped()
             case 2:
                 plsceNumberName = "2"
                 buttonPlaceX = buttonSizeWidth * 1;
                 buttonPlaceY = buttonSizeHight * 8
-                // どのボタンが押されたかの把握よう変数を設定
-                actionNumber = tewButtonTapped()
             case 3:
                 plsceNumberName = "3"
                 buttonPlaceX = buttonSizeWidth * 2;
@@ -153,13 +149,12 @@ class ViewController: UIViewController {
                 // 0と10の場合
                 if let buttonPlaceX = buttonPlaceX, let buttonPlaceY = buttonPlaceY {
                     let newButtonSizeWidth = buttonSizeWidth * 3 / 2
-                    makeNumberButton(buttonPlaceX: buttonPlaceX, buttonPlaceY: buttonPlaceY, buttonSizeWidth: newButtonSizeWidth, buttonSizeHight: buttonSizeHight, labelName: plsceNumberName!, action: actionNumber)
+                    makeNumberButton(buttonPlaceX: buttonPlaceX, buttonPlaceY: buttonPlaceY, buttonSizeWidth: newButtonSizeWidth, buttonSizeHight: buttonSizeHight, labelName: plsceNumberName!)
                 }
             } else if placeNumber >= 1 && placeNumber < 10 {
                 // 1~9の場合
                 if let buttonPlaceX = buttonPlaceX, let buttonPlaceY = buttonPlaceY {
-                    makeNumberButton(buttonPlaceX: buttonPlaceX, buttonPlaceY: buttonPlaceY, buttonSizeWidth: buttonSizeWidth, buttonSizeHight: buttonSizeHight, labelName: plsceNumberName!, action: actionNumber)
-                  
+                    makeNumberButton(buttonPlaceX: buttonPlaceX, buttonPlaceY: buttonPlaceY, buttonSizeWidth: buttonSizeWidth, buttonSizeHight: buttonSizeHight, labelName: plsceNumberName!)
                 }
             } else if placeNumber >= 11 && placeNumber < 15 {
                 // ボタンの大きさを調整
@@ -187,12 +182,9 @@ class ViewController: UIViewController {
         if let inputNumberString = inputNumberString {
             if inputNumberString != "0" {
                 self.inputNumberString! += "0"
+                mainLabel.text = self.inputNumberString
             }
         }
-        
-        // 計算用の変数に入れる
-       
-        
     }
     // タップされた時のアクション
     @objc func oneButtonTapped() {
@@ -209,8 +201,6 @@ class ViewController: UIViewController {
             }
             mainLabel.text = self.inputNumberString
         }
-        
-        
     }
     // タップされた時のアクション
     @objc func tewButtonTapped() {
@@ -221,10 +211,10 @@ class ViewController: UIViewController {
         if let inputNumberString = inputNumberString {
             
             if inputNumberString == "0" {
-                self.inputNumberString = "1"
+                self.inputNumberString = "2"
                 print("inputNumberString:\(inputNumberString)")
             } else {
-                self.inputNumberString! += "1"
+                self.inputNumberString! += "2"
             }
             mainLabel.text = self.inputNumberString
         }
@@ -239,10 +229,10 @@ class ViewController: UIViewController {
         if let inputNumberString = inputNumberString {
             
             if inputNumberString == "0" {
-                self.inputNumberString = "1"
+                self.inputNumberString = "3"
                 print("inputNumberString:\(inputNumberString)")
             } else {
-                self.inputNumberString! += "1"
+                self.inputNumberString! += "3"
             }
             mainLabel.text = self.inputNumberString
         }
@@ -257,10 +247,10 @@ class ViewController: UIViewController {
         if let inputNumberString = inputNumberString {
             
             if inputNumberString == "0" {
-                self.inputNumberString = "1"
+                self.inputNumberString = "4"
                 print("inputNumberString:\(inputNumberString)")
             } else {
-                self.inputNumberString! += "1"
+                self.inputNumberString! += "4"
             }
             mainLabel.text = self.inputNumberString
         }
@@ -275,10 +265,10 @@ class ViewController: UIViewController {
         if let inputNumberString = inputNumberString {
             
             if inputNumberString == "0" {
-                self.inputNumberString = "1"
+                self.inputNumberString = "5"
                 print("inputNumberString:\(inputNumberString)")
             } else {
-                self.inputNumberString! += "1"
+                self.inputNumberString! += "5"
             }
             mainLabel.text = self.inputNumberString
         }
@@ -293,10 +283,10 @@ class ViewController: UIViewController {
         if let inputNumberString = inputNumberString {
             
             if inputNumberString == "0" {
-                self.inputNumberString = "1"
+                self.inputNumberString = "6"
                 print("inputNumberString:\(inputNumberString)")
             } else {
-                self.inputNumberString! += "1"
+                self.inputNumberString! += "6"
             }
             mainLabel.text = self.inputNumberString
         }
@@ -311,10 +301,10 @@ class ViewController: UIViewController {
         if let inputNumberString = inputNumberString {
             
             if inputNumberString == "0" {
-                self.inputNumberString = "1"
+                self.inputNumberString = "7"
                 print("inputNumberString:\(inputNumberString)")
             } else {
-                self.inputNumberString! += "1"
+                self.inputNumberString! += "7"
             }
             mainLabel.text = self.inputNumberString
         }
@@ -329,10 +319,10 @@ class ViewController: UIViewController {
         if let inputNumberString = inputNumberString {
             
             if inputNumberString == "0" {
-                self.inputNumberString = "1"
+                self.inputNumberString = "8"
                 print("inputNumberString:\(inputNumberString)")
             } else {
-                self.inputNumberString! += "1"
+                self.inputNumberString! += "8"
             }
             mainLabel.text = self.inputNumberString
         }
@@ -347,10 +337,10 @@ class ViewController: UIViewController {
         if let inputNumberString = inputNumberString {
             
             if inputNumberString == "0" {
-                self.inputNumberString = "1"
+                self.inputNumberString = "9"
                 print("inputNumberString:\(inputNumberString)")
             } else {
-                self.inputNumberString! += "1"
+                self.inputNumberString! += "9"
             }
             mainLabel.text = self.inputNumberString
         }
@@ -364,26 +354,45 @@ class ViewController: UIViewController {
         // lableに表示する
         if let inputNumberString = inputNumberString {
             
-            if inputNumberString == "0" {
-                self.inputNumberString = "1"
-                print("inputNumberString:\(inputNumberString)")
-            } else {
-                self.inputNumberString! += "1"
+            if inputNumberString != "0" {
+                self.inputNumberString! += "00"
             }
             mainLabel.text = self.inputNumberString
         }
         
     }
     // タップされた時のアクション
-        @objc func calculatButtonTapped(placeNumber: String) {
-            print("taped")
-            print("placeNumber:\(placeNumber)")
-    //        switch placeNumber {
-    //        case "0":
-    //            <#code#>
-    //        default:
-    //            <#code#>
-    //        }
+    @objc func additionButtonTapped() {
+        print("taped")
+        
+        }
+    @objc func subtractionButtonTapped() {
+        print("taped")
+               
+
+           }
+    @objc func divisionButtonTapped() {
+        print("taped")
+            
+       
+           }
+    @objc func multiplicationButtonTapped() {
+        print("taped")
+              
+      
+           }
+    @objc func equalButtonTapped() {
+        print("taped")
+            
+   
+        }
+    @objc func clearButtonTapped() {
+        print("taped")
+        // label表示の初期化
+        inputNumberString = "0"
+        mainLabel.text = inputNumberString
+        // 計算用変数を初期化
+        beforeNumber = 0
         }
     
     // 計算ボタンの生成
@@ -391,13 +400,28 @@ class ViewController: UIViewController {
          
         // buttonのインスタンス作成
         let calculatButton = UIButton()
+        switch labelName {
+        case "+":
+            calculatButton.addTarget(self, action: #selector(self.additionButtonTapped), for: .touchUpInside)
+        case "-":
+            calculatButton.addTarget(self, action: #selector(self.subtractionButtonTapped), for: .touchUpInside)
+        case "*":
+            calculatButton.addTarget(self, action: #selector(self.divisionButtonTapped), for: .touchUpInside)
+        case "/":
+            calculatButton.addTarget(self, action: #selector(self.multiplicationButtonTapped), for: .touchUpInside)
+        case "=":
+            calculatButton.addTarget(self, action: #selector(self.equalButtonTapped), for: .touchUpInside)
+        case "Clear":
+            calculatButton.addTarget(self, action: #selector(self.clearButtonTapped), for: .touchUpInside)
+        default:
+            return
+        }
         // buttonのラベル作成
         calculatButton.setTitle("\(labelName)", for: UIControl.State.normal)
         // buttonのフォントサイズを設定
         calculatButton.titleLabel?.font = UIFont.systemFont(ofSize: 20)
         calculatButton.frame = CGRect(x: buttonPlaceX, y: buttonPlaceY, width: buttonSizeWidth, height: buttonSizeHight)
-        // タップされた時のアクション
-        calculatButton.addTarget(self, action: #selector(ViewController.calculatButtonTapped(placeNumber:)), for: .touchUpInside)
+        
         calculatButton.backgroundColor = UIColor.orange
         // ボタンの枠線を設定
         calculatButton.layer.borderColor = UIColor.darkGray.cgColor
@@ -409,7 +433,7 @@ class ViewController: UIViewController {
     }
     
     // 計算ボタンの生成
-    func makeNumberButton(buttonPlaceX: CGFloat, buttonPlaceY: CGFloat, buttonSizeWidth: CGFloat, buttonSizeHight: CGFloat, labelName: String, action: ()) {
+    func makeNumberButton(buttonPlaceX: CGFloat, buttonPlaceY: CGFloat, buttonSizeWidth: CGFloat, buttonSizeHight: CGFloat, labelName: String) {
         // buttonのインスタンス作成
         let numberButton = UIButton()
         switch labelName {
