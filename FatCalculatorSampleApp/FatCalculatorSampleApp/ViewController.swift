@@ -367,8 +367,7 @@ class ViewController: UIViewController {
             beforeNumber = Int(inputNumberString)
             // inputNumberStringを初期化
             self.inputNumberString = "0"
-            // labelに反映
-//            mainLabel.text = self.inputNumberString
+
         }
         // 計算記号を格納する
         calculatorType = 1
@@ -376,31 +375,42 @@ class ViewController: UIViewController {
         }
     @objc func subtractionButtonTapped() {
         print("taped")
-        // 計算記号を格納する
-        calculatorType = 2
-        // inputNumberStringを初期化
-               
-
+        // 計算用の変数にinputNumberStringを格納
+        if let inputNumberString = inputNumberString {
+            beforeNumber = Int(inputNumberString)
+            // inputNumberStringを初期化
+            self.inputNumberString = "0"
+                }
+                // 計算記号を格納する
+                calculatorType = 2
            }
+    
     @objc func divisionButtonTapped() {
         print("taped")
-        // 計算記号を格納する
-        calculatorType = 3
-        // inputNumberStringを初期化
-            
-       
+        // 計算用の変数にinputNumberStringを格納
+                if let inputNumberString = inputNumberString {
+                    beforeNumber = Int(inputNumberString)
+                    // inputNumberStringを初期化
+                    self.inputNumberString = "0"
+                }
+                // 計算記号を格納する
+                calculatorType = 3
            }
+    
     @objc func multiplicationButtonTapped() {
-        print("taped")
-        // 計算記号を格納する
-        calculatorType = 4
-        // inputNumberStringを初期化
-              
+        // 計算用の変数にinputNumberStringを格納
+                if let inputNumberString = inputNumberString {
+                    beforeNumber = Int(inputNumberString)
+                    // inputNumberStringを初期化
+                    self.inputNumberString = "0"
+                }
+                // 計算記号を格納する
+                calculatorType = 4
            }
+    
     @objc func equalButtonTapped() {
         print("taped")
         if let calculatorType = calculatorType, let beforeNumber = beforeNumber, let inputNumberString = inputNumberString {
-        
             switch calculatorType {
             case 1:
                 // 足算
@@ -426,11 +436,10 @@ class ViewController: UIViewController {
             if let answerNumber = answerNumber {
                 mainLabel.text = "\(answerNumber)"
                 self.inputNumberString = "\(answerNumber)"
+                }
             }
-            
         }
     
-        }
     @objc func clearButtonTapped() {
         print("taped")
         // label表示の初期化
