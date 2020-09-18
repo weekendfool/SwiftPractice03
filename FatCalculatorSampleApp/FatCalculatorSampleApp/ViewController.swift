@@ -23,6 +23,8 @@ class ViewController: UIViewController {
     var tapNumber:Int?
     // どのボタンが押されたかの把握よう変数を設定
     var actionNumber = ()
+    // 表示用変数
+    var inputNumberString:String?
     
     
     override func viewDidLoad() {
@@ -180,23 +182,34 @@ class ViewController: UIViewController {
     // MARK:- ボタンのアクション群
     // タップされた時のアクション
     @objc func zeroButtonTapped() {
+        print("inputNumberString:\(inputNumberString)")
         // lableに表示する
-        mainLabel.text = "0"
-        // 計算用の変数に入れる
-        if beforeNumber != 0 {
-            beforeNumber = 0
+        if let inputNumberString = inputNumberString {
+            if inputNumberString != "0" {
+                self.inputNumberString! += "0"
+            }
         }
+        
+        // 計算用の変数に入れる
+       
         
     }
     // タップされた時のアクション
     @objc func oneButtonTapped() {
         print("placeNumber:1")
+        print("inputNumberString:\(inputNumberString)")
         // lableに表示する
-        mainLabel.text = "1"
-        // 計算用の変数に入れる
-        if beforeNumber == 0 {
-            beforeNumber = 1
+        if let inputNumberString = inputNumberString {
+            
+            if inputNumberString == "0" {
+                self.inputNumberString = "1"
+                print("inputNumberString:\(inputNumberString)")
+            } else {
+                self.inputNumberString! += "1"
+            }
+            mainLabel.text = self.inputNumberString
         }
+        
         
     }
     // タップされた時のアクション
@@ -349,7 +362,8 @@ class ViewController: UIViewController {
         // ラベルの位置決定
         mainLabel.textAlignment = NSTextAlignment.right
         // ラベルの初期化
-        mainLabel.text = "0"
+        inputNumberString = "0"
+        mainLabel.text = inputNumberString
         self.view.addSubview(mainLabel)
     }
     //　表示機能
