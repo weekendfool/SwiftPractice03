@@ -28,6 +28,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        view.backgroundColor = UIColor.black
         setScreenSize()
 //        makeCalculatButton()
         makeNumberButton()
@@ -181,9 +182,13 @@ class ViewController: UIViewController {
             if inputNumberString != "0" {
                 self.inputNumberString! += "0"
                 mainLabel.text = self.inputNumberString
+            } else {
+                self.inputNumberString! = "0"
+                mainLabel.text = self.inputNumberString
             }
         }
     }
+    
     // タップされた時のアクション
     @objc func oneButtonTapped() {
         print("placeNumber:1")
@@ -388,13 +393,13 @@ class ViewController: UIViewController {
     @objc func divisionButtonTapped() {
         print("taped")
         // 計算用の変数にinputNumberStringを格納
-                if let inputNumberString = inputNumberString {
-                    beforeNumber = Int(inputNumberString)
-                    // inputNumberStringを初期化
-                    self.inputNumberString = "0"
-                }
-                // 計算記号を格納する
-                calculatorType = 3
+        if let inputNumberString = inputNumberString {
+            beforeNumber = Int(inputNumberString)
+            // inputNumberStringを初期化
+            self.inputNumberString = "0"
+            }
+            // 計算記号を格納する
+            calculatorType = 3
            }
     
     @objc func multiplicationButtonTapped() {
@@ -429,7 +434,6 @@ class ViewController: UIViewController {
                     self.answerNumber = beforeNumber / Int(inputNumberString)!
                 }
             default:
-                self.answerNumber = 0
                 return
             }
             // labelに表示
@@ -476,7 +480,7 @@ class ViewController: UIViewController {
         // buttonのラベル作成
         calculatButton.setTitle("\(labelName)", for: UIControl.State.normal)
         // buttonのフォントサイズを設定
-        calculatButton.titleLabel?.font = UIFont.systemFont(ofSize: 20)
+        calculatButton.titleLabel?.font = UIFont.systemFont(ofSize: 28)
         calculatButton.frame = CGRect(x: buttonPlaceX, y: buttonPlaceY, width: buttonSizeWidth, height: buttonSizeHight)
         
         calculatButton.backgroundColor = UIColor.orange
@@ -523,11 +527,9 @@ class ViewController: UIViewController {
         // buttonのラベル作成
         numberButton.setTitle("\(labelName)", for: UIControl.State.normal)
         // buttonのフォントサイズを設定
-        numberButton.titleLabel?.font = UIFont.systemFont(ofSize: 20)
+        numberButton.titleLabel?.font = UIFont.systemFont(ofSize: 28)
         numberButton.frame = CGRect(x: buttonPlaceX, y: buttonPlaceY, width: buttonSizeWidth, height: buttonSizeHight)
-        // タップされた時のアクション
-        
-        
+    
         numberButton.backgroundColor = UIColor.gray
         // ボタンの枠線を設定
         numberButton.layer.borderColor = UIColor.darkGray.cgColor
@@ -542,7 +544,7 @@ class ViewController: UIViewController {
     // ラベル生成
     func makeLabel() {
         // ラベルの位置決定
-        mainLabel.frame = CGRect(x:0, y: 0, width: screenWidth!, height: screenHeight! / 9)
+        mainLabel.frame = CGRect(x:0, y: 100, width: screenWidth!, height: screenHeight! / 8)
         // ラベルの色決定
         mainLabel.textColor = UIColor.gray
         mainLabel.backgroundColor = UIColor.black
@@ -555,9 +557,6 @@ class ViewController: UIViewController {
         mainLabel.text = inputNumberString
         self.view.addSubview(mainLabel)
     }
-    //　表示機能
-    // 数字入力機能
-    //　クリア機能
-
+ 
 }
 
