@@ -21,6 +21,7 @@ class ViewController: UIViewController {
         setScreenSize()
 //        makeCalculatButton()
         makeNumberButton()
+        makeLabel()
     }
     
     // スクリーンサイズの取得
@@ -59,7 +60,7 @@ class ViewController: UIViewController {
                 print("placeNumber:\(placeNumber)")
                 print("buttonPlaceX:\(buttonPlaceX)")
                 print("buttonPlaceY:\(buttonPlaceY)")
-                makeButton(buttonPlaceX: buttonPlaceX!, buttonPlaceY: buttonPlaceY!, buttonSizeWidth: buttonSizeWidth, buttonSizeHight: buttonSizeHight, labelName: plsceNumberName!)
+                makeNumberButton(buttonPlaceX: buttonPlaceX!, buttonPlaceY: buttonPlaceY!, buttonSizeWidth: buttonSizeWidth, buttonSizeHight: buttonSizeHight, labelName: plsceNumberName!)
             case 2:
                 plsceNumberName = "2"
                 buttonPlaceX = buttonSizeWidth * 1;
@@ -68,7 +69,7 @@ class ViewController: UIViewController {
                 print("placeNumber:\(placeNumber)")
                 print("buttonPlaceX:\(buttonPlaceX)")
                 print("buttonPlaceY:\(buttonPlaceY)")
-                makeButton(buttonPlaceX: buttonPlaceX!, buttonPlaceY: buttonPlaceY!, buttonSizeWidth: buttonSizeWidth, buttonSizeHight: buttonSizeHight, labelName: plsceNumberName!)
+                makeNumberButton(buttonPlaceX: buttonPlaceX!, buttonPlaceY: buttonPlaceY!, buttonSizeWidth: buttonSizeWidth, buttonSizeHight: buttonSizeHight, labelName: plsceNumberName!)
             case 3:
                 plsceNumberName = "3"
                 buttonPlaceX = buttonSizeWidth * 2;
@@ -77,7 +78,7 @@ class ViewController: UIViewController {
                 print("placeNumber:\(placeNumber)")
                 print("buttonPlaceX:\(buttonPlaceX)")
                 print("buttonPlaceY:\(buttonPlaceY)")
-                makeButton(buttonPlaceX: buttonPlaceX!, buttonPlaceY: buttonPlaceY!, buttonSizeWidth: buttonSizeWidth, buttonSizeHight: buttonSizeHight, labelName: plsceNumberName!)
+                makeNumberButton(buttonPlaceX: buttonPlaceX!, buttonPlaceY: buttonPlaceY!, buttonSizeWidth: buttonSizeWidth, buttonSizeHight: buttonSizeHight, labelName: plsceNumberName!)
             case 4:
                 plsceNumberName = "4"
                 buttonPlaceX = buttonSizeWidth * 0;
@@ -86,7 +87,7 @@ class ViewController: UIViewController {
                 print("placeNumber:\(placeNumber)")
                 print("buttonPlaceX:\(buttonPlaceX)")
                 print("buttonPlaceY:\(buttonPlaceY)")
-                makeButton(buttonPlaceX: buttonPlaceX!, buttonPlaceY: buttonPlaceY!, buttonSizeWidth: buttonSizeWidth, buttonSizeHight: buttonSizeHight, labelName: plsceNumberName!)
+                makeNumberButton(buttonPlaceX: buttonPlaceX!, buttonPlaceY: buttonPlaceY!, buttonSizeWidth: buttonSizeWidth, buttonSizeHight: buttonSizeHight, labelName: plsceNumberName!)
             case 5:
                 plsceNumberName = "5"
                 buttonPlaceX = buttonSizeWidth * 1;
@@ -95,7 +96,7 @@ class ViewController: UIViewController {
                 print("placeNumber:\(placeNumber)")
                 print("buttonPlaceX:\(buttonPlaceX)")
                 print("buttonPlaceY:\(buttonPlaceY)")
-                makeButton(buttonPlaceX: buttonPlaceX!, buttonPlaceY: buttonPlaceY!, buttonSizeWidth: buttonSizeWidth, buttonSizeHight: buttonSizeHight, labelName: plsceNumberName!)
+                makeNumberButton(buttonPlaceX: buttonPlaceX!, buttonPlaceY: buttonPlaceY!, buttonSizeWidth: buttonSizeWidth, buttonSizeHight: buttonSizeHight, labelName: plsceNumberName!)
             case 6:
                 plsceNumberName = "6"
                 buttonPlaceX = buttonSizeWidth * 2;
@@ -104,7 +105,7 @@ class ViewController: UIViewController {
                 print("placeNumber:\(placeNumber)")
                 print("buttonPlaceX:\(buttonPlaceX)")
                 print("buttonPlaceY:\(buttonPlaceY)")
-                makeButton(buttonPlaceX: buttonPlaceX!, buttonPlaceY: buttonPlaceY!, buttonSizeWidth: buttonSizeWidth, buttonSizeHight: buttonSizeHight, labelName: plsceNumberName!)
+                makeNumberButton(buttonPlaceX: buttonPlaceX!, buttonPlaceY: buttonPlaceY!, buttonSizeWidth: buttonSizeWidth, buttonSizeHight: buttonSizeHight, labelName: plsceNumberName!)
             case 7:
                 plsceNumberName = "7"
                 buttonPlaceX = buttonSizeWidth * 0;
@@ -113,7 +114,7 @@ class ViewController: UIViewController {
                 print("placeNumber:\(placeNumber)")
                 print("buttonPlaceX:\(buttonPlaceX)")
                 print("buttonPlaceY:\(buttonPlaceY)")
-                makeButton(buttonPlaceX: buttonPlaceX!, buttonPlaceY: buttonPlaceY!, buttonSizeWidth: buttonSizeWidth, buttonSizeHight: buttonSizeHight, labelName: plsceNumberName!)
+                makeNumberButton(buttonPlaceX: buttonPlaceX!, buttonPlaceY: buttonPlaceY!, buttonSizeWidth: buttonSizeWidth, buttonSizeHight: buttonSizeHight, labelName: plsceNumberName!)
             case 8:
                 plsceNumberName = "8"
                 buttonPlaceX = buttonSizeWidth * 1;
@@ -122,7 +123,7 @@ class ViewController: UIViewController {
                 print("placeNumber:\(placeNumber)")
                 print("buttonPlaceX:\(buttonPlaceX)")
                 print("buttonPlaceY:\(buttonPlaceY)")
-                makeButton(buttonPlaceX: buttonPlaceX!, buttonPlaceY: buttonPlaceY!, buttonSizeWidth: buttonSizeWidth, buttonSizeHight: buttonSizeHight, labelName: plsceNumberName!)
+                makeNumberButton(buttonPlaceX: buttonPlaceX!, buttonPlaceY: buttonPlaceY!, buttonSizeWidth: buttonSizeWidth, buttonSizeHight: buttonSizeHight, labelName: plsceNumberName!)
             case 9:
                 plsceNumberName = "9"
                 buttonPlaceX = buttonSizeWidth * 2;
@@ -131,7 +132,7 @@ class ViewController: UIViewController {
                 print("placeNumber:\(placeNumber)")
                 print("buttonPlaceX:\(buttonPlaceX)")
                 print("buttonPlaceY:\(buttonPlaceY)")
-                makeButton(buttonPlaceX: buttonPlaceX!, buttonPlaceY: buttonPlaceY!, buttonSizeWidth: buttonSizeWidth, buttonSizeHight: buttonSizeHight, labelName: plsceNumberName!)
+                makeNumberButton(buttonPlaceX: buttonPlaceX!, buttonPlaceY: buttonPlaceY!, buttonSizeWidth: buttonSizeWidth, buttonSizeHight: buttonSizeHight, labelName: plsceNumberName!)
             case 0:
                 plsceNumberName = "0"
                 buttonPlaceX = buttonSizeWidth * 0
@@ -141,7 +142,7 @@ class ViewController: UIViewController {
                 print("buttonPlaceX:\(buttonPlaceX)")
                 print("buttonPlaceY:\(buttonPlaceY)")
                 let newButtonSizeWidth = buttonSizeWidth * 3 / 2
-                makeButton(buttonPlaceX: buttonPlaceX!, buttonPlaceY: buttonPlaceY!, buttonSizeWidth: newButtonSizeWidth, buttonSizeHight: buttonSizeHight, labelName: plsceNumberName!)
+                makeNumberButton(buttonPlaceX: buttonPlaceX!, buttonPlaceY: buttonPlaceY!, buttonSizeWidth: newButtonSizeWidth, buttonSizeHight: buttonSizeHight, labelName: plsceNumberName!)
                 print("KO")
             case 10:
                 plsceNumberName = "00"
@@ -152,7 +153,7 @@ class ViewController: UIViewController {
                 print("buttonPlaceX:\(buttonPlaceX)")
                 print("buttonPlaceY:\(buttonPlaceY)")
                 let newButtonSizeWidth = buttonSizeWidth * 3 / 2
-                makeButton(buttonPlaceX: buttonPlaceX!, buttonPlaceY: buttonPlaceY!, buttonSizeWidth: newButtonSizeWidth, buttonSizeHight: buttonSizeHight, labelName: plsceNumberName!)
+                makeNumberButton(buttonPlaceX: buttonPlaceX!, buttonPlaceY: buttonPlaceY!, buttonSizeWidth: newButtonSizeWidth, buttonSizeHight: buttonSizeHight, labelName: plsceNumberName!)
             default:
                 print("errror")
                 return
@@ -188,7 +189,14 @@ class ViewController: UIViewController {
     @objc func buttonTapped(placeNumber: String) {
         print("taped")
         print("placeNumber:\(placeNumber)")
+//        switch placeNumber {
+//        case "0":
+//            <#code#>
+//        default:
+//            <#code#>
+//        }
     }
+    
 //    // 計算ボタンの生成
 //    func makeCalculatButton() {
 //
@@ -209,7 +217,7 @@ class ViewController: UIViewController {
 //    }
     
     // 計算ボタンの生成
-    func makeButton(buttonPlaceX: CGFloat, buttonPlaceY: CGFloat, buttonSizeWidth: CGFloat, buttonSizeHight: CGFloat, labelName: String) {
+    func makeNumberButton(buttonPlaceX: CGFloat, buttonPlaceY: CGFloat, buttonSizeWidth: CGFloat, buttonSizeHight: CGFloat, labelName: String) {
          
         // buttonのインスタンス作成
         let numberButton = UIButton()
@@ -232,7 +240,22 @@ class ViewController: UIViewController {
         
     }
     // ラベル生成
-    
+    func makeLabel() {
+        // labelのインスタンス生成
+        let mainLabel = UILabel()
+        // ラベルの位置決定
+        mainLabel.frame = CGRect(x:0, y: 0, width: screenWidth!, height: screenHeight! / 9)
+        // ラベルの色決定
+        mainLabel.textColor = UIColor.gray
+        mainLabel.backgroundColor = UIColor.black
+        // ラベルの文字サイズを設定
+        mainLabel.font = UIFont.systemFont(ofSize: 30)
+        // ラベルの位置決定
+        mainLabel.textAlignment = NSTextAlignment.right
+        // ラベルの初期化
+        mainLabel.text = "0"
+        self.view.addSubview(mainLabel)
+    }
     //　表示機能
     // 数字入力機能
     //　クリア機能
