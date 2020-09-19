@@ -353,16 +353,19 @@ class ViewController: UIViewController {
         print("inputNumberString:\(inputNumberString)")
         // lableに表示する
         if let inputNumberString = inputNumberString {
+            print(inputNumberString.count)
             if inputNumberString.count < 9 {
             if inputNumberString != "0" {
                 self.inputNumberString! += "00"
+                }
             } else if inputNumberString.count == 9 {
+                print("ok")
                 self.inputNumberString! += "0"
                 }
             mainLabel.text = self.inputNumberString
             }
         }
-    }
+    
     // タップされた時のアクション
     @objc func additionButtonTapped() {
         print("taped")
