@@ -179,6 +179,7 @@ class ViewController: UIViewController {
         print("inputNumberString:\(inputNumberString)")
         // lableに表示する
         if let inputNumberString = inputNumberString {
+            if inputNumberString.count < 10 {
             if inputNumberString != "0" {
                 self.inputNumberString! += "0"
                 mainLabel.text = self.inputNumberString
@@ -186,6 +187,7 @@ class ViewController: UIViewController {
                 self.inputNumberString! = "0"
                 mainLabel.text = self.inputNumberString
             }
+        }
         }
     }
     
@@ -195,29 +197,31 @@ class ViewController: UIViewController {
         print("inputNumberString:\(inputNumberString)")
         // lableに表示する
         if let inputNumberString = inputNumberString {
-            
-            if inputNumberString == "0" {
-                self.inputNumberString = "1"
-                print("inputNumberString:\(inputNumberString)")
-            } else {
-                self.inputNumberString! += "1"
+            if inputNumberString.count < 10 {
+                if inputNumberString == "0" {
+                    self.inputNumberString = "1"
+                    print("inputNumberString:\(inputNumberString)")
+                } else {
+                    self.inputNumberString! += "1"
+                }
             }
+            
             mainLabel.text = self.inputNumberString
         }
     }
     // タップされた時のアクション
     @objc func tewButtonTapped() {
-        print("taped")
         print("placeNumber:2")
         print("inputNumberString:\(inputNumberString)")
         // lableに表示する
         if let inputNumberString = inputNumberString {
-            
-            if inputNumberString == "0" {
+            if inputNumberString.count < 10 {
+                if inputNumberString == "0" {
                 self.inputNumberString = "2"
                 print("inputNumberString:\(inputNumberString)")
             } else {
                 self.inputNumberString! += "2"
+            }
             }
             mainLabel.text = self.inputNumberString
         }
@@ -225,17 +229,17 @@ class ViewController: UIViewController {
     }
     // タップされた時のアクション
     @objc func threeButtonTapped() {
-        print("taped")
         print("placeNumber:3")
         print("inputNumberString:\(inputNumberString)")
         // lableに表示する
         if let inputNumberString = inputNumberString {
-            
+            if inputNumberString.count < 10 {
             if inputNumberString == "0" {
                 self.inputNumberString = "3"
                 print("inputNumberString:\(inputNumberString)")
             } else {
                 self.inputNumberString! += "3"
+            }
             }
             mainLabel.text = self.inputNumberString
         }
@@ -243,12 +247,11 @@ class ViewController: UIViewController {
     }
     // タップされた時のアクション
     @objc func fourButtonTapped() {
-        print("taped")
         print("placeNumber:4")
         print("inputNumberString:\(inputNumberString)")
         // lableに表示する
         if let inputNumberString = inputNumberString {
-            
+            if inputNumberString.count < 10 {
             if inputNumberString == "0" {
                 self.inputNumberString = "4"
                 print("inputNumberString:\(inputNumberString)")
@@ -257,16 +260,15 @@ class ViewController: UIViewController {
             }
             mainLabel.text = self.inputNumberString
         }
-        
+        }
     }
     // タップされた時のアクション
     @objc func fiveButtonTapped() {
-        print("taped")
         print("placeNumber:5")
         print("inputNumberString:\(inputNumberString)")
         // lableに表示する
         if let inputNumberString = inputNumberString {
-            
+            if inputNumberString.count < 10 {
             if inputNumberString == "0" {
                 self.inputNumberString = "5"
                 print("inputNumberString:\(inputNumberString)")
@@ -275,16 +277,15 @@ class ViewController: UIViewController {
             }
             mainLabel.text = self.inputNumberString
         }
-        
+        }
     }
     // タップされた時のアクション
     @objc func sixButtonTapped() {
-        print("taped")
         print("placeNumber:6")
         print("inputNumberString:\(inputNumberString)")
         // lableに表示する
         if let inputNumberString = inputNumberString {
-            
+            if inputNumberString.count < 10 {
             if inputNumberString == "0" {
                 self.inputNumberString = "6"
                 print("inputNumberString:\(inputNumberString)")
@@ -293,16 +294,15 @@ class ViewController: UIViewController {
             }
             mainLabel.text = self.inputNumberString
         }
-        
+        }
     }
     // タップされた時のアクション
     @objc func sevenButtonTapped() {
-        print("taped")
         print("placeNumber:7")
         print("inputNumberString:\(inputNumberString)")
         // lableに表示する
         if let inputNumberString = inputNumberString {
-            
+            if inputNumberString.count < 10 {
             if inputNumberString == "0" {
                 self.inputNumberString = "7"
                 print("inputNumberString:\(inputNumberString)")
@@ -311,16 +311,15 @@ class ViewController: UIViewController {
             }
             mainLabel.text = self.inputNumberString
         }
-        
+        }
     }
     // タップされた時のアクション
     @objc func eightButtonTapped() {
-        print("taped")
         print("placeNumber:8")
         print("inputNumberString:\(inputNumberString)")
         // lableに表示する
         if let inputNumberString = inputNumberString {
-            
+            if inputNumberString.count < 10 {
             if inputNumberString == "0" {
                 self.inputNumberString = "8"
                 print("inputNumberString:\(inputNumberString)")
@@ -329,16 +328,15 @@ class ViewController: UIViewController {
             }
             mainLabel.text = self.inputNumberString
         }
-        
+        }
     }
     // タップされた時のアクション
     @objc func nineButtonTapped() {
-        print("taped")
         print("placeNumber:9")
         print("inputNumberString:\(inputNumberString)")
         // lableに表示する
         if let inputNumberString = inputNumberString {
-            
+            if inputNumberString.count < 10 {
             if inputNumberString == "0" {
                 self.inputNumberString = "9"
                 print("inputNumberString:\(inputNumberString)")
@@ -347,22 +345,23 @@ class ViewController: UIViewController {
             }
             mainLabel.text = self.inputNumberString
         }
-        
+        }
     }
     // タップされた時のアクション
     @objc func ooButtonTapped() {
-        print("taped")
         print("placeNumber:00")
         print("inputNumberString:\(inputNumberString)")
         // lableに表示する
         if let inputNumberString = inputNumberString {
-            
+            if inputNumberString.count < 9 {
             if inputNumberString != "0" {
                 self.inputNumberString! += "00"
-            }
+            } else if inputNumberString.count == 9 {
+                self.inputNumberString! += "0"
+                }
             mainLabel.text = self.inputNumberString
+            }
         }
-        
     }
     // タップされた時のアクション
     @objc func additionButtonTapped() {
@@ -455,6 +454,14 @@ class ViewController: UIViewController {
         calculatorType = 0
         answerNumber = 0
         }
+    
+    // lableの長さ制限の関数
+    func rangeLabel(inputNumberString: String) {
+        // 入力されている文字数が規定以下なら
+        if inputNumberString.count >= 18 {
+            mainLabel
+        }
+    }
     
     // 計算ボタンの生成
     func makeCalculatButton(buttonPlaceX: CGFloat, buttonPlaceY: CGFloat, buttonSizeWidth: CGFloat, buttonSizeHight: CGFloat, labelName: String) {
@@ -549,7 +556,7 @@ class ViewController: UIViewController {
         mainLabel.textColor = UIColor.gray
         mainLabel.backgroundColor = UIColor.black
         // ラベルの文字サイズを設定
-        mainLabel.font = UIFont.systemFont(ofSize: 30)
+        mainLabel.font = UIFont.systemFont(ofSize: 40)
         // ラベルの位置決定
         mainLabel.textAlignment = NSTextAlignment.right
         // ラベルの初期化
