@@ -443,6 +443,11 @@ class ViewController: UIViewController {
                 mainLabel.text = "\(answerNumber)"
                 self.inputNumberString = "\(answerNumber)"
                 }
+            // 初期化
+            self.beforeNumber = 0
+            self.calculatorType = 0
+            self.answerNumber = 0
+            
             }
         }
     
