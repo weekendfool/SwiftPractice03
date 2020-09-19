@@ -431,6 +431,7 @@ class ViewController: UIViewController {
     
     @objc func equalButtonTapped() {
         print("taped:equalButtonTapped")
+        var errorNumber = ""
         if let calculatorType = calculatorType, let beforeNumber = beforeNumber, let inputNumberString = inputNumberString {
             switch calculatorType {
             case 1:
@@ -445,18 +446,27 @@ class ViewController: UIViewController {
             case 4:
                 // 割り算
                 if Int(inputNumberString) == 0 {
-                    mainLabel.text = "error"
+                    // 0で割られていた場合割り算を実行しない
+                    errorNumber = "error"
+                    print("0 error")
                 } else {
+                    // 0で割られていない場合割り算を実行
                     self.answerNumber = beforeNumber / Int(inputNumberString)!
                 }
             default:
                 return
             }
-            // labelに表示
-            if let answerNumber = answerNumber {
-                mainLabel.text = "\(answerNumber)"
-                self.inputNumberString = "\(answerNumber)"
-                }
+            // 0で割られていた場合errorを表示する
+            if errorNumber == "error" {
+                mainLabel.text = "error"
+            } else {
+                // 0で割られていない場合計算結果を表示するlabelに表示
+                if let answerNumber = answerNumber {
+                    mainLabel.text = "\(answerNumber)"
+                    self.inputNumberString = "\(answerNumber)"
+                    }
+            }
+            
             // 初期化
             self.beforeNumber = 0
             self.calculatorType = 0
