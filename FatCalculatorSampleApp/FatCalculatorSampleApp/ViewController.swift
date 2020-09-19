@@ -377,7 +377,7 @@ class ViewController: UIViewController {
     
     // タップされた時のアクション
     @objc func additionButtonTapped() {
-        print("taped")
+        print("taped:additionButtonTapped")
         // 計算用の変数にinputNumberStringを格納
         if let inputNumberString = inputNumberString {
             beforeNumber = Int(inputNumberString)
@@ -387,7 +387,7 @@ class ViewController: UIViewController {
         }
         // 計算記号を格納する
         calculatorType = 1
-//        sleepButton()
+        sleepButton()
         
         }
     @objc func subtractionButtonTapped() {
@@ -400,6 +400,7 @@ class ViewController: UIViewController {
                 }
                 // 計算記号を格納する
                 calculatorType = 2
+                sleepButton()
            }
     
     @objc func divisionButtonTapped() {
@@ -412,6 +413,7 @@ class ViewController: UIViewController {
             }
             // 計算記号を格納する
             calculatorType = 3
+            sleepButton()
            }
     
     @objc func multiplicationButtonTapped() {
@@ -424,6 +426,7 @@ class ViewController: UIViewController {
                 }
                 // 計算記号を格納する
                 calculatorType = 4
+                sleepButton()
            }
     
     @objc func equalButtonTapped() {
@@ -458,6 +461,16 @@ class ViewController: UIViewController {
             self.beforeNumber = 0
             self.calculatorType = 0
             self.answerNumber = 0
+            // ボタンの状態の初期化
+            additionButton.isEnabled = true
+            subtractionButton.isEnabled = true
+            divisionButton.isEnabled = true
+            multiplicationButton.isEnabled = true
+            // 色の初期化
+            additionButton.backgroundColor = UIColor.systemOrange
+            subtractionButton.backgroundColor = UIColor.systemOrange
+            divisionButton.backgroundColor = UIColor.systemOrange
+            multiplicationButton.backgroundColor = UIColor.systemOrange
             
             }
         }
@@ -472,27 +485,42 @@ class ViewController: UIViewController {
         // 計算用記号変数を初期化
         calculatorType = 0
         answerNumber = 0
+        // ボタンの状態の初期化
+        additionButton.isEnabled = true
+        subtractionButton.isEnabled = true
+        divisionButton.isEnabled = true
+        multiplicationButton.isEnabled = true
+        // 色の初期化
+        additionButton.backgroundColor = UIColor.systemOrange
+        subtractionButton.backgroundColor = UIColor.systemOrange
+        divisionButton.backgroundColor = UIColor.systemOrange
+        multiplicationButton.backgroundColor = UIColor.systemOrange
         }
     
     // 四則演算ボタンの選択時の処理関数
-//    func sleepButton() {
-//        // 入力されている文字数が規定以下なら
-////        if let cacalculatorType = calculatorType {
-//        switch calculatorType {
-//            case 1:
-//                calculatButton.isEnabled = true
-//            case 2:
-//                calculatButton.isEnabled = true
-//            case 3:
-//                calculatButton.isEnabled = true
-//            case 4:
-//                calculatButton.isEnabled = true
-//            default:
-//                print("error")
-//                return
-//            }
-//        }
-////    }
+    func sleepButton() {
+        // 入力されている文字数が規定以下なら
+//        if let cacalculatorType = calculatorType {
+        switch calculatorType {
+            case 1:
+                additionButton.backgroundColor = UIColor.orange
+            case 2:
+                subtractionButton.backgroundColor = UIColor.orange
+            case 3:
+                divisionButton.backgroundColor = UIColor.orange
+            case 4:
+                multiplicationButton.backgroundColor = UIColor.orange
+            default:
+                print("error")
+                return
+            }
+        // ボタンを押せないように設定
+        additionButton.isEnabled = false
+        subtractionButton.isEnabled = false
+        divisionButton.isEnabled = false
+        multiplicationButton.isEnabled = false
+        }
+//    }
     
     // 計算ボタンの生成
     func makeCalculatButton(buttonPlaceX: CGFloat, buttonPlaceY: CGFloat, buttonSizeWidth: CGFloat, buttonSizeHight: CGFloat, labelName: String) {
@@ -504,19 +532,19 @@ class ViewController: UIViewController {
             calculatButton = additionButton
             calculatButton!.addTarget(self, action: #selector(self.additionButtonTapped), for: .touchUpInside)
         case "-":
-            calculatButton = a
+            calculatButton = subtractionButton
             calculatButton!.addTarget(self, action: #selector(self.subtractionButtonTapped), for: .touchUpInside)
         case "*":
-            calculatButton = additionButton
+            calculatButton = divisionButton
             calculatButton!.addTarget(self, action: #selector(self.divisionButtonTapped), for: .touchUpInside)
         case "/":
-            calculatButton = additionButton
+            calculatButton = multiplicationButton
             calculatButton!.addTarget(self, action: #selector(self.multiplicationButtonTapped), for: .touchUpInside)
         case "=":
-            calculatButton = additionButton
+            calculatButton = equalButton
             calculatButton!.addTarget(self, action: #selector(self.equalButtonTapped), for: .touchUpInside)
         case "Clear":
-            calculatButton = additionButton
+            calculatButton = clearButton
             calculatButton!.addTarget(self, action: #selector(self.clearButtonTapped), for: .touchUpInside)
         default:
             return
@@ -527,14 +555,14 @@ class ViewController: UIViewController {
         calculatButton!.titleLabel?.font = UIFont.systemFont(ofSize: 28)
         calculatButton!.frame = CGRect(x: buttonPlaceX, y: buttonPlaceY, width: buttonSizeWidth, height: buttonSizeHight)
         
-        calculatButton!.backgroundColor = UIColor.orange
+        calculatButton!.backgroundColor = UIColor.systemOrange
         // ボタンの枠線を設定
         calculatButton!.layer.borderColor = UIColor.darkGray.cgColor
         calculatButton!.layer.borderWidth = 2.0
         calculatButton!.layer.cornerRadius = 10
         
         // viewにボタンを追加
-        self.view.addSubview(calculatButton)
+        self.view.addSubview(calculatButton!)
     }
     
     // 計算ボタンの生成
