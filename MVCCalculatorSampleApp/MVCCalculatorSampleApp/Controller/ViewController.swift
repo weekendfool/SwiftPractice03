@@ -16,7 +16,8 @@ class ViewController: UIViewController {
     }
 
     // ボタン生成の関数
-    
+    // 数字ボタン
+    // 四則演算ボタン
 
 }
 
