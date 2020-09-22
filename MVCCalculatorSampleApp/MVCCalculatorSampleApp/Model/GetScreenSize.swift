@@ -7,3 +7,14 @@
 //
 
 import Foundation
+import UIKit
+
+class GetScreenSize {
+    // スクリーンサイズの取得
+    func setScreenSize() -> (CGFloat, CGFloat){
+        let screenWidth = UIScreen.main.bounds.size.width
+        let screenHeight = UIScreen.main.bounds.size.height
+        // 取得したスクリーンサイズを返却
+        return (screenWidth, screenHeight)
+    }
+}

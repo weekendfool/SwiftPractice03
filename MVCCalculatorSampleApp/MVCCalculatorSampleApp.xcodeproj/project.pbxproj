@@ -14,10 +14,13 @@
 		8C889FF32516D14600362EC2 /* MVCCalculatorSampleApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8C889FF12516D14600362EC2 /* MVCCalculatorSampleApp.xcdatamodeld */; };
 		8C889FF52516D14800362EC2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C889FF42516D14800362EC2 /* Assets.xcassets */; };
 		8C889FF82516D14800362EC2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C889FF62516D14800362EC2 /* LaunchScreen.storyboard */; };
-		8C88A00325173F8800362EC2 /* MakeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C88A00225173F8800362EC2 /* MakeButton.swift */; };
-		8C88A0062519CCE500362EC2 /* TapButtonAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C88A0052519CCE500362EC2 /* TapButtonAction.swift */; };
+		8C88A00325173F8800362EC2 /* MakeNumbertButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C88A00225173F8800362EC2 /* MakeNumbertButton.swift */; };
+		8C88A0062519CCE500362EC2 /* NumberButtonAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C88A0052519CCE500362EC2 /* NumberButtonAction.swift */; };
 		8C88A0082519CD4600362EC2 /* MakeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C88A0072519CD4600362EC2 /* MakeView.swift */; };
 		8C88A00A2519CD8100362EC2 /* GetScreenSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C88A0092519CD8100362EC2 /* GetScreenSize.swift */; };
+		8C88A00C2519D25E00362EC2 /* MakeCalculatorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C88A00B2519D25E00362EC2 /* MakeCalculatorButton.swift */; };
+		8C88A00E2519D29100362EC2 /* CalculatorButtonAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C88A00D2519D29100362EC2 /* CalculatorButtonAction.swift */; };
+		8C88A0102519D2C200362EC2 /* MakeResultButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C88A00F2519D2C200362EC2 /* MakeResultButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,10 +33,13 @@
 		8C889FF42516D14800362EC2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8C889FF72516D14800362EC2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8C889FF92516D14800362EC2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8C88A00225173F8800362EC2 /* MakeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeButton.swift; sourceTree = "<group>"; };
-		8C88A0052519CCE500362EC2 /* TapButtonAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapButtonAction.swift; sourceTree = "<group>"; };
+		8C88A00225173F8800362EC2 /* MakeNumbertButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeNumbertButton.swift; sourceTree = "<group>"; };
+		8C88A0052519CCE500362EC2 /* NumberButtonAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberButtonAction.swift; sourceTree = "<group>"; };
 		8C88A0072519CD4600362EC2 /* MakeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeView.swift; sourceTree = "<group>"; };
 		8C88A0092519CD8100362EC2 /* GetScreenSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetScreenSize.swift; sourceTree = "<group>"; };
+		8C88A00B2519D25E00362EC2 /* MakeCalculatorButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeCalculatorButton.swift; sourceTree = "<group>"; };
+		8C88A00D2519D29100362EC2 /* CalculatorButtonAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorButtonAction.swift; sourceTree = "<group>"; };
+		8C88A00F2519D2C200362EC2 /* MakeResultButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeResultButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,9 +85,12 @@
 		8C889FFF2516D61400362EC2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				8C88A00225173F8800362EC2 /* MakeButton.swift */,
-				8C88A0052519CCE500362EC2 /* TapButtonAction.swift */,
+				8C88A00225173F8800362EC2 /* MakeNumbertButton.swift */,
+				8C88A0052519CCE500362EC2 /* NumberButtonAction.swift */,
 				8C88A0092519CD8100362EC2 /* GetScreenSize.swift */,
+				8C88A00B2519D25E00362EC2 /* MakeCalculatorButton.swift */,
+				8C88A00D2519D29100362EC2 /* CalculatorButtonAction.swift */,
+				8C88A00F2519D2C200362EC2 /* MakeResultButton.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -187,9 +196,12 @@
 			files = (
 				8C889FED2516D14600362EC2 /* ViewController.swift in Sources */,
 				8C88A00A2519CD8100362EC2 /* GetScreenSize.swift in Sources */,
-				8C88A0062519CCE500362EC2 /* TapButtonAction.swift in Sources */,
+				8C88A0062519CCE500362EC2 /* NumberButtonAction.swift in Sources */,
 				8C889FE92516D14600362EC2 /* AppDelegate.swift in Sources */,
-				8C88A00325173F8800362EC2 /* MakeButton.swift in Sources */,
+				8C88A00C2519D25E00362EC2 /* MakeCalculatorButton.swift in Sources */,
+				8C88A00E2519D29100362EC2 /* CalculatorButtonAction.swift in Sources */,
+				8C88A0102519D2C200362EC2 /* MakeResultButton.swift in Sources */,
+				8C88A00325173F8800362EC2 /* MakeNumbertButton.swift in Sources */,
 				8C88A0082519CD4600362EC2 /* MakeView.swift in Sources */,
 				8C889FF32516D14600362EC2 /* MVCCalculatorSampleApp.xcdatamodeld in Sources */,
 				8C889FEB2516D14600362EC2 /* SceneDelegate.swift in Sources */,
