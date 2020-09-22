@@ -15,6 +15,9 @@
 		8C889FF52516D14800362EC2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C889FF42516D14800362EC2 /* Assets.xcassets */; };
 		8C889FF82516D14800362EC2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C889FF62516D14800362EC2 /* LaunchScreen.storyboard */; };
 		8C88A00325173F8800362EC2 /* MakeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C88A00225173F8800362EC2 /* MakeButton.swift */; };
+		8C88A0062519CCE500362EC2 /* TapButtonAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C88A0052519CCE500362EC2 /* TapButtonAction.swift */; };
+		8C88A0082519CD4600362EC2 /* MakeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C88A0072519CD4600362EC2 /* MakeView.swift */; };
+		8C88A00A2519CD8100362EC2 /* GetScreenSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C88A0092519CD8100362EC2 /* GetScreenSize.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +31,9 @@
 		8C889FF72516D14800362EC2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8C889FF92516D14800362EC2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8C88A00225173F8800362EC2 /* MakeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeButton.swift; sourceTree = "<group>"; };
+		8C88A0052519CCE500362EC2 /* TapButtonAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapButtonAction.swift; sourceTree = "<group>"; };
+		8C88A0072519CD4600362EC2 /* MakeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeView.swift; sourceTree = "<group>"; };
+		8C88A0092519CD8100362EC2 /* GetScreenSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetScreenSize.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +66,7 @@
 		8C889FE72516D14600362EC2 /* MVCCalculatorSampleApp */ = {
 			isa = PBXGroup;
 			children = (
+				8C88A0042519C7F400362EC2 /* SwiftArchitecture */,
 				8C889FFF2516D61400362EC2 /* Model */,
 				8C88A0002516D62200362EC2 /* View */,
 				8C88A0012516D62A00362EC2 /* Controller */,
@@ -73,6 +80,8 @@
 			isa = PBXGroup;
 			children = (
 				8C88A00225173F8800362EC2 /* MakeButton.swift */,
+				8C88A0052519CCE500362EC2 /* TapButtonAction.swift */,
+				8C88A0092519CD8100362EC2 /* GetScreenSize.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -80,6 +89,7 @@
 		8C88A0002516D62200362EC2 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				8C88A0072519CD4600362EC2 /* MakeView.swift */,
 				8C889FEE2516D14600362EC2 /* Main.storyboard */,
 				8C889FF42516D14800362EC2 /* Assets.xcassets */,
 				8C889FF62516D14800362EC2 /* LaunchScreen.storyboard */,
@@ -91,10 +101,17 @@
 			isa = PBXGroup;
 			children = (
 				8C889FEC2516D14600362EC2 /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		8C88A0042519C7F400362EC2 /* SwiftArchitecture */ = {
+			isa = PBXGroup;
+			children = (
 				8C889FE82516D14600362EC2 /* AppDelegate.swift */,
 				8C889FEA2516D14600362EC2 /* SceneDelegate.swift */,
 			);
-			path = Controller;
+			path = SwiftArchitecture;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -169,8 +186,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				8C889FED2516D14600362EC2 /* ViewController.swift in Sources */,
+				8C88A00A2519CD8100362EC2 /* GetScreenSize.swift in Sources */,
+				8C88A0062519CCE500362EC2 /* TapButtonAction.swift in Sources */,
 				8C889FE92516D14600362EC2 /* AppDelegate.swift in Sources */,
 				8C88A00325173F8800362EC2 /* MakeButton.swift in Sources */,
+				8C88A0082519CD4600362EC2 /* MakeView.swift in Sources */,
 				8C889FF32516D14600362EC2 /* MVCCalculatorSampleApp.xcdatamodeld in Sources */,
 				8C889FEB2516D14600362EC2 /* SceneDelegate.swift in Sources */,
 			);
