@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
+// スクリーンサイズの取得
 class GetScreenSize {
     // スクリーンサイズの取得
     func setScreenSize() -> (CGFloat, CGFloat){

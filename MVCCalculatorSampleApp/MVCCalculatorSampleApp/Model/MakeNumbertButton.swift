@@ -6,4 +6,5 @@
 //  Copyright © 2020 尾原徳泰. All rights reserved.
 //
 
+// 数字用のボタンを生成する関数
 import Foundation

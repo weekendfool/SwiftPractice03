@@ -6,4 +6,5 @@
 //  Copyright © 2020 尾原徳泰. All rights reserved.
 //
 
+// 数字ボタンが押された時の挙動
 import Foundation

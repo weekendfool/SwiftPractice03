@@ -6,4 +6,5 @@
 //  Copyright © 2020 尾原徳泰. All rights reserved.
 //
 
+// ラベル生成の挙動
 import Foundation

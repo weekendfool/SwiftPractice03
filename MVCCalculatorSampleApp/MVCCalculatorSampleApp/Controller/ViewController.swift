@@ -15,9 +15,12 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-    // ボタン生成の関数
+    // ボタンが押された時の挙動
     // 数字ボタン
     // 四則演算ボタン
+    
+    
+    // ラベルに反映する挙動
 
 }
 

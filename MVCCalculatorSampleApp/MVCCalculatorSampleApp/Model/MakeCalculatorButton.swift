@@ -6,4 +6,5 @@
 //  Copyright © 2020 尾原徳泰. All rights reserved.
 //
 
+// 四則演算用のボタンを生成する関数
 import Foundation
