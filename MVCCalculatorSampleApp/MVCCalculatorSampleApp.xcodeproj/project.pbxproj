@@ -20,7 +20,7 @@
 		8C88A00A2519CD8100362EC2 /* GetScreenSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C88A0092519CD8100362EC2 /* GetScreenSize.swift */; };
 		8C88A00C2519D25E00362EC2 /* MakeCalculatorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C88A00B2519D25E00362EC2 /* MakeCalculatorButton.swift */; };
 		8C88A00E2519D29100362EC2 /* CalculatorButtonAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C88A00D2519D29100362EC2 /* CalculatorButtonAction.swift */; };
-		8C88A0102519D2C200362EC2 /* MakeResultButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C88A00F2519D2C200362EC2 /* MakeResultButton.swift */; };
+		8C88A0102519D2C200362EC2 /* MakeResultLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C88A00F2519D2C200362EC2 /* MakeResultLabel.swift */; };
 		8C88A012251A483F00362EC2 /* SetBackGroundColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C88A011251A483F00362EC2 /* SetBackGroundColor.swift */; };
 /* End PBXBuildFile section */
 
@@ -40,7 +40,7 @@
 		8C88A0092519CD8100362EC2 /* GetScreenSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetScreenSize.swift; sourceTree = "<group>"; };
 		8C88A00B2519D25E00362EC2 /* MakeCalculatorButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeCalculatorButton.swift; sourceTree = "<group>"; };
 		8C88A00D2519D29100362EC2 /* CalculatorButtonAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorButtonAction.swift; sourceTree = "<group>"; };
-		8C88A00F2519D2C200362EC2 /* MakeResultButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeResultButton.swift; sourceTree = "<group>"; };
+		8C88A00F2519D2C200362EC2 /* MakeResultLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeResultLabel.swift; sourceTree = "<group>"; };
 		8C88A011251A483F00362EC2 /* SetBackGroundColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetBackGroundColor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -92,7 +92,7 @@
 				8C88A0092519CD8100362EC2 /* GetScreenSize.swift */,
 				8C88A00B2519D25E00362EC2 /* MakeCalculatorButton.swift */,
 				8C88A00D2519D29100362EC2 /* CalculatorButtonAction.swift */,
-				8C88A00F2519D2C200362EC2 /* MakeResultButton.swift */,
+				8C88A00F2519D2C200362EC2 /* MakeResultLabel.swift */,
 				8C88A011251A483F00362EC2 /* SetBackGroundColor.swift */,
 			);
 			path = Model;
@@ -204,7 +204,7 @@
 				8C889FE92516D14600362EC2 /* AppDelegate.swift in Sources */,
 				8C88A00C2519D25E00362EC2 /* MakeCalculatorButton.swift in Sources */,
 				8C88A00E2519D29100362EC2 /* CalculatorButtonAction.swift in Sources */,
-				8C88A0102519D2C200362EC2 /* MakeResultButton.swift in Sources */,
+				8C88A0102519D2C200362EC2 /* MakeResultLabel.swift in Sources */,
 				8C88A00325173F8800362EC2 /* MakeNumbertButton.swift in Sources */,
 				8C88A0082519CD4600362EC2 /* MakeView.swift in Sources */,
 				8C889FF32516D14600362EC2 /* MVCCalculatorSampleApp.xcdatamodeld in Sources */,
