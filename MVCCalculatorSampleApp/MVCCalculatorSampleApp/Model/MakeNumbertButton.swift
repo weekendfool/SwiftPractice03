@@ -8,3 +8,14 @@
 
 // 数字用のボタンを生成する関数
 import Foundation
+
+class MakeNumberButton() {
+    // ボタンサイズの設定
+    func setButtonSize() {
+        
+    }
+    // ボタンを生成するからリターンなし
+    func makeNumberButton() {
+        
+    }
+}
