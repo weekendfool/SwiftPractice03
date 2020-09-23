@@ -6,31 +6,37 @@
 //  Copyright © 2020 尾原徳泰. All rights reserved.
 //
 
-// ラベル生成の挙動
+// ラベルの生成を担当
 import Foundation
 
 class MakeResultLabel {
     // ラベル生成
-    func makeLabel(screenWidth:CGFloat, screenWidth:CGFloat, targetView:UIView) {
+    func makeResultLabel(screenWidth:CGFloat, screenWidth:CGFloat, targetView:UIView, targetLabelInstance:UILabel) {
         // ラベルの位置決定
-        mainLabel.frame = CGRect(x:0, y: 100, width: screenWidth!, height: screenHeight! / 8)
+        targetLabelInstance.frame = CGRect(x:0, y: 100, width: screenWidth!, height: screenHeight! / 8)
         // ラベルの色決定
-        mainLabel.textColor = UIColor.gray
-        mainLabel.backgroundColor = UIColor.black
+        targetLabelInstance.textColor = UIColor.gray
+        targetLabelInstance.backgroundColor = UIColor.black
         // ラベルの文字サイズを設定
-        mainLabel.font = UIFont.systemFont(ofSize: 40)
+        targetLabelInstance.font = UIFont.systemFont(ofSize: 40)
         // ラベルの位置決定
-        mainLabel.textAlignment = NSTextAlignment.right
-        
+        targetLabelInstance.textAlignment = NSTextAlignment.right
+        // viewに追加
+        targetView.addSubview(targetLabelInstance)
     }
     
     // ラベルの初期化処理
     func setFirstNumber(inputNumberString:String) {
         // ラベルの初期化
         inputNumberString = "0"
-        mainLabel.text = inputNumberString
-        targetView.addSubview(mainLabel)
+        targetLabelInstance.text = inputNumberString
     }
     
     // ラベルの表示処理
+    func changeLabel(inputNumberString:String, targetLabelInstance:UILabel) {
+        // ラベルの表示処理
+        guard let inputNumberString = inputNumberString else { return print("InputNumberString Is Nil Error") }
+        targetLabelInstance.text = inputNumberString
+    }
+    
 }
