@@ -12,157 +12,84 @@ import UIKit
 
 class CalculatorButtonAction {
     // 四則演算用ボタンの押された時のリターン
-    // タップされた時のアクション
-    func tapCalculatorButtonAction(calculatorType:Int) {
-        switch calculatorType {
-        case <#pattern#>:
-            <#code#>
-        default:
-            <#code#>
-        }
+    
+    // タップされた時のアクション:記録した数字と計算記号を返す
+    func tapCalculatorButtonAction(inputNumberString:String) -> Int {
+        var beforeNumberString:Int? // 返り値である現在値を格納する変数
+        beforeNumberString = Int(inputNumberString)
+        return beforeNumberString!
     }
-    @objc func additionButtonTapped() {
-        print("taped:additionButtonTapped")
-        // 計算用の変数にinputNumberStringを格納
-        if let inputNumberString = inputNumberString {
-            beforeNumber = Int(inputNumberString)
-            // inputNumberStringを初期化
-            self.inputNumberString = "0"
-
-        }
-        // 計算記号を格納する
-        calculatorType = 1
-        sleepButton()
-        
-        }
-    @objc func subtractionButtonTapped() {
-        print("taped:subtractionButtonTapped")
-        // 計算用の変数にinputNumberStringを格納
-        if let inputNumberString = inputNumberString {
-            beforeNumber = Int(inputNumberString)
-            // inputNumberStringを初期化
-            self.inputNumberString = "0"
-                }
-                // 計算記号を格納する
-                calculatorType = 2
-                sleepButton()
-           }
     
-    @objc func divisionButtonTapped() {
-        print("taped:divisionButtonTapped")
-        // 計算用の変数にinputNumberStringを格納
-        if let inputNumberString = inputNumberString {
-            beforeNumber = Int(inputNumberString)
-            // inputNumberStringを初期化
-            self.inputNumberString = "0"
-            }
-            // 計算記号を格納する
-            calculatorType = 3
-            sleepButton()
-           }
-    
-    @objc func multiplicationButtonTapped() {
-        print("taped:multiplicationButtonTapped")
-        // 計算用の変数にinputNumberStringを格納
-                if let inputNumberString = inputNumberString {
-                    beforeNumber = Int(inputNumberString)
-                    // inputNumberStringを初期化
-                    self.inputNumberString = "0"
-                }
-                // 計算記号を格納する
-                calculatorType = 4
-                sleepButton()
-           }
-    
-    @objc func equalButtonTapped() {
+    func tapEqualButton(inputNumberString:String, calculatorType:Int, beforeNumberString:Int) -> String {
         print("taped:equalButtonTapped")
-        var errorNumber = ""
-        if let calculatorType = calculatorType, let beforeNumber = beforeNumber, let inputNumberString = inputNumberString {
-            switch calculatorType {
-            case 1:
-                // 足算
-                self.answerNumber = beforeNumber + Int(inputNumberString)!
-            case 2:
-                // 引き算
-                self.answerNumber = beforeNumber - Int(inputNumberString)!
-            case 3:
-                // 掛け算
-                self.answerNumber = beforeNumber * Int(inputNumberString)!
-            case 4:
-                // 割り算
-                if Int(inputNumberString) == 0 {
-                    // 0で割られていた場合割り算を実行しない
-                    errorNumber = "error"
-                    print("0 error")
-                } else {
-                    // 0で割られていない場合割り算を実行
-                    self.answerNumber = beforeNumber / Int(inputNumberString)!
-                }
-            default:
-                return
-            }
-            // 0で割られていた場合errorを表示する
-            if errorNumber == "error" {
-                mainLabel.text = "error"
+        var answerNumberString:String? // 返り値である答えを格納する変数
+        
+        switch calculatorType {
+        case 1:
+            // 足算
+            answerNumberString = String(beforeNumberString + Int(inputNumberString)!)
+        case 2:
+            // 引き算
+            answerNumberString = String(beforeNumberString - Int(inputNumberString)!)
+        case 3:
+            // 掛け算
+            answerNumberString = String(beforeNumberString * Int(inputNumberString)!)
+        case 4:
+            // 割り算
+            if Int(inputNumberString) == 0 {
+                // 0で割られていた場合割り算を実行しない
+                answerNumberString = "error"
+                print("Input 0 error")
             } else {
-                // 0で割られていない場合計算結果を表示するlabelに表示
-                if let answerNumber = answerNumber {
-                    mainLabel.text = "\(answerNumber)"
-                    self.inputNumberString = "\(answerNumber)"
-                    }
+                // 0で割られていない場合割り算を実行
+                answerNumberString = String(beforeNumberString / Int(inputNumberString)!)
             }
-            
-            // 初期化
-            self.beforeNumber = 0
-            self.calculatorType = 0
-            self.answerNumber = 0
-            // ボタンの状態の初期化
-            additionButton.isEnabled = true
-            subtractionButton.isEnabled = true
-            divisionButton.isEnabled = true
-            multiplicationButton.isEnabled = true
-            // 色の初期化
-            additionButton.backgroundColor = UIColor.systemOrange
-            subtractionButton.backgroundColor = UIColor.systemOrange
-            divisionButton.backgroundColor = UIColor.systemOrange
-            multiplicationButton.backgroundColor = UIColor.systemOrange
-            
-            }
+        default:
+            print("CalculatorType Is Not Right")
+            answerNumberString = "error"
+        }
+        return answerNumberString!
         }
     
-    @objc func clearButtonTapped() {
-        print("taped")
-        // label表示の初期化
-        inputNumberString = "0"
-        mainLabel.text = inputNumberString
-        // 計算用変数を初期化
-        beforeNumber = 0
-        // 計算用記号変数を初期化
-        calculatorType = 0
-        answerNumber = 0
-        // ボタンの状態の初期化
-        additionButton.isEnabled = true
-        subtractionButton.isEnabled = true
-        divisionButton.isEnabled = true
-        multiplicationButton.isEnabled = true
-        // 色の初期化
-        additionButton.backgroundColor = UIColor.systemOrange
-        subtractionButton.backgroundColor = UIColor.systemOrange
-        divisionButton.backgroundColor = UIColor.systemOrange
-        multiplicationButton.backgroundColor = UIColor.systemOrange
+    func clearButtonTapped() {
+        // 表示変更するだけ？
         }
     
-    // 四則演算用ボタンの押された時のボタンの色変え:リターンなし
-    func changeCalculatorButtonColor(targetButton:UIButton) {
+    // 押されたボタンの色変え:リターンなし
+func changeCalculatorButtonColor(targetButton:UIButton) {
         targetButton.backgroundColor = UIColor.orange
     }
     
     // 四則演算用ボタンの押された時のボタンの無効化:リターンなし
-    func banTapCalculatorButton(additionButton:UIButton, subtractionButton:UIButton, divisionButton:UIButton, multiplicationButton:UIButton) {
-        // ボタンを押せないように設定
-        additionButton.isEnabled = false
-        subtractionButton.isEnabled = false
-        divisionButton.isEnabled = false
-        multiplicationButton.isEnabled = false
+    func banTapCalculatorButton(additionButton:UIButton, subtractionButton:UIButton, divisionButton:UIButton, multiplicationButton:UIButton, tapCalculatorButtonFlag:Bool) {
+        // クリアボタン、イコールボタが押された時の初期化
+        if tapCalculatorButtonFlag {
+            // ボタンの状態の有効化
+            additionButton.isEnabled = true
+            subtractionButton.isEnabled = true
+            divisionButton.isEnabled = true
+            multiplicationButton.isEnabled = true
+        } else {
+            // 四則演算用ボタンが押された時の挙動
+            // ボタンの無効化
+            additionButton.isEnabled = false
+            subtractionButton.isEnabled = false
+            divisionButton.isEnabled = false
+            multiplicationButton.isEnabled = false
+        }
+        
     }
+    
+    // クリアボタン、イコールボタが押された時の初期化:リターンなし
+    func resetCalculatorButtonColor(additionButton:UIButton, subtractionButton:UIButton, divisionButton:UIButton, multiplicationButton:UIButton, tapCalculatorButtonFlag:Bool) {
+        if tapCalculatorButtonFlag {
+            // ボタンの状態の有効化
+            additionButton.backgroundColor = UIColor.systemOrange
+            subtractionButton.backgroundColor = UIColor.systemOrange
+            divisionButton.backgroundColor = UIColor.systemOrange
+            multiplicationButton.backgroundColor = UIColor.systemOrange
+        }
+    }
+
 }
+
