@@ -13,7 +13,43 @@ import UIKit
 class NumberButtonAction {
     // タップされた時のアクション
     // タップされた数字を返却する
-    func NumberButtonTapped(inputNumberString:String?, targetButtonInstance:UIButton, targetNumber:Int?) -> String {
+    @objc func oneButtonTapped() {
+    
+        @objc }
+    func tewButtonTapped() {@objc 
+    
+    }
+    func threeButtonTapp@objc ed() {
+    
+    }
+    func fourButt@objc onTapped() {
+    
+    }
+    func fi@objc veButtonTapped() {
+    
+    }
+    @objc func sixButtonTapped() {
+    
+    }
+    @objc     func sevenButtonTapped() {
+        @objc    
+    }
+    func eightButt@objc onTapped() {
+    
+    }
+    func ni@objc neButtonTapped() {
+    
+    }
+    func zeroButtonTapped() {
+    
+    }
+    func ooButtonTapped() {
+    
+    }
+    
+    
+    
+    func numberButtonTapped(inputNumberString:String?, targetButtonInstance:UIButton, targetNumber:Int?) -> String {
         print("inputNumberString:\(inputNumberString)")
         var outputString:String? //　返り値用の変数
         if let inputNumberString = inputNumberString, let targetNumber = targetNumber {

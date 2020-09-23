@@ -30,22 +30,22 @@ class MakeCalculatorButton {
         switch labelName {
         case "+":
             calculatButton = buttonInstance
-            calculatButton!.addTarget(self, action: #selector(self.additionButtonTapped), for:.touchUpInside)
+            calculatButton!.addTarget(self, action: #selector(CalculatorButtonAction.additionButtonTapped), for:.touchUpInside)
         case "-":
             calculatButton = buttonInstance
-            calculatButton!.addTarget(self, action: #selector(self.subtractionButtonTapped), for: .touchUpInside)
+            calculatButton!.addTarget(self, action: #selector(CalculatorButtonAction.subtractionButtonTapped), for: .touchUpInside)
         case "*":
             calculatButton = buttonInstance
-            calculatButton!.addTarget(self, action: #selector(self.divisionButtonTapped), for: .touchUpInside)
+            calculatButton!.addTarget(self, action: #selector(CalculatorButtonAction.divisionButtonTapped), for: .touchUpInside)
         case "/":
             calculatButton = buttonInstance
-            calculatButton!.addTarget(self, action: #selector(self.multiplicationButtonTapped), for: .touchUpInside)
+            calculatButton!.addTarget(self, action: #selector(CalculatorButtonAction.multiplicationButtonTapped), for: .touchUpInside)
         case "=":
             calculatButton = buttonInstance
-            calculatButton!.addTarget(self, action: #selector(self.equalButtonTapped), for: .touchUpInside)
+            calculatButton!.addTarget(self, action: #selector(CalculatorButtonAction.equalButtonTapped), for: .touchUpInside)
         case "Clear":
             calculatButton = buttonInstance
-            calculatButton!.addTarget(self, action: #selector(self.clearButtonTapped), for: .touchUpInside)
+            calculatButton!.addTarget(self, action: #selector(CalculatorButtonAction.clearButtonTapped), for: .touchUpInside)
         default:
             print("Make CalculatButton Error")
             return

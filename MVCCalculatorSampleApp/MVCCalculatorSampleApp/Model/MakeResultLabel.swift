@@ -8,12 +8,13 @@
 
 // ラベルの生成を担当
 import Foundation
+import UIKit
 
 class MakeResultLabel {
     // ラベル生成
-    func makeResultLabel(screenWidth:CGFloat, screenWidth:CGFloat, targetView:UIView, targetLabelInstance:UILabel) {
+    func makeResultLabel(screenWidth:CGFloat, screenHeight:CGFloat, targetView:UIView, targetLabelInstance:UILabel) {
         // ラベルの位置決定
-        targetLabelInstance.frame = CGRect(x:0, y: 100, width: screenWidth!, height: screenHeight! / 8)
+        targetLabelInstance.frame = CGRect(x:0, y: 100, width: screenWidth, height: screenHeight / 8)
         // ラベルの色決定
         targetLabelInstance.textColor = UIColor.gray
         targetLabelInstance.backgroundColor = UIColor.black
@@ -26,16 +27,15 @@ class MakeResultLabel {
     }
     
     // ラベルの初期化処理
-    func setFirstNumber(inputNumberString:String) {
+    func setFirstNumber(targetLabelInstance:UILabel) {
         // ラベルの初期化
-        inputNumberString = "0"
+        let inputNumberString = "0"
         targetLabelInstance.text = inputNumberString
     }
     
     // ラベルの表示処理
     func changeLabel(inputNumberString:String, targetLabelInstance:UILabel) {
         // ラベルの表示処理
-        guard let inputNumberString = inputNumberString else { return print("InputNumberString Is Nil Error") }
         targetLabelInstance.text = inputNumberString
     }
     

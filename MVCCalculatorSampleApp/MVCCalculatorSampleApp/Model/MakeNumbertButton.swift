@@ -90,27 +90,27 @@ class MakeNumbertButton {
         let numberButton = UIButton()
         switch labelName {
         case "1":
-            numberButton.addTarget(self, action: #selector(self.oneButtonTapped), for: .touchUpInside)
+            numberButton.addTarget(self, action: #selector(NumberButtonAction.oneButtonTapped), for: .touchUpInside)
         case "2":
-            numberButton.addTarget(self, action: #selector(self.tewButtonTapped), for: .touchUpInside)
+            numberButton.addTarget(self, action: #selector(NumberButtonAction.tewButtonTapped), for: .touchUpInside)
         case "3":
-            numberButton.addTarget(self, action: #selector(self.threeButtonTapped), for: .touchUpInside)
+            numberButton.addTarget(self, action: #selector(NumberButtonAction.threeButtonTapped), for: .touchUpInside)
         case "4":
-            numberButton.addTarget(self, action: #selector(self.fourButtonTapped), for: .touchUpInside)
+            numberButton.addTarget(self, action: #selector(NumberButtonAction.fourButtonTapped), for: .touchUpInside)
         case "5":
-            numberButton.addTarget(self, action: #selector(self.fiveButtonTapped), for: .touchUpInside)
+            numberButton.addTarget(self, action: #selector(NumberButtonAction.fiveButtonTapped), for: .touchUpInside)
         case "6":
-            numberButton.addTarget(self, action: #selector(self.sixButtonTapped), for: .touchUpInside)
+            numberButton.addTarget(self, action: #selector(NumberButtonAction.sixButtonTapped), for: .touchUpInside)
         case "7":
-            numberButton.addTarget(self, action: #selector(self.sevenButtonTapped), for: .touchUpInside)
+            numberButton.addTarget(self, action: #selector(NumberButtonAction.sevenButtonTapped), for: .touchUpInside)
         case "8":
-            numberButton.addTarget(self, action: #selector(self.eightButtonTapped), for: .touchUpInside)
+            numberButton.addTarget(self, action: #selector(NumberButtonAction.eightButtonTapped), for: .touchUpInside)
         case "9":
-            numberButton.addTarget(self, action: #selector(self.nineButtonTapped), for: .touchUpInside)
+            numberButton.addTarget(self, action: #selector(NumberButtonAction.nineButtonTapped), for: .touchUpInside)
         case "0":
-            numberButton.addTarget(self, action: #selector(self.zeroButtonTapped), for: .touchUpInside)
+            numberButton.addTarget(self, action: #selector(NumberButtonAction.zeroButtonTapped), for: .touchUpInside)
         case "00":
-            numberButton.addTarget(self, action: #selector(self.ooButtonTapped), for: .touchUpInside)
+            numberButton.addTarget(self, action: #selector(NumberButtonAction.ooButtonTapped), for: .touchUpInside)
         default:
             return
         }
