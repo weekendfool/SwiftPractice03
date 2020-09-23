@@ -10,7 +10,7 @@
 import Foundation
 import UIKit
 
-class MakeResultLabel {
+class ResultLabel {
     // ラベル生成
     func makeResultLabel(screenWidth:CGFloat, screenHeight:CGFloat, targetView:UIView, targetLabelInstance:UILabel) {
         // ラベルの位置決定

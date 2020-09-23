@@ -57,7 +57,7 @@ class ViewController: UIViewController {
         // もしスクリーンサイズが取得できなかったら関数を抜ける
         guard let screenWidth = screenWidth, let screenHeight = screenHeight else { return }
         let buttonSizeWidth = screenWidth / 3.0
-            let buttonSizeHight = screenHeight / 12.0
+        let buttonSizeHight = screenHeight / 12.0
         print("buttonSizeWidth:\(buttonSizeWidth)")
         print("buttonSizeHight:\(buttonSizeHight)")
         // 場所を格納する変数設定
