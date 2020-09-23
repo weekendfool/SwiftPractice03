@@ -14,36 +14,34 @@ class NumberButtonAction {
     // タップされた時のアクション
     // タップされた数字を返却する
     @objc func oneButtonTapped() {
-    
-        @objc }
-    func tewButtonTapped() {@objc 
+    }
+    @objc func tewButtonTapped() {
     
     }
-    func threeButtonTapp@objc ed() {
+    @objc func threeButtonTapped() {
     
     }
-    func fourButt@objc onTapped() {
+    @objc func fourButtonTapped() {
     
     }
-    func fi@objc veButtonTapped() {
+    @objc func fiveButtonTapped() {
     
     }
     @objc func sixButtonTapped() {
     
     }
-    @objc     func sevenButtonTapped() {
-        @objc    
+    @objc func sevenButtonTapped() {
     }
-    func eightButt@objc onTapped() {
+    @objc func eightButtonTapped() {
     
     }
-    func ni@objc neButtonTapped() {
+    @objc func nineButtonTapped() {
     
     }
-    func zeroButtonTapped() {
+    @objc func zeroButtonTapped() {
     
     }
-    func ooButtonTapped() {
+    @objc func ooButtonTapped() {
     
     }
     
