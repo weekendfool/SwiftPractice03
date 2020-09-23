@@ -87,10 +87,10 @@
 		8C889FFF2516D61400362EC2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				8C88A00225173F8800362EC2 /* MakeNumbertButton.swift */,
-				8C88A0052519CCE500362EC2 /* NumberButtonAction.swift */,
 				8C88A0092519CD8100362EC2 /* GetScreenSize.swift */,
+				8C88A00225173F8800362EC2 /* MakeNumbertButton.swift */,
 				8C88A00B2519D25E00362EC2 /* MakeCalculatorButton.swift */,
+				8C88A0052519CCE500362EC2 /* NumberButtonAction.swift */,
 				8C88A00D2519D29100362EC2 /* CalculatorButtonAction.swift */,
 				8C88A00F2519D2C200362EC2 /* MakeResultLabel.swift */,
 				8C88A011251A483F00362EC2 /* SetBackGroundColor.swift */,
