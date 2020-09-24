@@ -92,51 +92,51 @@ class MakeCalculatorButton {
             targetView.addSubview(calculatButton!)
         }
         
-    // 計算ボタンの生成
-    func makeCalculatButton(buttonPointX: CGFloat, buttonPointY: CGFloat, buttonSizeWidth: CGFloat, buttonSizeHight: CGFloat, labelName: String, targetView: UIView, buttonInstance: UIButton?) {
-        // buttonのインスタンス作成
-        var calculatButton:UIButton?
-        
-        switch labelName {
-        case "+":
-            calculatButton = buttonInstance
-            calculatButton!.addTarget(self, action: #selector(CalculatorButtonAction.additionButtonTapped), for:.touchUpInside)
-        case "-":
-            calculatButton = buttonInstance
-            calculatButton!.addTarget(self, action: #selector(CalculatorButtonAction.subtractionButtonTapped), for: .touchUpInside)
-        case "*":
-            calculatButton = buttonInstance
-            calculatButton!.addTarget(self, action: #selector(CalculatorButtonAction.divisionButtonTapped), for: .touchUpInside)
-        case "/":
-            calculatButton = buttonInstance
-            calculatButton!.addTarget(self, action: #selector(CalculatorButtonAction.multiplicationButtonTapped), for: .touchUpInside)
-        case "=":
-            calculatButton = buttonInstance
-            calculatButton!.addTarget(self, action: #selector(CalculatorButtonAction.equalButtonTapped), for: .touchUpInside)
-        case "Clear":
-            calculatButton = buttonInstance
-            calculatButton!.addTarget(self, action: #selector(CalculatorButtonAction.clearButtonTapped), for: .touchUpInside)
-        default:
-            print("Make CalculatButton Error")
-            return
-            }
-            // buttonのラベル作成
-            calculatButton!.setTitle("\(labelName)", for: UIControl.State.normal)
-            // buttonのフォントサイズを設定
-            calculatButton!.titleLabel?.font = UIFont.systemFont(ofSize: 28)
-            calculatButton!.frame = CGRect(x: buttonPointX, y: buttonPointY, width: buttonSizeWidth, height: buttonSizeHight)
-            
-            calculatButton!.backgroundColor = UIColor.systemOrange
-            // ボタンの枠線を設定
-            calculatButton!.layer.borderColor = UIColor.darkGray.cgColor
-            calculatButton!.layer.borderWidth = 2.0
-            calculatButton!.layer.cornerRadius = 10
-            
-            // viewにボタンを追加
-            targetView.addSubview(calculatButton!)
-        }
-    }
-    
+//    // 計算ボタンの生成
+//    func makeCalculatButton(buttonPointX: CGFloat, buttonPointY: CGFloat, buttonSizeWidth: CGFloat, buttonSizeHight: CGFloat, labelName: String, targetView: UIView, buttonInstance: UIButton?) {
+//        // buttonのインスタンス作成
+//        var calculatButton:UIButton?
+//        
+//        switch labelName {
+//        case "+":
+//            calculatButton = buttonInstance
+//            calculatButton!.addTarget(self, action: #selector(CalculatorButtonAction.additionButtonTapped), for:.touchUpInside)
+//        case "-":
+//            calculatButton = buttonInstance
+//            calculatButton!.addTarget(self, action: #selector(CalculatorButtonAction.subtractionButtonTapped), for: .touchUpInside)
+//        case "*":
+//            calculatButton = buttonInstance
+//            calculatButton!.addTarget(self, action: #selector(CalculatorButtonAction.divisionButtonTapped), for: .touchUpInside)
+//        case "/":
+//            calculatButton = buttonInstance
+//            calculatButton!.addTarget(self, action: #selector(CalculatorButtonAction.multiplicationButtonTapped), for: .touchUpInside)
+//        case "=":
+//            calculatButton = buttonInstance
+//            calculatButton!.addTarget(self, action: #selector(CalculatorButtonAction.equalButtonTapped), for: .touchUpInside)
+//        case "Clear":
+//            calculatButton = buttonInstance
+//            calculatButton!.addTarget(self, action: #selector(CalculatorButtonAction.clearButtonTapped), for: .touchUpInside)
+//        default:
+//            print("Make CalculatButton Error")
+//            return
+//            }
+//            // buttonのラベル作成
+//            calculatButton!.setTitle("\(labelName)", for: UIControl.State.normal)
+//            // buttonのフォントサイズを設定
+//            calculatButton!.titleLabel?.font = UIFont.systemFont(ofSize: 28)
+//            calculatButton!.frame = CGRect(x: buttonPointX, y: buttonPointY, width: buttonSizeWidth, height: buttonSizeHight)
+//            
+//            calculatButton!.backgroundColor = UIColor.systemOrange
+//            // ボタンの枠線を設定
+//            calculatButton!.layer.borderColor = UIColor.darkGray.cgColor
+//            calculatButton!.layer.borderWidth = 2.0
+//            calculatButton!.layer.cornerRadius = 10
+//            
+//            // viewにボタンを追加
+//            targetView.addSubview(calculatButton!)
+//        }
+//    }
+//    
         
         
 }
