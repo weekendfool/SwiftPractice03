@@ -12,14 +12,23 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        // 初期設定のコード
+        // スクリーンサイズを取得
+        // GetScreenSizeクラスのインスタンス作成
+        let getScreenSize = GetScreenSize()
+        // 関数を実行
+        let myiPhoneScreenSize = getScreenSize.setScreenSize()
+        print("myiPhoneScreenSize:\(myiPhoneScreenSize)")
+        let screenWidth = myiPhoneScreenSize[0]
+        let screenHeight = myiPhoneScreenSize[1]
+        
+        // labelの初期設定
+        // GetScreenSizeクラスのインスタンス作成
+        let makeResultLabel = MakeResultLabel()
+        
     }
 
-    // ボタンが押された時の挙動
-    // 数字ボタン
-    // 四則演算ボタン
-    
-    
+    // 計算の挙動
     // ラベルに反映する挙動
 
 }

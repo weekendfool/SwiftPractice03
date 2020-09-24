@@ -26,6 +26,10 @@ class CalculatorView: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // 初期設定のコード
+        // GetScreenSizeクラスのインスタンス作成
+        let makeResultLabel = MakeResultLabel()
+        // labelを描画
+        makeResultLabel.makeResultLabel()
     }
 
     // ボタン生成の関数

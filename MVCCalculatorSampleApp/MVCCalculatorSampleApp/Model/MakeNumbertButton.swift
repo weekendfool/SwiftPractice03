@@ -101,9 +101,9 @@ class MakeNumbertButton {
             numberButton.titleLabel?.font = UIFont.systemFont(ofSize: 28)
             // buttonのサイズを設定
             if buttonPlaceNumber == 0 || buttonPlaceNumber == 00 {
-                numberButton.frame = CGRect(x: buttonPointX, y: buttonPointY, width: buttonSizeWidth, height:buttonSizeHight * 3 / 2)
+                numberButton.frame = CGRect(x: buttonPointX!, y: buttonPointY!, width: buttonSizeWidth, height:buttonSizeHight * 3 / 2)
             } else {
-                numberButton.frame = CGRect(x: buttonPointX, y: buttonPointY, width: buttonSizeWidth, height:buttonSizeHight)
+                numberButton.frame = CGRect(x: buttonPointX!, y: buttonPointY!, width: buttonSizeWidth, height:buttonSizeHight)
             }
             // buttonの色を設定
             numberButton.backgroundColor = UIColor.gray
