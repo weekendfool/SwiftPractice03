@@ -11,14 +11,7 @@ import Foundation
 import UIKit
 
 class MakeNumbertButton {
-//    // ボタンサイズの設定
-//    func setButtonSize(screenWidth:CGFloat, screenHeight:CGFloat) -> (CGFloat, CGFloat){
-//        // ボタンのサイズの計算
-//        let buttonSizeWidth = screenWidth / 3.0 // 幅
-//        let buttonSizeHight = screenHeight / 12.0 // 高さ
-//        // 算出した値を返却
-//        return (buttonSizeWidth, buttonSizeHight)
-//    }
+
     
     // ボタンをviewに描写する
     func makeNumberButton(screenWidth:CGFloat, screenHeight:CGFloat, targetView: UIView) {
@@ -121,52 +114,7 @@ class MakeNumbertButton {
         }
     }
     
-//    // 計算ボタンの生成:リターンなし
-//    // 計算ボタンの生成
-//    func makeNumberButton(buttonPlaceX: CGFloat, buttonPlaceY: CGFloat, buttonSizeWidth: CGFloat, buttonSizeHight: CGFloat, labelName: String, targetView: UIView) {
-//        // buttonのインスタンス作成
-//        let numberButton = UIButton()
-//        switch labelName {
-//        case "1":
-//            numberButton.addTarget(self, action: #selector(NumberButtonAction.oneButtonTapped), for: .touchUpInside)
-//        case "2":
-//            numberButton.addTarget(self, action: #selector(NumberButtonAction.tewButtonTapped), for: .touchUpInside)
-//        case "3":
-//            numberButton.addTarget(self, action: #selector(NumberButtonAction.threeButtonTapped), for: .touchUpInside)
-//        case "4":
-//            numberButton.addTarget(self, action: #selector(NumberButtonAction.fourButtonTapped), for: .touchUpInside)
-//        case "5":
-//            numberButton.addTarget(self, action: #selector(NumberButtonAction.fiveButtonTapped), for: .touchUpInside)
-//        case "6":
-//            numberButton.addTarget(self, action: #selector(NumberButtonAction.sixButtonTapped), for: .touchUpInside)
-//        case "7":
-//            numberButton.addTarget(self, action: #selector(NumberButtonAction.sevenButtonTapped), for: .touchUpInside)
-//        case "8":
-//            numberButton.addTarget(self, action: #selector(NumberButtonAction.eightButtonTapped), for: .touchUpInside)
-//        case "9":
-//            numberButton.addTarget(self, action: #selector(NumberButtonAction.nineButtonTapped), for: .touchUpInside)
-//        case "0":
-//            numberButton.addTarget(self, action: #selector(NumberButtonAction.zeroButtonTapped), for: .touchUpInside)
-//        case "00":
-//            numberButton.addTarget(self, action: #selector(NumberButtonAction.ooButtonTapped), for: .touchUpInside)
-//        default:
-//            return
-//        }
-//        // buttonのラベル作成
-//        numberButton.setTitle("\(labelName)", for: UIControl.State.normal)
-//        // buttonのフォントサイズを設定
-//        numberButton.titleLabel?.font = UIFont.systemFont(ofSize: 28)
-//        numberButton.frame = CGRect(x: buttonPlaceX, y: buttonPlaceY, width: buttonSizeWidth, height: buttonSizeHight)
-//
-//        numberButton.backgroundColor = UIColor.gray
-//        // ボタンの枠線を設定
-//        numberButton.layer.borderColor = UIColor.darkGray.cgColor
-//        numberButton.layer.borderWidth = 2.0
-//        numberButton.layer.cornerRadius = 10
-//
-//        // viewにボタンを追加
-//        targetView.addSubview(numberButton)
-//    }
+
     
 }
     

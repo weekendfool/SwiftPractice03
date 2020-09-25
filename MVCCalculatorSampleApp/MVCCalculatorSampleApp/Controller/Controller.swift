@@ -15,6 +15,7 @@ class Controller: UIViewController {
         // 初期設定のコード
         // CalculatorViewのインスタンスを作成
         let calculatorView = CalculatorView()
+        
         // 各modelについてのインスタンス設定
         // GetScreenSizeクラスのインスタンス作成
         let getScreenSize = GetScreenSize()
@@ -47,8 +48,22 @@ class Controller: UIViewController {
         //初期値を代入
         makeResultLabel.setFirstNumber(targetLabelInstance: calculatorView.resultLabel)
         
+        // ボタンの生成
         // 数字ボタンを作成
         makeNumbertButton.makeNumberButton(screenWidth: screenWidth, screenHeight: screenHeight, targetView: mainView!)
+        // 四則演算ボタンを作成
+        // 足算
+        makeCalculatorButton.makeCalculatorButton(screenWidth: screenWidth, screenHeight: screenHeight, targetView: mainView!, buttonInstance: calculatorView.additionButton, buttonInstanceName: "additionButton")
+        // 引き算
+        makeCalculatorButton.makeCalculatorButton(screenWidth: screenWidth, screenHeight: screenHeight, targetView: mainView!, buttonInstance: calculatorView.subtractionButton, buttonInstanceName: "subtractionButton")
+        // かけ算
+        makeCalculatorButton.makeCalculatorButton(screenWidth: screenWidth, screenHeight: screenHeight, targetView: mainView!, buttonInstance: calculatorView.divisionButton, buttonInstanceName: "divisionButton")
+        // わり算
+        makeCalculatorButton.makeCalculatorButton(screenWidth: screenWidth, screenHeight: screenHeight, targetView: mainView!, buttonInstance: calculatorView.multiplicationButton, buttonInstanceName: "multiplicationButton")
+        // イコール
+        makeCalculatorButton.makeCalculatorButton(screenWidth: screenWidth, screenHeight: screenHeight, targetView: mainView!, buttonInstance: calculatorView.equalButton, buttonInstanceName: "equalButton")
+        // クリア
+        makeCalculatorButton.makeCalculatorButton(screenWidth: screenWidth, screenHeight: screenHeight, targetView: mainView!, buttonInstance: calculatorView.clearButton, buttonInstanceName: "clearButton")
     }
 
     // 計算の挙動
