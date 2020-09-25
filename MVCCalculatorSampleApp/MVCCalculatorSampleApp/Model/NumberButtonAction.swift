@@ -10,9 +10,6 @@
 import Foundation
 import UIKit
 
-var inputNumber:String?
-var answerNumber:String?
-
 class NumberButtonAction {
     // タップされた時のアクション
     // タップされた数字を返却する
@@ -80,7 +77,7 @@ class NumberButtonAction {
         if let inputNumberString = inputNumberString, let targetNumber = targetNumber {
             // 表示されている桁数が規定以下の場合の処理
             if inputNumberString.count < 10 {
-               
+        
                 //　inputNumberStringが初期値0以外の場合の処理
                 if inputNumberString != "0" {
                     switch targetNumber {
@@ -109,9 +106,10 @@ class NumberButtonAction {
                 // 桁数が9でかつ00のボタンが押された場合
                 outputString = inputNumberString + "0"
             }
+            return String(outputString!)
         }
         print("inputNumberString, targetNumber Nil Error")
-        return String(outputString!)
+        return "error"
     }
 
     

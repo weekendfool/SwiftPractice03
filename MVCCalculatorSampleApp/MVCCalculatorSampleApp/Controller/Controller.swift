@@ -8,8 +8,13 @@
 
 import UIKit
 
-class Controller: UIViewController {
+// 入力された値
+var inputNumber:String?
+// 出力された値
+var answerNumber:String?
 
+class Controller: UIViewController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // 初期設定のコード
@@ -29,6 +34,8 @@ class Controller: UIViewController {
         let makeCalculatorButton = MakeCalculatorButton()
         // calculatorButtonActionのインスタンスを作成
         let calculatorButtonAction = CalculatorButtonAction()
+        // numberButtonActionのインスタンスを作成
+        let numberButtonAction = NumberButtonAction()
         
         let mainView = self.view
         
@@ -64,7 +71,25 @@ class Controller: UIViewController {
         makeCalculatorButton.makeCalculatorButton(screenWidth: screenWidth, screenHeight: screenHeight, targetView: mainView!, buttonInstance: calculatorView.equalButton, buttonInstanceName: "equalButton")
         // クリア
         makeCalculatorButton.makeCalculatorButton(screenWidth: screenWidth, screenHeight: screenHeight, targetView: mainView!, buttonInstance: calculatorView.clearButton, buttonInstanceName: "clearButton")
+        
+        // ボタンのアクションを設定
+        // 数字ボタンのアクションを設定
+        for targetNumber in 0...10 {
+            numberButtonAction.numberButtonTapped(inputNumberString: inputNumber, targetNumber: targetNumber)
+        }
+        
+        inputNumber = "8"
+        
+        var labelanswerNumber = answerNumber {
+        didSet{
+            // ラベルに反映する
+            makeResultLabel.changeLabel(inputNumberString: labelanswerNumber!, targetLabelInstance: calculatorView.resultLabel)
+            }
+        }
+        
     }
+    
+    
 
     // 計算の挙動
     // ラベルに反映する挙動
