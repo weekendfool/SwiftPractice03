@@ -73,10 +73,7 @@ class Controller: UIViewController {
         makeCalculatorButton.makeCalculatorButton(screenWidth: screenWidth, screenHeight: screenHeight, targetView: mainView!, buttonInstance: calculatorView.clearButton, buttonInstanceName: "clearButton")
         
         // ボタンのアクションを設定
-        // 数字ボタンのアクションを設定
-        for targetNumber in 0...10 {
-            numberButtonAction.numberButtonTapped(inputNumberString: inputNumber, targetNumber: targetNumber)
-        }
+        
         
         inputNumber = "8"
         
@@ -89,10 +86,5 @@ class Controller: UIViewController {
         
     }
     
-    
-
-    // 計算の挙動
-    // ラベルに反映する挙動
-
 }
 

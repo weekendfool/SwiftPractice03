@@ -33,7 +33,7 @@ class MakeNumbertButton {
                 buttonName = "1";
                 buttonPointX = buttonSizeWidth * 0
                 buttonPointY = buttonSizeHight * 8
-                numberButton.addTarget(self, action: #selector(NumberButtonAction.oneButtonTapped), for: .touchUpInside)
+                numberButton.addTarget(NumberButtonAction(), action: #selector(NumberButtonAction.oneButtonTapped), for: .touchUpInside)
             case 2:
                 buttonName = "2"
                 buttonPointX = buttonSizeWidth * 1
@@ -99,7 +99,7 @@ class MakeNumbertButton {
             // buttonのサイズを設定
             if buttonPlaceNumber == 0 || buttonPlaceNumber == 10 {
                 numberButton.frame = CGRect(x: buttonPointX!, y: buttonPointY!, width: buttonSizeWidth * 3 / 2, height:buttonSizeHight)
-                print("Button 0 & 00")
+//                print("Button 0 & 00")
             } else {
                 numberButton.frame = CGRect(x: buttonPointX!, y: buttonPointY!, width: buttonSizeWidth, height:buttonSizeHight)
             }
