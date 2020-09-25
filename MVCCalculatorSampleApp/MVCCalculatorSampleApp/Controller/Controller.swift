@@ -29,6 +29,8 @@ class Controller: UIViewController {
         // calculatorButtonActionのインスタンスを作成
         let calculatorButtonAction = CalculatorButtonAction()
         
+        let mainView = self.view
+        
         // 関数を実行
         // サイズを取得
         let myiPhoneScreenSize = getScreenSize.setScreenSize()
@@ -37,13 +39,16 @@ class Controller: UIViewController {
         let screenHeight = myiPhoneScreenSize.1
         
         // 背景を黒色に設定
-        setBackGroundColor.setBackGroundColor(view: self.view)
+        setBackGroundColor.setBackGroundColor(view: mainView!)
         
         // labelを描画
-        makeResultLabel.makeResultLabel(screenWidth: screenWidth, screenHeight: screenHeight, targetView: self.view, targetLabelInstance: calculatorView.resultLabel)
+        makeResultLabel.makeResultLabel(screenWidth: screenWidth, screenHeight: screenHeight, targetView: mainView!, targetLabelInstance: calculatorView.resultLabel)
         
         //初期値を代入
         makeResultLabel.setFirstNumber(targetLabelInstance: calculatorView.resultLabel)
+        
+        // 数字ボタンを作成
+        makeNumbertButton.makeNumberButton(screenWidth: screenWidth, screenHeight: screenHeight, targetView: mainView!)
     }
 
     // 計算の挙動
