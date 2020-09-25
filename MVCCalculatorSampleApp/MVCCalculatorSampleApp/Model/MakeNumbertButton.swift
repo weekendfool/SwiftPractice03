@@ -105,7 +105,7 @@ class MakeNumbertButton {
             numberButton.titleLabel?.font = UIFont.systemFont(ofSize: 28)
             // buttonのサイズを設定
             if buttonPlaceNumber == 0 || buttonPlaceNumber == 10 {
-                numberButton.frame = CGRect(x: buttonPointX!, y: buttonPointY!, width: buttonSizeWidth, height:buttonSizeHight * 3 / 2)
+                numberButton.frame = CGRect(x: buttonPointX!, y: buttonPointY!, width: buttonSizeWidth * 3 / 2, height:buttonSizeHight)
                 print("Button 0 & 00")
             } else {
                 numberButton.frame = CGRect(x: buttonPointX!, y: buttonPointY!, width: buttonSizeWidth, height:buttonSizeHight)
