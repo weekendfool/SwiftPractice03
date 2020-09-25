@@ -95,13 +95,18 @@ class MakeNumbertButton {
                 print("NumberButton Make Errror")
                 return
             }
-            // buttonのラベル作成
-            numberButton.setTitle("\(buttonName)", for: UIControl.State.normal)
+            
+            if let buttonName = buttonName {
+                // buttonのラベル作成
+                numberButton.setTitle("\(buttonName)", for: UIControl.State.normal)
+            }
+            
             // buttonのフォントサイズを設定
             numberButton.titleLabel?.font = UIFont.systemFont(ofSize: 28)
             // buttonのサイズを設定
-            if buttonPlaceNumber == 0 || buttonPlaceNumber == 00 {
+            if buttonPlaceNumber == 0 || buttonPlaceNumber == 10 {
                 numberButton.frame = CGRect(x: buttonPointX!, y: buttonPointY!, width: buttonSizeWidth, height:buttonSizeHight * 3 / 2)
+                print("Button 0 & 00")
             } else {
                 numberButton.frame = CGRect(x: buttonPointX!, y: buttonPointY!, width: buttonSizeWidth, height:buttonSizeHight)
             }
