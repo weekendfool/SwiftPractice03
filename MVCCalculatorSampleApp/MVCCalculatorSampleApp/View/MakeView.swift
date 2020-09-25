@@ -22,33 +22,6 @@ class CalculatorView {
     let multiplicationButton = UIButton()
     let equalButton = UIButton()
     let clearButton = UIButton()
-    // UIViewControllerのインスタンス作成
-    let controller = Controller()
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // 初期設定のコード
-        // GetScreenSizeクラスのインスタンス作成
-        let getScreenSize = GetScreenSize()
-        // 関数を実行
-        let myiPhoneScreenSize = getScreenSize.setScreenSize()
-        print("myiPhoneScreenSize:\(myiPhoneScreenSize)")
-        let screenWidth = myiPhoneScreenSize.0
-        let screenHeight = myiPhoneScreenSize.1
-        // GetScreenSizeクラスのインスタンス作成
-        let makeResultLabel = ResultLabel()
-        // SetBackGroundColorのインスタンスを作成
-        let setBackGroundColor = SetBackGroundColor()
-        setBackGroundColor.setBackGroundColor(view: self.view)
-        // labelを描画
-        makeResultLabel.makeResultLabel(screenWidth: screenWidth, screenHeight: screenHeight, targetView: self.view, targetLabelInstance: resultLabel)
-    }
-
-    // ボタン生成の関数
-    // 数字ボタン
-    // 四則演算ボタン
-    // バックグラウンドカラーの設定
     
-    // ラベル生成の関数
 
 }
