@@ -14,5 +14,6 @@ class SetBackGroundColor {
     // 背景色の設定する関数:描写のみなのでリターンなし
     func setBackGroundColor(view:UIView) {
         view.backgroundColor = UIColor.black
+        print("setBackGroundColor Done")
     }
 }
