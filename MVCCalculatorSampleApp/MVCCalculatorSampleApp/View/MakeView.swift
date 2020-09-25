@@ -23,5 +23,4 @@ class CalculatorView {
     let equalButton = UIButton()
     let clearButton = UIButton()
     
-
 }

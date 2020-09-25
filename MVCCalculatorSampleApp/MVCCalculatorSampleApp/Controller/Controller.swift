@@ -13,6 +13,9 @@ class Controller: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // 初期設定のコード
+        // CalculatorViewのインスタンスを作成
+        let calculatorView = CalculatorView()
+        // 各modelについてのインスタンス設定
         // GetScreenSizeクラスのインスタンス作成
         let getScreenSize = GetScreenSize()
         // GetScreenSizeクラスのインスタンス作成
@@ -25,7 +28,6 @@ class Controller: UIViewController {
         let makeCalculatorButton = MakeCalculatorButton()
         // calculatorButtonActionのインスタンスを作成
         let calculatorButtonAction = CalculatorButtonAction()
-        let calculatorView = CalculatorView()
         
         // 関数を実行
         // サイズを取得
@@ -39,6 +41,9 @@ class Controller: UIViewController {
         
         // labelを描画
         makeResultLabel.makeResultLabel(screenWidth: screenWidth, screenHeight: screenHeight, targetView: self.view, targetLabelInstance: calculatorView.resultLabel)
+        
+        //初期値を代入
+        makeResultLabel.setFirstNumber(targetLabelInstance: calculatorView.resultLabel)
     }
 
     // 計算の挙動
