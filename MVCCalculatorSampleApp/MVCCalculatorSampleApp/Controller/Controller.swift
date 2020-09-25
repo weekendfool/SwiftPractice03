@@ -73,7 +73,7 @@ class Controller: UIViewController {
         makeCalculatorButton.makeCalculatorButton(screenWidth: screenWidth, screenHeight: screenHeight, targetView: mainView!, buttonInstance: calculatorView.clearButton, buttonInstanceName: "clearButton")
         
         // ボタンのアクションを設定
-        
+//        numberButtonAction.numberButtonTapped(inputNumberString: "1", targetNumber: 1)
         
         inputNumber = "8"
         
