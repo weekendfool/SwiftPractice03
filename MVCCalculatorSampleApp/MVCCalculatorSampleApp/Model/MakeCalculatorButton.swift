@@ -16,7 +16,7 @@ class MakeCalculatorButton {
     // ボタンをviewに描写する
     func makeCalculatorButton(screenWidth:CGFloat, screenHeight:CGFloat, targetView:UIView, buttonInstance:UIButton?, buttonInstanceName:String) {
         // ボタンのサイズの計算
-        let buttonSizeWidth = screenWidth / 4.0 // 幅
+        var buttonSizeWidth = screenWidth / 4.0 // 幅
         let buttonSizeHight = screenHeight / 12.0 // 高さ
         // for文でボタンを生成する
 //        for  buttonPlaceNumber in 0...5 {
@@ -58,12 +58,14 @@ class MakeCalculatorButton {
                 buttonName = "="
                 buttonPointX = buttonSizeWidth * 0
                 buttonPointY = buttonSizeHight * 11
+                buttonSizeWidth *= 2
 //                calculatButton = buttonInstance
                 calculatButton!.addTarget(self, action: #selector(CalculatorButtonAction.equalButtonTapped), for:.touchUpInside)
             case "clearButton":
                 buttonName = "Clear"
                 buttonPointX = buttonSizeWidth * 2
                 buttonPointY = buttonSizeHight * 11
+                buttonSizeWidth *= 2
 //                calculatButton = buttonInstance
                 calculatButton!.addTarget(self, action: #selector(CalculatorButtonAction.clearButtonTapped), for:.touchUpInside)
             default:
@@ -77,6 +79,7 @@ class MakeCalculatorButton {
             
             // buttonのフォントサイズを設定
             calculatButton!.titleLabel?.font = UIFont.systemFont(ofSize: 28)
+        
             calculatButton!.frame = CGRect(x: buttonPointX!, y: buttonPointY!, width: buttonSizeWidth, height: buttonSizeHight)
             
             calculatButton!.backgroundColor = UIColor.systemOrange
