@@ -91,115 +91,131 @@ class Controller: UIViewController {
    @objc func oneButtonTapped() {
        print("oneButtonTapped")
        if let inputNumber = inputNumber {
-           answerNumber = numberButtonTapped(inputNumberString: inputNumber, targetNumber: 1)
-           
+        answerNumber = NumberButtonAction().numberButtonTapped(inputNumberString: inputNumber, targetNumber: 1)
+
        }
    }
    @objc func tewButtonTapped() {
        if let inputNumber = inputNumber {
            print("tewButtonTapped")
-           answerNumber = numberButtonTapped(inputNumberString: inputNumber, targetNumber: 2)
+        answerNumber = NumberButtonAction().numberButtonTapped(inputNumberString: inputNumber, targetNumber: 2)
            
        }
    }
    @objc func threeButtonTapped() {
        if let inputNumber = inputNumber {
-           answerNumber = numberButtonTapped(inputNumberString: inputNumber, targetNumber: 3)
+        answerNumber = NumberButtonAction().numberButtonTapped(inputNumberString: inputNumber, targetNumber: 3)
            print("threeButtonTapped")
        }
    }
    @objc func fourButtonTapped() {
        if let inputNumber = inputNumber {
-           answerNumber = numberButtonTapped(inputNumberString: inputNumber, targetNumber: 4)
+        answerNumber = NumberButtonAction().numberButtonTapped(inputNumberString: inputNumber, targetNumber: 4)
            print("fourButtonTapped")
        }
    }
    @objc func fiveButtonTapped() {
        if let inputNumber = inputNumber {
-           answerNumber = numberButtonTapped(inputNumberString: inputNumber, targetNumber: 5)
+        answerNumber = NumberButtonAction().numberButtonTapped(inputNumberString: inputNumber, targetNumber: 5)
            print("fiveButtonTapped")
        }
    }
    @objc func sixButtonTapped() {
        if let inputNumber = inputNumber {
-           answerNumber = numberButtonTapped(inputNumberString: inputNumber, targetNumber: 6)
+        answerNumber = NumberButtonAction().numberButtonTapped(inputNumberString: inputNumber, targetNumber: 6)
            print("sixButtonTapped")
        }
    }
    @objc func sevenButtonTapped() {
        if let inputNumber = inputNumber {
-           answerNumber = numberButtonTapped(inputNumberString: inputNumber, targetNumber: 7)
+        answerNumber = NumberButtonAction().numberButtonTapped(inputNumberString: inputNumber, targetNumber: 7)
            print("sevenButtonTapped")
        }
    }
    @objc func eightButtonTapped() {
        if let inputNumber = inputNumber {
-           answerNumber = numberButtonTapped(inputNumberString: inputNumber, targetNumber: 8)
+        answerNumber = NumberButtonAction().numberButtonTapped(inputNumberString: inputNumber, targetNumber: 8)
            print("eightButtonTapped")
        }
    }
    @objc func nineButtonTapped() {
        if let inputNumber = inputNumber {
-           answerNumber = numberButtonTapped(inputNumberString: inputNumber, targetNumber: 9)
+        answerNumber = NumberButtonAction().numberButtonTapped(inputNumberString: inputNumber, targetNumber: 9)
            print("nineButtonTapped")
        }
    }
    @objc func zeroButtonTapped() {
        if let inputNumber = inputNumber {
-           answerNumber = numberButtonTapped(inputNumberString: inputNumber, targetNumber: 0)
+        answerNumber = NumberButtonAction().numberButtonTapped(inputNumberString: inputNumber, targetNumber: 0)
            print("zeroButtonTapped")
        }
    }
    @objc func ooButtonTapped() {
        if let inputNumber = inputNumber {
-           answerNumber = numberButtonTapped(inputNumberString: inputNumber, targetNumber: 00)
+        answerNumber = NumberButtonAction().numberButtonTapped(inputNumberString: inputNumber, targetNumber: 00)
            print("ooButtonTapped")
        }
    }
    
-   
-   
-   func numberButtonTapped(inputNumberString:String?, targetNumber:Int?) -> String {
-       print("inputNumberString:\(inputNumberString)")
-       var outputString:String? //　返り値用の変数
-       if let inputNumberString = inputNumberString, let targetNumber = targetNumber {
-           // 表示されている桁数が規定以下の場合の処理
-           if inputNumberString.count < 10 {
-       
-               //　inputNumberStringが初期値0以外の場合の処理
-               if inputNumberString != "0" {
-                   switch targetNumber {
-                   case 0...9:
-                       outputString = inputNumberString + String(targetNumber)
-                   case 00:
-                       outputString = inputNumberString + String(targetNumber)
-                   default:
-                       print("targetNumber Is Not Right")
-                       outputString = "error"
-                   }
-                   
-               } else {
-                   //　inputNumberStringが初期値0の場合の処理
-                   switch targetNumber {
-                   case 0...9:
-                       outputString = String(targetNumber)
-                   case 00:
-                       outputString = "0"
-                   default:
-                       print("targetNumber Is Not Right")
-                       outputString = "error"
-                   }
-               }
-           } else if inputNumberString.count == 9 && targetNumber == 00 {
-               // 桁数が9でかつ00のボタンが押された場合
-               outputString = inputNumberString + "0"
-           }
-           return String(outputString!)
-       }
-       print("inputNumberString, targetNumber Nil Error")
-       return "error"
-   }
+    // 四則演算用ボタンの押された時のリターン
+    @objc func additionButtonTapped() {
+        
+    }
+    @objc func subtractionButtonTapped() {
+        
+    }
+    @objc func divisionButtonTapped() {
+        
+    }
+    @objc func multiplicationButtonTapped() {
+        
+    }
+    // タップされた時のアクション:記録した数字と計算記号を返す
+    @objc func tapCalculatorButtonAction(inputNumberString:String) -> Int {
+        var beforeNumberString:Int? // 返り値である現在値を格納する変数
+        beforeNumberString = Int(inputNumberString)
+        return beforeNumberString!
+    }
+    
+    @objc func equalButtonTapped(inputNumberString:String, calculatorType:Int, beforeNumberString:Int) -> String {
+        print("taped:equalButtonTapped")
+        var answerNumberString:String? // 返り値である答えを格納する変数
+        
+        switch calculatorType {
+        case 1:
+            // 足算
+            answerNumberString = String(beforeNumberString + Int(inputNumberString)!)
+        case 2:
+            // 引き算
+            answerNumberString = String(beforeNumberString - Int(inputNumberString)!)
+        case 3:
+            // 掛け算
+            answerNumberString = String(beforeNumberString * Int(inputNumberString)!)
+        case 4:
+            // 割り算
+            if Int(inputNumberString) == 0 {
+                // 0で割られていた場合割り算を実行しない
+                answerNumberString = "error"
+                print("Input 0 error")
+            } else {
+                // 0で割られていない場合割り算を実行
+                answerNumberString = String(beforeNumberString / Int(inputNumberString)!)
+            }
+        default:
+            print("CalculatorType Is Not Right")
+            answerNumberString = "error"
+        }
+        // 答えを返す
+        return answerNumberString!
+        }
+    
+    @objc func clearButtonTapped() {
+        // 表示変更するだけ？
+        }
 
+   
+   
+   
             
         }
 
