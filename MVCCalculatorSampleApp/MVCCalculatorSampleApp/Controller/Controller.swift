@@ -12,6 +12,8 @@ import UIKit
 var inputNumber:String?
 // 出力された値
 var answerNumber:String?
+// 計算記号の格納
+var calculatorType:Int?
 
 class Controller: UIViewController {
     
@@ -159,25 +161,37 @@ class Controller: UIViewController {
    
     // 四則演算用ボタンの押された時のリターン
     @objc func additionButtonTapped() {
-        
+        calculatorType = 1
     }
     @objc func subtractionButtonTapped() {
-        
+        calculatorType = 2
     }
     @objc func divisionButtonTapped() {
-        
+        calculatorType = 3
     }
     @objc func multiplicationButtonTapped() {
-        
+        calculatorType = 4
     }
     // タップされた時のアクション:記録した数字と計算記号を返す
-    @objc func tapCalculatorButtonAction(inputNumberString:String) -> Int {
+    @objc func calculatorButtonTapped() {
+        
+    }
+    
+    @objc func equalButtonTapped() {
+        print("taped:equalButtonTapped")
+    }
+    
+    @objc func clearButtonTapped() {
+        // 表示変更するだけ？
+        }
+
+    func calculatorButtonAction(inputNumberString:String) -> Int {
         var beforeNumberString:Int? // 返り値である現在値を格納する変数
         beforeNumberString = Int(inputNumberString)
         return beforeNumberString!
     }
     
-    @objc func equalButtonTapped(inputNumberString:String, calculatorType:Int, beforeNumberString:Int) -> String {
+    func equalButtonAction(inputNumberString:String, calculatorType:Int, beforeNumberString:Int) -> String {
         print("taped:equalButtonTapped")
         var answerNumberString:String? // 返り値である答えを格納する変数
         
@@ -209,10 +223,6 @@ class Controller: UIViewController {
         return answerNumberString!
         }
     
-    @objc func clearButtonTapped() {
-        // 表示変更するだけ？
-        }
-
    
    
    
