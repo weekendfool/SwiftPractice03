@@ -14,6 +14,8 @@ var inputNumber:String?
 var answerNumber:String?
 // 計算記号の格納
 var calculatorType:Int?
+// 計算途中で前の値を保持しておく変数
+var beforeNumber:Int?
 
 class Controller: UIViewController {
     
@@ -83,6 +85,7 @@ class Controller: UIViewController {
         var labelanswerNumber = answerNumber {
         didSet{
             // ラベルに反映する
+            print("didSet Done")
             makeResultLabel.changeLabel(inputNumberString: labelanswerNumber!, targetLabelInstance: calculatorView.resultLabel)
             }
         }
@@ -161,67 +164,41 @@ class Controller: UIViewController {
    
     // 四則演算用ボタンの押された時のリターン
     @objc func additionButtonTapped() {
+        print("taped:additionButtonTapped")
         calculatorType = 1
+        beforeNumber = CalculatorButtonAction().tapCalculatorButtonAction(inputNumberString: inputNumber!)
+        print("inputNumber:\(inputNumber)")
     }
     @objc func subtractionButtonTapped() {
+        print("taped:subtractionButtonTapped")
         calculatorType = 2
+        beforeNumber = CalculatorButtonAction().tapCalculatorButtonAction(inputNumberString: inputNumber!)
     }
     @objc func divisionButtonTapped() {
+        print("taped:divisionButtonTapped")
         calculatorType = 3
+        beforeNumber = CalculatorButtonAction().tapCalculatorButtonAction(inputNumberString: inputNumber!)
     }
     @objc func multiplicationButtonTapped() {
+        print("taped:multiplicationButtonTapped")
         calculatorType = 4
+        beforeNumber = CalculatorButtonAction().tapCalculatorButtonAction(inputNumberString: inputNumber!)
     }
     // タップされた時のアクション:記録した数字と計算記号を返す
     @objc func calculatorButtonTapped() {
-        
+        print("taped:calculatorButtonTapped")
     }
     
     @objc func equalButtonTapped() {
         print("taped:equalButtonTapped")
+        answerNumber = CalculatorButtonAction().equalButtonTapped(inputNumberString: inputNumber!, calculatorType: calculatorType!, beforeNumberString: beforeNumber!)
     }
     
     @objc func clearButtonTapped() {
         // 表示変更するだけ？
-        }
-
-    func calculatorButtonAction(inputNumberString:String) -> Int {
-        var beforeNumberString:Int? // 返り値である現在値を格納する変数
-        beforeNumberString = Int(inputNumberString)
-        return beforeNumberString!
+        print("taped:clearButtonTapped")
     }
-    
-    func equalButtonAction(inputNumberString:String, calculatorType:Int, beforeNumberString:Int) -> String {
-        print("taped:equalButtonTapped")
-        var answerNumberString:String? // 返り値である答えを格納する変数
-        
-        switch calculatorType {
-        case 1:
-            // 足算
-            answerNumberString = String(beforeNumberString + Int(inputNumberString)!)
-        case 2:
-            // 引き算
-            answerNumberString = String(beforeNumberString - Int(inputNumberString)!)
-        case 3:
-            // 掛け算
-            answerNumberString = String(beforeNumberString * Int(inputNumberString)!)
-        case 4:
-            // 割り算
-            if Int(inputNumberString) == 0 {
-                // 0で割られていた場合割り算を実行しない
-                answerNumberString = "error"
-                print("Input 0 error")
-            } else {
-                // 0で割られていない場合割り算を実行
-                answerNumberString = String(beforeNumberString / Int(inputNumberString)!)
-            }
-        default:
-            print("CalculatorType Is Not Right")
-            answerNumberString = "error"
-        }
-        // 答えを返す
-        return answerNumberString!
-        }
+
     
    
    

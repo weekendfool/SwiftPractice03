@@ -12,26 +12,15 @@ import UIKit
 
 class CalculatorButtonAction {
     // 四則演算用ボタンの押された時のリターン
-    @objc func additionButtonTapped() {
-        
-    }
-    @objc func subtractionButtonTapped() {
-        
-    }
-    @objc func divisionButtonTapped() {
-        
-    }
-    @objc func multiplicationButtonTapped() {
-        
-    }
+    
     // タップされた時のアクション:記録した数字と計算記号を返す
-    @objc func tapCalculatorButtonAction(inputNumberString:String) -> Int {
+    func tapCalculatorButtonAction(inputNumberString:String) -> Int {
         var beforeNumberString:Int? // 返り値である現在値を格納する変数
         beforeNumberString = Int(inputNumberString)
         return beforeNumberString!
     }
     
-    @objc func equalButtonTapped(inputNumberString:String, calculatorType:Int, beforeNumberString:Int) -> String {
+    func equalButtonTapped(inputNumberString:String, calculatorType:Int, beforeNumberString:Int) -> String {
         print("taped:equalButtonTapped")
         var answerNumberString:String? // 返り値である答えを格納する変数
         
