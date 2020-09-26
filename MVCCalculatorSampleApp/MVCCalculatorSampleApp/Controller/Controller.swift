@@ -168,6 +168,7 @@ class Controller: UIViewController {
         calculatorType = 1
         beforeNumber = CalculatorButtonAction().tapCalculatorButtonAction(inputNumberString: inputNumber!)
         print("inputNumber:\(inputNumber)")
+        CalculatorButtonAction().changeCalculatorButtonColor(targetButton: CalculatorView().additionButton)
     }
     @objc func subtractionButtonTapped() {
         print("taped:subtractionButtonTapped")

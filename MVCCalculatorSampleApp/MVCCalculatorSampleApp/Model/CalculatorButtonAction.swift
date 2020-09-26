@@ -59,6 +59,7 @@ class CalculatorButtonAction {
     // 押されたボタンの色変え:リターンなし
 func changeCalculatorButtonColor(targetButton:UIButton) {
         targetButton.backgroundColor = UIColor.orange
+    print("%%%%%%%%%%%%%%%%%%%%%%%")
     }
     
     // 四則演算用ボタンの押された時のボタンの無効化:リターンなし
