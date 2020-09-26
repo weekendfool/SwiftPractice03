@@ -13,7 +13,7 @@ import UIKit
 class NumberButtonAction {
     // タップされた時のアクション
     // タップされた数字を返却する
-    @objc func oneButtonTapped(_ sender: UIButton) {
+    @objc func oneButtonTapped() {
         print("oneButtonTapped")
         if let inputNumber = inputNumber {
             answerNumber = numberButtonTapped(inputNumberString: inputNumber, targetNumber: 1)

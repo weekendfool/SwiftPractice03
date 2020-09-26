@@ -33,7 +33,7 @@ class MakeNumbertButton {
                 buttonName = "1";
                 buttonPointX = buttonSizeWidth * 0
                 buttonPointY = buttonSizeHight * 8
-                numberButton.addTarget(Controller(), action: #selector(NumberButtonAction.oneButtonTapped(_:)), for: .touchUpInside)
+                numberButton.addTarget(Controller(), action: #selector(NumberButtonAction.oneButtonTapped), for: .touchUpInside)
             case 2:
                 buttonName = "2"
                 buttonPointX = buttonSizeWidth * 1
