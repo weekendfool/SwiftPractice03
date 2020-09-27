@@ -168,7 +168,7 @@ class Controller: UIViewController {
     // 四則演算用ボタンの押された時のリターン
     @objc func additionButtonTapped() {
         print("taped:additionButtonTapped")
-        additionButton.backgroundColor = UIColor.red
+//        additionButton.backgroundColor = UIColor.red
         calculatorType = 1
         tapCalculatorButtonFlag = true
         beforeNumber = CalculatorButtonAction().tapCalculatorButtonAction(inputNumberString: inputNumber!)
