@@ -16,6 +16,8 @@ var answerNumber:String?
 var calculatorType:Int?
 // 計算途中で前の値を保持しておく変数
 var beforeNumber:Int?
+// 四則演算用のフラグを保持しておく変数
+var tapCalculatorButtonFlag:Bool?
 
 class Controller: UIViewController {
     
@@ -65,7 +67,7 @@ class Controller: UIViewController {
         
         // 四則演算ボタンを作成
         // 足算
-        makeCalculatorButton.makeCalculatorButton(screenWidth: screenWidth, screenHeight: screenHeight, targetView: mainView!, buttonInstance: calculatorView.additionButton, buttonInstanceName: "additionButton")
+        makeCalculatorButton.makeCalculatorButton(screenWidth: screenWidth, screenHeight: screenHeight, targetView: mainView!, buttonInstance: additionButton, buttonInstanceName: "additionButton")
         // 引き算
         makeCalculatorButton.makeCalculatorButton(screenWidth: screenWidth, screenHeight: screenHeight, targetView: mainView!, buttonInstance: calculatorView.subtractionButton, buttonInstanceName: "subtractionButton")
         // かけ算
@@ -77,7 +79,7 @@ class Controller: UIViewController {
         // クリア
         makeCalculatorButton.makeCalculatorButton(screenWidth: screenWidth, screenHeight: screenHeight, targetView: mainView!, buttonInstance: calculatorView.clearButton, buttonInstanceName: "clearButton")
         
-        // ボタンのアクションを設定
+//      ボタンのアクションを設定
 //        numberButtonAction.numberButtonTapped(inputNumberString: "1", targetNumber: 1)
         
         inputNumber = "8"
@@ -92,7 +94,7 @@ class Controller: UIViewController {
         
     }
     
-   
+    //　MARK: -  数字のアクション
    @objc func oneButtonTapped() {
        print("oneButtonTapped")
        if let inputNumber = inputNumber {
@@ -161,15 +163,23 @@ class Controller: UIViewController {
            print("ooButtonTapped")
        }
    }
-   
+    
+    //　MARK: - 四則演算用ボタンのアクション
     // 四則演算用ボタンの押された時のリターン
     @objc func additionButtonTapped() {
         print("taped:additionButtonTapped")
+        additionButton.backgroundColor = UIColor.red
         calculatorType = 1
+        tapCalculatorButtonFlag = true
         beforeNumber = CalculatorButtonAction().tapCalculatorButtonAction(inputNumberString: inputNumber!)
         print("inputNumber:\(inputNumber)")
-        CalculatorButtonAction().changeCalculatorButtonColor(targetButton: CalculatorView().additionButton)
+        // 押されたボタンの色変え
+        CalculatorButtonAction().changeCalculatorButtonColor(targetButton: additionButton)
+        // 押されたボタンの無効化
+        CalculatorButtonAction().banTapCalculatorButton(additionButton: additionButton, subtractionButton: CalculatorView().subtractionButton, divisionButton: CalculatorView().divisionButton, multiplicationButton: CalculatorView().multiplicationButton, tapCalculatorButtonFlag: tapCalculatorButtonFlag!)
+        
     }
+    
     @objc func subtractionButtonTapped() {
         print("taped:subtractionButtonTapped")
         calculatorType = 2
@@ -185,19 +195,20 @@ class Controller: UIViewController {
         calculatorType = 4
         beforeNumber = CalculatorButtonAction().tapCalculatorButtonAction(inputNumberString: inputNumber!)
     }
-    // タップされた時のアクション:記録した数字と計算記号を返す
-    @objc func calculatorButtonTapped() {
-        print("taped:calculatorButtonTapped")
-    }
+    
     
     @objc func equalButtonTapped() {
         print("taped:equalButtonTapped")
         answerNumber = CalculatorButtonAction().equalButtonTapped(inputNumberString: inputNumber!, calculatorType: calculatorType!, beforeNumberString: beforeNumber!)
+        tapCalculatorButtonFlag = false
+        CalculatorButtonAction().resetCalculatorButtonColor(additionButton: additionButton, subtractionButton: CalculatorView().subtractionButton, divisionButton: CalculatorView().divisionButton, multiplicationButton: CalculatorView().multiplicationButton, tapCalculatorButtonFlag: tapCalculatorButtonFlag!)
     }
     
     @objc func clearButtonTapped() {
         // 表示変更するだけ？
         print("taped:clearButtonTapped")
+        tapCalculatorButtonFlag = false
+        CalculatorButtonAction().resetCalculatorButtonColor(additionButton: additionButton, subtractionButton: CalculatorView().subtractionButton, divisionButton: CalculatorView().divisionButton, multiplicationButton: CalculatorView().multiplicationButton, tapCalculatorButtonFlag: tapCalculatorButtonFlag!)
     }
 
     

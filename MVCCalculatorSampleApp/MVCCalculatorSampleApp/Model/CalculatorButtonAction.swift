@@ -58,7 +58,7 @@ class CalculatorButtonAction {
     
     // 押されたボタンの色変え:リターンなし
 func changeCalculatorButtonColor(targetButton:UIButton) {
-        targetButton.backgroundColor = UIColor.orange
+//    CalculatorView().additionButton.backgroundColor = UIColor.red
     print("%%%%%%%%%%%%%%%%%%%%%%%")
     }
     

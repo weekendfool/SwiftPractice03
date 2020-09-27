@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
+var additionButton = UIButton(type: .custom)
 // 画面の反映担当クラス
 // 画面の描写のみ担当する
 class CalculatorView {
@@ -16,7 +17,7 @@ class CalculatorView {
     // 計算結果を反映するラベル
     var resultLabel = UILabel()
     // 四則演算用のボタン
-    let additionButton = UIButton()
+    
     let subtractionButton = UIButton()
     let divisionButton = UIButton()
     let multiplicationButton = UIButton()
