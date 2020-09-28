@@ -17,8 +17,8 @@ class CalculatorView {
     // 計算結果を反映するラベル
     var resultLabel = UILabel()
     // 四則演算用のボタン
-    
-    let subtractionButton = UIButton()
+    @IBOutlet public weak var subtractionButton: UIButton!
+//    let subtractionButton = UIButton()
     let divisionButton = UIButton()
     let multiplicationButton = UIButton()
     let equalButton = UIButton()

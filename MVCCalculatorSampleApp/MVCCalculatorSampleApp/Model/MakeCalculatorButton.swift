@@ -41,7 +41,7 @@ class MakeCalculatorButton {
                 buttonPointX = buttonSizeWidth
                 buttonPointY = buttonSizeHight * 10
 //                calculatButton = buttonInstance
-                calculatButton!.addTarget(Controller(), action: #selector(Controller().subtractionButtonTapped), for:.touchUpInside)
+                CalculatorView().subtractionButton.addTarget(Controller(), action: #selector(Controller().subtractionButtonTapped), for:.touchUpInside)
             case "divisionButton":
                 buttonName = "*"
                 buttonPointX = buttonSizeWidth * 2
