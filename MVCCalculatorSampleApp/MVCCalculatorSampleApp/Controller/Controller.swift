@@ -184,16 +184,22 @@ class Controller: UIViewController {
         print("taped:subtractionButtonTapped")
         calculatorType = 2
         beforeNumber = CalculatorButtonAction().tapCalculatorButtonAction(inputNumberString: inputNumber!)
+        // 押されたボタンの色変え
+        CalculatorButtonAction().changeCalculatorButtonColor(targetButton: subtractionButton)
     }
     @objc func divisionButtonTapped() {
         print("taped:divisionButtonTapped")
         calculatorType = 3
         beforeNumber = CalculatorButtonAction().tapCalculatorButtonAction(inputNumberString: inputNumber!)
+        // 押されたボタンの色変え
+        CalculatorButtonAction().changeCalculatorButtonColor(targetButton: divisionButton)
     }
     @objc func multiplicationButtonTapped() {
         print("taped:multiplicationButtonTapped")
         calculatorType = 4
         beforeNumber = CalculatorButtonAction().tapCalculatorButtonAction(inputNumberString: inputNumber!)
+        // 押されたボタンの色変え
+        CalculatorButtonAction().changeCalculatorButtonColor(targetButton: multiplicationButton)
     }
     
     
