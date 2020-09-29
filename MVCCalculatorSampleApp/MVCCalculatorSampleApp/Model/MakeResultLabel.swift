@@ -29,13 +29,14 @@ class ResultLabel {
     // ラベルの初期化処理
     func setFirstNumber(targetLabelInstance:UILabel) {
         // ラベルの初期化
-        let inputNumberString = "0"
-        targetLabelInstance.text = inputNumberString
+        inputNumber = "0"
+        targetLabelInstance.text = inputNumber
     }
     
     // ラベルの表示処理
     func changeLabel(inputNumberString:String, targetLabelInstance:UILabel) {
         // ラベルの表示処理
+        
         targetLabelInstance.text = inputNumberString
     }
     

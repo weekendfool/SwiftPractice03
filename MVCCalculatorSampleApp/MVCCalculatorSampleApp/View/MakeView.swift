@@ -23,7 +23,7 @@ var resultLabel = UILabel()
 class CalculatorView {
     // 画面に使用されている要素のインスタンス
     // 計算結果を反映するラベル
-    var resultLabel = UILabel()
+//    var resultLabel = UILabel()
     // 四則演算用のボタン
 
 //    let subtractionButton = UIButton()

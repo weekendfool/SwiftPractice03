@@ -11,7 +11,13 @@ import UIKit
 // 入力された値
 var inputNumber:String?
 // 出力された値
-var answerNumber:String?
+var answerNumber:String?{
+    didSet{
+        // ラベルに反映する
+        print("didSet Done")
+        ResultLabel().changeLabel(inputNumberString: answerNumber!, targetLabelInstance: resultLabel)
+    }
+}
 // 計算記号の格納
 var calculatorType:Int?
 // 計算途中で前の値を保持しておく変数
@@ -56,10 +62,10 @@ class Controller: UIViewController {
         setBackGroundColor.setBackGroundColor(view: mainView!)
         
         // labelを描画
-        makeResultLabel.makeResultLabel(screenWidth: screenWidth, screenHeight: screenHeight, targetView: mainView!, targetLabelInstance: calculatorView.resultLabel)
+        makeResultLabel.makeResultLabel(screenWidth: screenWidth, screenHeight: screenHeight, targetView: mainView!, targetLabelInstance: resultLabel)
         
         //初期値を代入
-        makeResultLabel.setFirstNumber(targetLabelInstance: calculatorView.resultLabel)
+        makeResultLabel.setFirstNumber(targetLabelInstance: resultLabel)
         
         // ボタンの生成
         // 数字ボタンを作成
@@ -82,24 +88,19 @@ class Controller: UIViewController {
 //      ボタンのアクションを設定
 //        numberButtonAction.numberButtonTapped(inputNumberString: "1", targetNumber: 1)
         
-        inputNumber = "8"
-        
-        var labelanswerNumber = answerNumber {
-        didSet{
-            // ラベルに反映する
-            print("didSet Done")
-            makeResultLabel.changeLabel(inputNumberString: labelanswerNumber!, targetLabelInstance: calculatorView.resultLabel)
-            }
-        }
+//        inputNumber = "0"
+    
         
     }
     
     //　MARK: -  数字のアクション
    @objc func oneButtonTapped() {
+        print("-----------------------------------")
        print("oneButtonTapped")
+        print("inputNumber:\(inputNumber)")
        if let inputNumber = inputNumber {
         answerNumber = NumberButtonAction().numberButtonTapped(inputNumberString: inputNumber, targetNumber: 1)
-
+        print("answerNumber:\(answerNumber)")
        }
    }
    @objc func tewButtonTapped() {
