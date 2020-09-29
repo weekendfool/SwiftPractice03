@@ -21,7 +21,7 @@ var answerNumber:String?{
 // 計算記号の格納
 var calculatorType:Int?
 // 計算途中で前の値を保持しておく変数
-var beforeNumber:Int?
+var beforeNumber:String?
 // 四則演算用のフラグを保持しておく変数
 var tapCalculatorButtonFlag:Bool?
 
@@ -172,7 +172,8 @@ class Controller: UIViewController {
 //        additionButton.backgroundColor = UIColor.red
         calculatorType = 1
         tapCalculatorButtonFlag = true
-        beforeNumber = CalculatorButtonAction().tapCalculatorButtonAction(inputNumberString: inputNumber!)
+        beforeNumber = answerNumber
+        print("beforeNumber:\(beforeNumber)")
         print("inputNumber:\(inputNumber)")
         // 押されたボタンの色変え
         CalculatorButtonAction().changeCalculatorButtonColor(targetButton: additionButton)
@@ -184,7 +185,7 @@ class Controller: UIViewController {
     @objc func subtractionButtonTapped() {
         print("taped:subtractionButtonTapped")
         calculatorType = 2
-        beforeNumber = CalculatorButtonAction().tapCalculatorButtonAction(inputNumberString: inputNumber!)
+        beforeNumber = answerNumber
         // 押されたボタンの色変え
         CalculatorButtonAction().changeCalculatorButtonColor(targetButton: subtractionButton)
         // 押されたボタンの無効化
@@ -193,7 +194,7 @@ class Controller: UIViewController {
     @objc func divisionButtonTapped() {
         print("taped:divisionButtonTapped")
         calculatorType = 3
-        beforeNumber = CalculatorButtonAction().tapCalculatorButtonAction(inputNumberString: inputNumber!)
+        beforeNumber = answerNumber
         // 押されたボタンの色変え
         CalculatorButtonAction().changeCalculatorButtonColor(targetButton: divisionButton)
         // 押されたボタンの無効化
@@ -202,7 +203,7 @@ class Controller: UIViewController {
     @objc func multiplicationButtonTapped() {
         print("taped:multiplicationButtonTapped")
         calculatorType = 4
-        beforeNumber = CalculatorButtonAction().tapCalculatorButtonAction(inputNumberString: inputNumber!)
+        beforeNumber = answerNumber
         // 押されたボタンの色変え
         CalculatorButtonAction().changeCalculatorButtonColor(targetButton: multiplicationButton)
         // 押されたボタンの無効化
@@ -212,19 +213,27 @@ class Controller: UIViewController {
     
     @objc func equalButtonTapped() {
         print("taped:equalButtonTapped")
-        answerNumber = CalculatorButtonAction().equalButtonTapped(inputNumberString: inputNumber!, calculatorType: calculatorType!, beforeNumberString: beforeNumber!)
-        tapCalculatorButtonFlag = false
-        // ボタンの有効化
-        CalculatorButtonAction().banTapCalculatorButton(additionButton: additionButton, subtractionButton: subtractionButton, divisionButton: divisionButton, multiplicationButton: multiplicationButton, tapCalculatorButtonFlag: tapCalculatorButtonFlag!)
-        // buttonの色変え
-        CalculatorButtonAction().resetCalculatorButtonColor(additionButton: additionButton, subtractionButton: subtractionButton, divisionButton: divisionButton, multiplicationButton: multiplicationButton, tapCalculatorButtonFlag: tapCalculatorButtonFlag!)
-        
+        if calculatorType != 0 {
+            answerNumber = CalculatorButtonAction().equalButtonTapped(inputNumberString: inputNumber!, calculatorType: calculatorType!, beforeNumberString: beforeNumber!)
+            tapCalculatorButtonFlag = false
+            // 初期化
+            beforeNumber = "0"
+            calculatorType = 0
+            // ボタンの有効化
+            CalculatorButtonAction().banTapCalculatorButton(additionButton: additionButton, subtractionButton: subtractionButton, divisionButton: divisionButton, multiplicationButton: multiplicationButton, tapCalculatorButtonFlag: tapCalculatorButtonFlag!)
+            // buttonの色変え
+            CalculatorButtonAction().resetCalculatorButtonColor(additionButton: additionButton, subtractionButton: subtractionButton, divisionButton: divisionButton, multiplicationButton: multiplicationButton, tapCalculatorButtonFlag: tapCalculatorButtonFlag!)
+        }
     }
     
     @objc func clearButtonTapped() {
         // 表示変更するだけ？
         print("taped:clearButtonTapped")
         tapCalculatorButtonFlag = false
+        // 初期化
+        beforeNumber = "0"
+        answerNumber = "0"
+        calculatorType = 0
         // ボタンの有効化
         CalculatorButtonAction().banTapCalculatorButton(additionButton: additionButton, subtractionButton: subtractionButton, divisionButton: divisionButton, multiplicationButton: multiplicationButton, tapCalculatorButtonFlag: tapCalculatorButtonFlag!)
         // buttonの色変え

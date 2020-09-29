@@ -20,20 +20,20 @@ class CalculatorButtonAction {
         return beforeNumberString!
     }
     
-    func equalButtonTapped(inputNumberString:String, calculatorType:Int, beforeNumberString:Int) -> String {
+    func equalButtonTapped(inputNumberString:String, calculatorType:Int, beforeNumberString:String) -> String {
         print("taped:equalButtonTapped")
         var answerNumberString:String? // 返り値である答えを格納する変数
         
         switch calculatorType {
         case 1:
             // 足算
-            answerNumberString = String(beforeNumberString + Int(inputNumberString)!)
+            answerNumberString = String(Int(beforeNumberString)! + Int(inputNumberString)!)
         case 2:
             // 引き算
-            answerNumberString = String(beforeNumberString - Int(inputNumberString)!)
+            answerNumberString = String(Int(beforeNumberString)! - Int(inputNumberString)!)
         case 3:
             // 掛け算
-            answerNumberString = String(beforeNumberString * Int(inputNumberString)!)
+            answerNumberString = String(Int(beforeNumberString)! * Int(inputNumberString)!)
         case 4:
             // 割り算
             if Int(inputNumberString) == 0 {
@@ -42,7 +42,7 @@ class CalculatorButtonAction {
                 print("Input 0 error")
             } else {
                 // 0で割られていない場合割り算を実行
-                answerNumberString = String(beforeNumberString / Int(inputNumberString)!)
+                answerNumberString = String(Int(beforeNumberString)! / Int(inputNumberString)!)
             }
         default:
             print("CalculatorType Is Not Right")
@@ -52,10 +52,7 @@ class CalculatorButtonAction {
         return answerNumberString!
         }
     
-    @objc func clearButtonTapped() {
-        // 表示変更するだけ？
-        }
-    
+   
     // 押されたボタンの色変え:リターンなし
 func changeCalculatorButtonColor(targetButton:UIButton) {
     targetButton.backgroundColor = UIColor.orange
