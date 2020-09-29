@@ -13,74 +13,7 @@ import UIKit
 class NumberButtonAction {
     // タップされた時のアクション
     // タップされた数字を返却する
-//    @objc func oneButtonTapped() {
-//        print("oneButtonTapped")
-//        if let inputNumber = inputNumber {
-//            answerNumber = numberButtonTapped(inputNumberString: inputNumber, targetNumber: 1)
-//
-//        }
-//    }
-//    @objc func tewButtonTapped() {
-//        if let inputNumber = inputNumber {
-//            print("tewButtonTapped")
-//            answerNumber = numberButtonTapped(inputNumberString: inputNumber, targetNumber: 2)
-//
-//        }
-//    }
-//    @objc func threeButtonTapped() {
-//        if let inputNumber = inputNumber {
-//            answerNumber = numberButtonTapped(inputNumberString: inputNumber, targetNumber: 3)
-//            print("threeButtonTapped")
-//        }
-//    }
-//    @objc func fourButtonTapped() {
-//        if let inputNumber = inputNumber {
-//            answerNumber = numberButtonTapped(inputNumberString: inputNumber, targetNumber: 4)
-//            print("fourButtonTapped")
-//        }
-//    }
-//    @objc func fiveButtonTapped() {
-//        if let inputNumber = inputNumber {
-//            answerNumber = numberButtonTapped(inputNumberString: inputNumber, targetNumber: 5)
-//            print("fiveButtonTapped")
-//        }
-//    }
-//    @objc func sixButtonTapped() {
-//        if let inputNumber = inputNumber {
-//            answerNumber = numberButtonTapped(inputNumberString: inputNumber, targetNumber: 6)
-//            print("sixButtonTapped")
-//        }
-//    }
-//    @objc func sevenButtonTapped() {
-//        if let inputNumber = inputNumber {
-//            answerNumber = numberButtonTapped(inputNumberString: inputNumber, targetNumber: 7)
-//            print("sevenButtonTapped")
-//        }
-//    }
-//    @objc func eightButtonTapped() {
-//        if let inputNumber = inputNumber {
-//            answerNumber = numberButtonTapped(inputNumberString: inputNumber, targetNumber: 8)
-//            print("eightButtonTapped")
-//        }
-//    }
-//    @objc func nineButtonTapped() {
-//        if let inputNumber = inputNumber {
-//            answerNumber = numberButtonTapped(inputNumberString: inputNumber, targetNumber: 9)
-//            print("nineButtonTapped")
-//        }
-//    }
-//    @objc func zeroButtonTapped() {
-//        if let inputNumber = inputNumber {
-//            answerNumber = numberButtonTapped(inputNumberString: inputNumber, targetNumber: 0)
-//            print("zeroButtonTapped")
-//        }
-//    }
-//    @objc func ooButtonTapped() {
-//        if let inputNumber = inputNumber {
-//            answerNumber = numberButtonTapped(inputNumberString: inputNumber, targetNumber: 00)
-//            print("ooButtonTapped")
-//        }
-//    }
+
     
     
     

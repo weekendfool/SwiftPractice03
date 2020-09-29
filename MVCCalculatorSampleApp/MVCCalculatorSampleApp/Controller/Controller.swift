@@ -100,6 +100,7 @@ class Controller: UIViewController {
         print("inputNumber:\(inputNumber)")
        if let inputNumber = inputNumber {
         answerNumber = NumberButtonAction().numberButtonTapped(inputNumberString: inputNumber, targetNumber: 1)
+        print("beforeNumber:\(beforeNumber)")
         print("answerNumber:\(answerNumber)")
        }
    }
@@ -214,15 +215,16 @@ class Controller: UIViewController {
     @objc func equalButtonTapped() {
         print("taped:equalButtonTapped")
         if calculatorType != 0 {
-            answerNumber = CalculatorButtonAction().equalButtonTapped(inputNumberString: inputNumber!, calculatorType: calculatorType!, beforeNumberString: beforeNumber!)
+            answerNumber = CalculatorButtonAction().equalButtonTapped(inputNumberString: answerNumber!, calculatorType: calculatorType!, beforeNumberString: beforeNumber!)
             tapCalculatorButtonFlag = false
-            // 初期化
-            beforeNumber = "0"
-            calculatorType = 0
+            
             // ボタンの有効化
             CalculatorButtonAction().banTapCalculatorButton(additionButton: additionButton, subtractionButton: subtractionButton, divisionButton: divisionButton, multiplicationButton: multiplicationButton, tapCalculatorButtonFlag: tapCalculatorButtonFlag!)
             // buttonの色変え
             CalculatorButtonAction().resetCalculatorButtonColor(additionButton: additionButton, subtractionButton: subtractionButton, divisionButton: divisionButton, multiplicationButton: multiplicationButton, tapCalculatorButtonFlag: tapCalculatorButtonFlag!)
+            // 初期化
+            beforeNumber = "0"
+            calculatorType = 0
         }
     }
     
