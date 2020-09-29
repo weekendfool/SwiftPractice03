@@ -10,6 +10,12 @@ import Foundation
 import UIKit
 
 var additionButton = UIButton(type: .custom)
+let divisionButton = UIButton()
+let multiplicationButton = UIButton()
+let equalButton = UIButton()
+let clearButton = UIButton()
+var subtractionButton = UIButton()
+
 // 画面の反映担当クラス
 // 画面の描写のみ担当する
 class CalculatorView {
@@ -17,11 +23,8 @@ class CalculatorView {
     // 計算結果を反映するラベル
     var resultLabel = UILabel()
     // 四則演算用のボタン
-    @IBOutlet public weak var subtractionButton: UIButton!
+
 //    let subtractionButton = UIButton()
-    let divisionButton = UIButton()
-    let multiplicationButton = UIButton()
-    let equalButton = UIButton()
-    let clearButton = UIButton()
+    
     
 }

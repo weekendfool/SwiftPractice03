@@ -35,39 +35,39 @@ class MakeCalculatorButton {
                 buttonPointX = buttonSizeWidth * 0
                 buttonPointY = buttonSizeHight * 10
                 
-                calculatButton!.addTarget(Controller(), action: #selector(Controller().additionButtonTapped), for:.touchUpInside)
+                additionButton.addTarget(Controller(), action: #selector(Controller().additionButtonTapped), for:.touchUpInside)
             case "subtractionButton":
                 buttonName = "-"
                 buttonPointX = buttonSizeWidth
                 buttonPointY = buttonSizeHight * 10
 //                calculatButton = buttonInstance
-                CalculatorView().subtractionButton.addTarget(Controller(), action: #selector(Controller().subtractionButtonTapped), for:.touchUpInside)
+                subtractionButton.addTarget(Controller(), action: #selector(Controller().subtractionButtonTapped), for:.touchUpInside)
             case "divisionButton":
                 buttonName = "*"
                 buttonPointX = buttonSizeWidth * 2
                 buttonPointY = buttonSizeHight * 10
 //                calculatButton = buttonInstance
-                calculatButton!.addTarget(Controller(), action: #selector(Controller().divisionButtonTapped), for:.touchUpInside)
+                divisionButton.addTarget(Controller(), action: #selector(Controller().divisionButtonTapped), for:.touchUpInside)
             case "multiplicationButton":
                 buttonName = "/"
                 buttonPointX = buttonSizeWidth * 3
                 buttonPointY = buttonSizeHight * 10
 //                calculatButton = buttonInstance
-                calculatButton!.addTarget(Controller(), action: #selector(Controller().multiplicationButtonTapped), for:.touchUpInside)
+                multiplicationButton.addTarget(Controller(), action: #selector(Controller().multiplicationButtonTapped), for:.touchUpInside)
             case "equalButton":
                 buttonName = "="
                 buttonPointX = buttonSizeWidth * 0
                 buttonPointY = buttonSizeHight * 11
                 buttonSizeWidth *= 2
 //                calculatButton = buttonInstance
-                calculatButton!.addTarget(Controller(), action: #selector(Controller().equalButtonTapped), for:.touchUpInside)
+                equalButton.addTarget(Controller(), action: #selector(Controller().equalButtonTapped), for:.touchUpInside)
             case "clearButton":
                 buttonName = "Clear"
                 buttonPointX = buttonSizeWidth * 2
                 buttonPointY = buttonSizeHight * 11
                 buttonSizeWidth *= 2
 //                calculatButton = buttonInstance
-                calculatButton!.addTarget(Controller(), action: #selector(Controller().clearButtonTapped), for:.touchUpInside)
+                clearButton.addTarget(Controller(), action: #selector(Controller().clearButtonTapped), for:.touchUpInside)
             default:
                 print("CalculatorButton Make Errror")
                 return

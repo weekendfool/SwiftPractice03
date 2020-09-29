@@ -69,15 +69,15 @@ class Controller: UIViewController {
         // 足算
         makeCalculatorButton.makeCalculatorButton(screenWidth: screenWidth, screenHeight: screenHeight, targetView: mainView!, buttonInstance: additionButton, buttonInstanceName: "additionButton")
         // 引き算
-        makeCalculatorButton.makeCalculatorButton(screenWidth: screenWidth, screenHeight: screenHeight, targetView: mainView!, buttonInstance: calculatorView.subtractionButton, buttonInstanceName: "subtractionButton")
+        makeCalculatorButton.makeCalculatorButton(screenWidth: screenWidth, screenHeight: screenHeight, targetView: mainView!, buttonInstance: subtractionButton, buttonInstanceName: "subtractionButton")
         // かけ算
-        makeCalculatorButton.makeCalculatorButton(screenWidth: screenWidth, screenHeight: screenHeight, targetView: mainView!, buttonInstance: calculatorView.divisionButton, buttonInstanceName: "divisionButton")
+        makeCalculatorButton.makeCalculatorButton(screenWidth: screenWidth, screenHeight: screenHeight, targetView: mainView!, buttonInstance: divisionButton, buttonInstanceName: "divisionButton")
         // わり算
-        makeCalculatorButton.makeCalculatorButton(screenWidth: screenWidth, screenHeight: screenHeight, targetView: mainView!, buttonInstance: calculatorView.multiplicationButton, buttonInstanceName: "multiplicationButton")
+        makeCalculatorButton.makeCalculatorButton(screenWidth: screenWidth, screenHeight: screenHeight, targetView: mainView!, buttonInstance: multiplicationButton, buttonInstanceName: "multiplicationButton")
         // イコール
-        makeCalculatorButton.makeCalculatorButton(screenWidth: screenWidth, screenHeight: screenHeight, targetView: mainView!, buttonInstance: calculatorView.equalButton, buttonInstanceName: "equalButton")
+        makeCalculatorButton.makeCalculatorButton(screenWidth: screenWidth, screenHeight: screenHeight, targetView: mainView!, buttonInstance: equalButton, buttonInstanceName: "equalButton")
         // クリア
-        makeCalculatorButton.makeCalculatorButton(screenWidth: screenWidth, screenHeight: screenHeight, targetView: mainView!, buttonInstance: calculatorView.clearButton, buttonInstanceName: "clearButton")
+        makeCalculatorButton.makeCalculatorButton(screenWidth: screenWidth, screenHeight: screenHeight, targetView: mainView!, buttonInstance: clearButton, buttonInstanceName: "clearButton")
         
 //      ボタンのアクションを設定
 //        numberButtonAction.numberButtonTapped(inputNumberString: "1", targetNumber: 1)
@@ -176,7 +176,7 @@ class Controller: UIViewController {
         // 押されたボタンの色変え
         CalculatorButtonAction().changeCalculatorButtonColor(targetButton: additionButton)
         // 押されたボタンの無効化
-        CalculatorButtonAction().banTapCalculatorButton(additionButton: additionButton, subtractionButton: CalculatorView().subtractionButton, divisionButton: CalculatorView().divisionButton, multiplicationButton: CalculatorView().multiplicationButton, tapCalculatorButtonFlag: tapCalculatorButtonFlag!)
+        CalculatorButtonAction().banTapCalculatorButton(additionButton: additionButton, subtractionButton: subtractionButton, divisionButton: divisionButton, multiplicationButton: multiplicationButton, tapCalculatorButtonFlag: tapCalculatorButtonFlag!)
         
     }
     
@@ -201,14 +201,14 @@ class Controller: UIViewController {
         print("taped:equalButtonTapped")
         answerNumber = CalculatorButtonAction().equalButtonTapped(inputNumberString: inputNumber!, calculatorType: calculatorType!, beforeNumberString: beforeNumber!)
         tapCalculatorButtonFlag = false
-        CalculatorButtonAction().resetCalculatorButtonColor(additionButton: additionButton, subtractionButton: CalculatorView().subtractionButton, divisionButton: CalculatorView().divisionButton, multiplicationButton: CalculatorView().multiplicationButton, tapCalculatorButtonFlag: tapCalculatorButtonFlag!)
+        CalculatorButtonAction().resetCalculatorButtonColor(additionButton: additionButton, subtractionButton: subtractionButton, divisionButton: divisionButton, multiplicationButton: multiplicationButton, tapCalculatorButtonFlag: tapCalculatorButtonFlag!)
     }
     
     @objc func clearButtonTapped() {
         // 表示変更するだけ？
         print("taped:clearButtonTapped")
         tapCalculatorButtonFlag = false
-        CalculatorButtonAction().resetCalculatorButtonColor(additionButton: additionButton, subtractionButton: CalculatorView().subtractionButton, divisionButton: CalculatorView().divisionButton, multiplicationButton: CalculatorView().multiplicationButton, tapCalculatorButtonFlag: tapCalculatorButtonFlag!)
+        CalculatorButtonAction().resetCalculatorButtonColor(additionButton: additionButton, subtractionButton: subtractionButton, divisionButton: divisionButton, multiplicationButton: multiplicationButton, tapCalculatorButtonFlag: tapCalculatorButtonFlag!)
     }
 
     
