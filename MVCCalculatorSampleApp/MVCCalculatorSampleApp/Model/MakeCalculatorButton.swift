@@ -18,8 +18,7 @@ class MakeCalculatorButton {
         // ボタンのサイズの計算
         var buttonSizeWidth = screenWidth / 4.0 // 幅
         let buttonSizeHight = screenHeight / 12.0 // 高さ
-        // for文でボタンを生成する
-//        for  buttonPlaceNumber in 0...5 {
+ 
             // buttonの名前を格納する変数
             var buttonName:String?
             // buttonの座標を格納する変数
@@ -90,8 +89,6 @@ class MakeCalculatorButton {
             
             // viewにボタンを追加
             targetView.addSubview(calculatButton!)
-        }
-//    }
-        
+        }        
         
 }

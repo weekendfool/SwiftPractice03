@@ -18,15 +18,4 @@ var subtractionButton = UIButton()
 // 計算結果を反映するラベル
 var resultLabel = UILabel()
 
-// 画面の反映担当クラス
-// 画面の描写のみ担当する
-class CalculatorView {
-    // 画面に使用されている要素のインスタンス
-    // 計算結果を反映するラベル
-//    var resultLabel = UILabel()
-    // 四則演算用のボタン
 
-//    let subtractionButton = UIButton()
-    
-    
-}
