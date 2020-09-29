@@ -15,6 +15,8 @@ let multiplicationButton = UIButton()
 let equalButton = UIButton()
 let clearButton = UIButton()
 var subtractionButton = UIButton()
+// 計算結果を反映するラベル
+var resultLabel = UILabel()
 
 // 画面の反映担当クラス
 // 画面の描写のみ担当する

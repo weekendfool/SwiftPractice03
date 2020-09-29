@@ -67,24 +67,24 @@ func changeCalculatorButtonColor(targetButton:UIButton) {
         // クリアボタン、イコールボタが押された時の初期化
         if tapCalculatorButtonFlag {
             // ボタンの状態の有効化
-            additionButton.isEnabled = true
-            subtractionButton.isEnabled = true
-            divisionButton.isEnabled = true
-            multiplicationButton.isEnabled = true
-        } else {
-            // 四則演算用ボタンが押された時の挙動
-            // ボタンの無効化
             additionButton.isEnabled = false
             subtractionButton.isEnabled = false
             divisionButton.isEnabled = false
             multiplicationButton.isEnabled = false
+        } else {
+            // 四則演算用ボタンが押された時の挙動
+            // ボタンの無効化
+            additionButton.isEnabled = true
+            subtractionButton.isEnabled = true
+            divisionButton.isEnabled = true
+            multiplicationButton.isEnabled = true
         }
         
     }
     
     // クリアボタン、イコールボタが押された時の初期化:リターンなし
     func resetCalculatorButtonColor(additionButton:UIButton, subtractionButton:UIButton, divisionButton:UIButton, multiplicationButton:UIButton, tapCalculatorButtonFlag:Bool) {
-        if tapCalculatorButtonFlag {
+        if !tapCalculatorButtonFlag {
             // ボタンの状態の有効化
             additionButton.backgroundColor = UIColor.systemOrange
             subtractionButton.backgroundColor = UIColor.systemOrange
