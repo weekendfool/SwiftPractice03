@@ -10,4 +10,11 @@ import UIKit
 
 class TaskCell: UITableViewCell {
     
+    private var taskLabel: UILabel!
+    private var deadlineLabel: UILabel!
+    
+    // 初期化してviewを描写
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+    }
 }
