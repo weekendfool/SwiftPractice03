@@ -41,10 +41,24 @@ class TaskListViewController: UIViewController {
         let navi = UINavigationController(rootViewController: controller)
         self.present(navi, animated: true, completion:  nil)
     }
+}
     
     extension TaskListViewController: UITableViewDataSource {
         
-        func tableView(_ tableView:UITableView, numberOfRowsInSection)
+        func tableView(_ tableView:UITableView, numberOfRowsInSection section: Int) -> Int {
+            return self.dataSource.count()
+        }
+        
+        func tableView(_ tableView:UITableView, HeightForRowAt indexPath: IndexPath) -> CGFloat {
+            return 68.0
+        }
+        
+        func tableView(_ tableView:UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as? TaskCell else { return UITableViewCell() }
+            
+            let task = self.dataSource.data(at: indexPath.row)
+            cell.task = task
+            return cell
         
     }
 }
