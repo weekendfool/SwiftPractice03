@@ -40,6 +40,7 @@ class TaskCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // SubViewの更新処理
     override func layoutSubviews() {
         super.layoutSubviews()
         
@@ -47,6 +48,7 @@ class TaskCell: UITableViewCell {
         self.taskLabel.frame = CGRect(x: 15.0, y: 15.0, width: self.contentView.frame.width - 30, height: 15.0)
         self.deadlineLabel.frame = CGRect(x: self.taskLabel.frame.origin.x, y: self.taskLabel.frame.maxY + 8, width: self.taskLabel.frame.width, height: 15.0)
     }
+    
     // コンピューティッドプロパティの宣言
     var task: Task? {
         didSet {
@@ -65,10 +67,12 @@ class TaskCell: UITableViewCell {
         }
     }
     
+    // 描画の設定
     override func awakeFromNib() {
         super.awakeFromNib()
     }
 
+    // 選ばれたセルのアニメーション処理
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
