@@ -19,6 +19,7 @@
 		8C456ACE2529B2CE003682F7 /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C456ACD2529B2CE003682F7 /* TaskCell.swift */; };
 		8C456AD0252BE2F4003682F7 /* CreateTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C456ACF252BE2F4003682F7 /* CreateTaskView.swift */; };
 		8C456AD2252E3024003682F7 /* TaskListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C456AD1252E3024003682F7 /* TaskListViewController.swift */; };
+		8CBE53AF252E439D00D33248 /* CreateTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBE53AE252E439D00D33248 /* CreateTaskViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		8C456ACD2529B2CE003682F7 /* TaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCell.swift; sourceTree = "<group>"; };
 		8C456ACF252BE2F4003682F7 /* CreateTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTaskView.swift; sourceTree = "<group>"; };
 		8C456AD1252E3024003682F7 /* TaskListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListViewController.swift; sourceTree = "<group>"; };
+		8CBE53AE252E439D00D33248 /* CreateTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTaskViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				8C456AD1252E3024003682F7 /* TaskListViewController.swift */,
+				8CBE53AE252E439D00D33248 /* CreateTaskViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -189,6 +192,7 @@
 				8C456AB02529A650003682F7 /* AppDelegate.swift in Sources */,
 				8C456ACC2529A81D003682F7 /* TaskDataManager.swift in Sources */,
 				8C456AB22529A650003682F7 /* SceneDelegate.swift in Sources */,
+				8CBE53AF252E439D00D33248 /* CreateTaskViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
