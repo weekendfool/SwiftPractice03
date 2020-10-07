@@ -57,7 +57,52 @@ class CreateTaskView: UIView {
         
         // インスタンスを生成
         self.saveButton = UIButton()
+        self.saveButton.setTitle("保存する", for: .normal)
+        self.saveButton.setTitleColor(.black, for: .normal)
+        self.saveButton.layer.borderWidth = 0.5
+        self.saveButton.layer.cornerRadius = 4.0
+        self.saveButton.addTarget(self, action: #selector(saveButtonTapped(_:)), for: .touchUpInside)
+        self.addSubview(self.saveButton)
+    }
+    
+    // エラー処理
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 
+    // ピッカーが選択された時の処理
+    @objc func datePickerValueChanged(_ sender: UIDatePicker) {
+        // DateFormatterのインスタンス作成
+        let dateFormatter = DateFormatter()
+        // dateの型を設定
+        dateFormatter.dateFormat = "yyyy/MM/dd HH:mm"
+        // deadlineTextにsenderのdateを格納する
+        let deadlineText = dateFormatter.string(from: sender.date)
+        self.deadLineTextField.text = deadlineText
+        // CreateTaskViewDelegateプロトコルに準拠するために実装
+        self.delegate?.createView(deadlineEditting: self, deadline: sender.date)
+    }
     
+    // セーブボタンが押された時の挙動
+    @objc func saveButtonTapped(_ sender: UIButton) {
+        self.delegate?.createView(saveButtonDidTap: self)
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        self.taskTextField.frame = CGRect(x: bounds.origin.x + 30, y: bounds.origin.y + 30, width: bounds.size.width - 60, height: 50)
+        
+        self.deadLineTextField.frame = CGRect(x: self.taskTextField.frame.origin.x, y: self.taskTextField.frame.maxY + 30, width: self.taskTextField.frame.size.width, height: self.taskTextField.frame.size.height)
+        
+        let saveButtonSize = CGSize(width: 100, height: 50)
+        self.saveButton.frame = CGRect(x: (bounds.size.width - saveButtonSize.width) / 2, y: self.deadLineTextField.frame.maxY + 20, width: saveButtonSize.width, height: saveButtonSize.height)
+    }
+    
+    //　CreateTaskViewを拡張してUITextFieldDelegateプロトコルに批准
+    extension CreateTaskView: UITextFieldDelegate {
+        func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+            delegate?.createView(taskEditting: self, text: textField.text ?? "")
+            return true
+        }
 }
