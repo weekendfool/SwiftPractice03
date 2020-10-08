@@ -98,6 +98,7 @@ class CreateTaskView: UIView {
         let saveButtonSize = CGSize(width: 100, height: 50)
         self.saveButton.frame = CGRect(x: (bounds.size.width - saveButtonSize.width) / 2, y: self.deadLineTextField.frame.maxY + 20, width: saveButtonSize.width, height: saveButtonSize.height)
     }
+}
     
     //　CreateTaskViewを拡張してUITextFieldDelegateプロトコルに批准
     extension CreateTaskView: UITextFieldDelegate {

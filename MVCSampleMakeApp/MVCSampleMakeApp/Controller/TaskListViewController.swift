@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TaskListViewController: UIViewController {
+class TaskListViewController: UIViewController, UITableViewDelegate {
     
     var dataSource: TaskDataManager!
     var tableView: UITableView!
