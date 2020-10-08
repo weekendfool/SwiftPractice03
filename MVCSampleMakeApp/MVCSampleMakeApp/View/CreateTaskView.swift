@@ -50,7 +50,7 @@ class CreateTaskView: UIView {
         // インスタンスを生成
         self.datePicker = UIDatePicker()
         self.datePicker.datePickerMode = .dateAndTime
-        self.datePicker.addTarget(self, action: #selector(datePickerValueChanged(_:)), for: .touchUpInside)
+        self.datePicker.addTarget(self, action: #selector(datePickerValueChanged(_:)), for: .valueChanged)
         
         // deadLineTextFieldが選択されたとにきピッカーを表示する
         self.deadLineTextField.inputView = self.datePicker
