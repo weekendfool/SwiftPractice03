@@ -12,18 +12,33 @@ import SpriteKit
 
 class GameScene: SKScene {
     
+    func makeSquare() {
+        let square = SKSpriteNode(color: UIColor.green, size: CGSize(width: 50, height: 50))
+        
+        square.position = CGPoint(x: self.size.width * 0.5, y: self.size.height * 0.5)
+        
+        let squareSize = CGSize(width: self.size.width * 0.1, height: self.size.width * 0.1)
+        
+        square.physicsBody = SKPhysicsBody(rectangleOf: squareSize)
+        
+        self.addChild(square)
+    }
+    
+    
     override func didMove(to view: SKView) {
         // 落下処理実装
-        self.physicsWorld.gravity = CGVector.init(dx: 0.0, dy: -10.0)
+        self.physicsWorld.gravity = CGVector.init(dx: 0.0, dy: -1.0)
 //        self.physicsWorld.speed = CGFloat(1.0)
          // 背景追加
         let background = SKSpriteNode(imageNamed: "background")
         background.position = CGPoint(x: self.size.width * 0.5, y: self.size.height * 0.5)
         background.size = self.size
 //        background.zPosition = -1
-        self.addChild(background)
+//        self.addChild(background)
+        
+        makeSquare()
 
-        self.fallNagoyaSpecialty()
+//        self.fallNagoyaSpecialty()
     }
     
     // 名古屋名物の落下処理
